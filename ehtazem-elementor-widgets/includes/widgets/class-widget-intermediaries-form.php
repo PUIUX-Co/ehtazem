@@ -451,4 +451,62 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 	/**
 	 * Render widget output on the frontend
 	 */
-	protected function render
+	protected function render() {
+		$settings = $this->get_settings_for_display();
+		?>
+		<section class="intermediate-form" id="<?php echo esc_attr($this->get_id()); ?>">
+			<div class="container">
+				<div class="intermediate-form-content">
+					<div class="intermediate-form-header" data-aos="fade-up">
+						<span class="badge"><?php echo esc_html($settings['badge_text']); ?></span>
+						<h2 <?php $this->add_inline_editing_attributes('title', 'basic'); echo $this->get_render_attribute_string('title'); ?> class="intermediate-title">
+							<?php echo esc_html($settings['title']); ?>
+						</h2>
+						<p <?php $this->add_inline_editing_attributes('description', 'basic'); echo $this->get_render_attribute_string('description'); ?> class="intermediate-description">
+							<?php echo esc_html($settings['description']); ?>
+						</p>
+					</div>
+
+					<form class="ehtazem-form intermediate-form-inputs" data-aos="fade-up" data-aos-delay="100">
+						<div class="form-row">
+							<input type="text" name="name" placeholder="الإسم" required>
+							<input type="email" name="email" placeholder="البريد الإلكتروني" required>
+						</div>
+						<div class="form-row">
+							<input type="tel" name="phone" placeholder="رقم الجوال" required>
+							<input type="text" name="city" placeholder="المدينة">
+						</div>
+						<div class="form-row">
+							<input type="text" name="company" placeholder="اسم الشركة">
+						</div>
+						<textarea name="message" placeholder="الرسالة" rows="4"></textarea>
+
+						<input type="hidden" name="action" value="ehtazem_submit_form">
+						<input type="hidden" name="form_type" value="intermediaries">
+						<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ehtazem_form_nonce'); ?>">
+
+						<button type="submit" class="submit-btn">
+							<?php echo esc_html($settings['submit_button_text']); ?>
+							<i class="fas fa-arrow-left"></i>
+						</button>
+
+						<div class="form-messages" style="display:none; margin-top: 20px;"></div>
+					</form>
+
+					<?php if (!empty($settings['decoration_image']['url'])): ?>
+					<div class="intermediate-decoration" data-aos="fade-left">
+						<img src="<?php echo esc_url($settings['decoration_image']['url']); ?>" alt="decoration">
+					</div>
+					<?php endif; ?>
+				</div>
+			</div>
+		</section>
+
+		<style>
+		<?php if (!empty($settings['custom_css'])): ?>
+			<?php echo $settings['custom_css']; ?>
+		<?php endif; ?>
+		</style>
+		<?php
+	}
+}
