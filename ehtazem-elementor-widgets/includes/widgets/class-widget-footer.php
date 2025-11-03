@@ -117,7 +117,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Phone Number', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => '+966 551 44 0009',
+                'default' => '+966 544420258',
                 'label_block' => true,
             ]
         );

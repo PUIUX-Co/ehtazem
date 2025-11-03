@@ -301,9 +301,10 @@ https://puiux.com
 ## Support
 
 للدعم الفني أو الاستفسارات:
-- 📧 Email: support@puiux.com
+- 📧 Email: Welcome@puiux.com
 - 🌐 Website: https://puiux.com
-- 📱 Phone: +966 551 44 0009
+- 📱 Phone: +966 544420258
+- 💬 WhatsApp: +966 544420258
 
 ---
 

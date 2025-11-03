@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Ehtazem Elementor Widgets
- * Description: مجموعة Widgets Elementor احترافية لموقع احتزم - تم تطويرها بالكامل بواسطة PUIUX
+ * Plugin Name: PUIUX - Ehtazem Elementor Widgets
+ * Description: مجموعة Widgets Elementor احترافية لموقع احتزم - مشروع من PUIUX لعميلنا احتزم (وحدة التمكين العقاري)
  * Version: 1.0.0
  * Author: PUIUX
  * Author URI: https://puiux.com
@@ -12,8 +12,10 @@
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
+ * Developed by PUIUX for Ehtazem (Real Estate Empowerment Unit)
  * Development, Design & Programming by PUIUX
  * Copyright (c) 2025 PUIUX. All rights reserved.
+ * Contact: Welcome@puiux.com | +966 544420258
  *
  * @package Ehtazem_Elementor_Widgets
  * @category Core
@@ -166,7 +168,7 @@ final class Ehtazem_Elementor_Widgets {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
 			esc_html__( '"%1$s" يتطلب "%2$s" ليكون مثبت ومفعل.', 'ehtazem-elementor' ),
-			'<strong>' . esc_html__( 'Ehtazem Elementor Widgets', 'ehtazem-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'PUIUX - Ehtazem Elementor Widgets', 'ehtazem-elementor' ) . '</strong>',
 			'<strong>' . esc_html__( 'Elementor', 'ehtazem-elementor' ) . '</strong>'
 		);
 
@@ -187,7 +189,7 @@ final class Ehtazem_Elementor_Widgets {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
 			esc_html__( '"%1$s" يتطلب "%2$s" نسخة %3$s أو أحدث.', 'ehtazem-elementor' ),
-			'<strong>' . esc_html__( 'Ehtazem Elementor Widgets', 'ehtazem-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'PUIUX - Ehtazem Elementor Widgets', 'ehtazem-elementor' ) . '</strong>',
 			'<strong>' . esc_html__( 'Elementor', 'ehtazem-elementor' ) . '</strong>',
 			 self::MINIMUM_ELEMENTOR_VERSION
 		);
@@ -209,7 +211,7 @@ final class Ehtazem_Elementor_Widgets {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
 			esc_html__( '"%1$s" يتطلب "%2$s" نسخة %3$s أو أحدث.', 'ehtazem-elementor' ),
-			'<strong>' . esc_html__( 'Ehtazem Elementor Widgets', 'ehtazem-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'PUIUX - Ehtazem Elementor Widgets', 'ehtazem-elementor' ) . '</strong>',
 			'<strong>' . esc_html__( 'PHP', 'ehtazem-elementor' ) . '</strong>',
 			 self::MINIMUM_PHP_VERSION
 		);
@@ -227,7 +229,7 @@ final class Ehtazem_Elementor_Widgets {
 		$elements_manager->add_category(
 			'ehtazem-widgets',
 			[
-				'title' => esc_html__( 'احتزم - Ehtazem', 'ehtazem-elementor' ),
+				'title' => esc_html__( 'PUIUX - احتزم', 'ehtazem-elementor' ),
 				'icon' => 'fa fa-building',
 			]
 		);
