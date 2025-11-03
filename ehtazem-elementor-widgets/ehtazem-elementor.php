@@ -109,6 +109,10 @@ final class Ehtazem_Elementor_Widgets {
 		add_action( 'wp_ajax_ehtazem_submit_form', [ $this, 'handle_form_submission' ] );
 		add_action( 'wp_ajax_nopriv_ehtazem_submit_form', [ $this, 'handle_form_submission' ] );
 
+		// Login customizer
+		require_once( __DIR__ . '/admin/class-login-customizer.php' );
+		new Ehtazem_Login_Customizer();
+
 		// Admin functionality
 		if ( is_admin() ) {
 			add_action( 'admin_menu', [ $this, 'register_admin_menu' ] );
@@ -658,7 +662,7 @@ final class Ehtazem_Elementor_Widgets {
 			'ehtazem-dashboard',
 			[ $this->admin_dashboard, 'render' ],
 			'dashicons-building',
-			30
+			2
 		);
 
 		// Dashboard submenu (default)

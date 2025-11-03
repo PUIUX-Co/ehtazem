@@ -76,6 +76,26 @@
 }
 
 /* ============================================
+   CAIRO FONT ENFORCEMENT
+   ============================================ */
+/* Ensure Cairo loads first */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* Force Cairo font everywhere */
+.ehtazem-admin-wrap,
+.ehtazem-admin-wrap *,
+.ehtazem-admin-wrap input,
+.ehtazem-admin-wrap textarea,
+.ehtazem-admin-wrap select,
+.ehtazem-admin-wrap button,
+.ehtazem-admin-wrap table,
+.ehtazem-admin-wrap .button,
+body.rtl .ehtazem-admin-wrap,
+body.rtl .ehtazem-admin-wrap * {
+	font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* ============================================
    TYPOGRAPHY
    ============================================ */
 .ehtazem-admin-wrap {

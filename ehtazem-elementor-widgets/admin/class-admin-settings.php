@@ -96,6 +96,9 @@ class Ehtazem_Admin_Settings {
 				<a href="?page=ehtazem-settings&tab=performance" class="tab-link <?php echo $active_tab === 'performance' ? 'active' : ''; ?>">
 					<i class="fas fa-bolt"></i> <?php esc_html_e( 'الأداء', 'ehtazem-elementor' ); ?>
 				</a>
+				<a href="?page=ehtazem-settings&tab=urls" class="tab-link <?php echo $active_tab === 'urls' ? 'active' : ''; ?>">
+					<i class="fas fa-link"></i> <?php esc_html_e( 'URLs & الأمان', 'ehtazem-elementor' ); ?>
+				</a>
 			</nav>
 
 			<!-- Tab Content -->
@@ -113,6 +116,9 @@ class Ehtazem_Admin_Settings {
 						break;
 					case 'performance':
 						$this->render_performance_tab();
+						break;
+					case 'urls':
+						$this->render_urls_tab();
 						break;
 				}
 				?>
@@ -392,6 +398,87 @@ class Ehtazem_Admin_Settings {
 	}
 
 	/**
+	 * Render URLs & Security Tab
+	 */
+	private function render_urls_tab() {
+		?>
+		<div class="ehtazem-card">
+			<div class="card-header">
+				<h2><?php esc_html_e( 'عناوين URL والأمان', 'ehtazem-elementor' ); ?></h2>
+			</div>
+			<div class="card-body">
+				<form method="post" action="" class="ehtazem-form">
+					<?php wp_nonce_field( 'ehtazem_save_urls_settings', 'ehtazem_urls_nonce' ); ?>
+
+					<div class="form-group">
+						<h3><?php esc_html_e( 'تخصيص روابط الإدارة', 'ehtazem-elementor' ); ?></h3>
+						<p class="description"><?php esc_html_e( 'تخصيص عناوين URL لصفحات الإدارة والدخول', 'ehtazem-elementor' ); ?></p>
+					</div>
+
+					<div class="form-group">
+						<label for="dashboard_url"><?php esc_html_e( 'رابط لوحة التحكم', 'ehtazem-elementor' ); ?></label>
+						<input type="text" id="dashboard_url" name="ehtazem_dashboard_url" class="ehtazem-input" value="<?php echo esc_attr( get_option( 'ehtazem_dashboard_url', 'ehtazem-dashboard' ) ); ?>">
+						<small class="help-text">
+							<?php
+							echo sprintf(
+								esc_html__( 'الرابط الحالي: %s', 'ehtazem-elementor' ),
+								'<code>' . admin_url( 'admin.php?page=' . get_option( 'ehtazem_dashboard_url', 'ehtazem-dashboard' ) ) . '</code>'
+							);
+							?>
+						</small>
+					</div>
+
+					<div class="form-group">
+						<label for="custom_login_url"><?php esc_html_e( 'رابط تسجيل الدخول المخصص', 'ehtazem-elementor' ); ?></label>
+						<input type="text" id="custom_login_url" name="ehtazem_custom_login_url" class="ehtazem-input" value="<?php echo esc_attr( get_option( 'ehtazem_custom_login_url', '' ) ); ?>" placeholder="puiux-login">
+						<small class="help-text">
+							<?php esc_html_e( 'اتركه فارغاً لاستخدام الرابط الافتراضي /wp-admin', 'ehtazem-elementor' ); ?><br>
+							<?php
+							$custom_login = get_option( 'ehtazem_custom_login_url', '' );
+							if ( ! empty( $custom_login ) ) {
+								echo sprintf(
+									esc_html__( 'الرابط الحالي: %s', 'ehtazem-elementor' ),
+									'<code>' . home_url( $custom_login ) . '</code>'
+								);
+							}
+							?>
+						</small>
+					</div>
+
+					<div class="form-group">
+						<label class="switch-label">
+							<input type="checkbox" name="ehtazem_hide_wp_admin" value="1" <?php checked( get_option( 'ehtazem_hide_wp_admin' ), '1' ); ?>>
+							<span class="switch-slider"></span>
+							<?php esc_html_e( 'إخفاء wp-admin للزوار - إعادة توجيه الزوار غير المسجلين من /wp-admin', 'ehtazem-elementor' ); ?>
+						</label>
+						<small class="help-text"><?php esc_html_e( 'يحمي من محاولات الوصول غير المصرح بها', 'ehtazem-elementor' ); ?></small>
+					</div>
+
+					<div class="form-divider"></div>
+
+					<div class="form-group">
+						<h3><?php esc_html_e( 'الأمان', 'ehtazem-elementor' ); ?></h3>
+					</div>
+
+					<div class="form-group">
+						<label for="max_login_attempts"><?php esc_html_e( 'الحد الأقصى لمحاولات الدخول', 'ehtazem-elementor' ); ?></label>
+						<input type="number" id="max_login_attempts" name="ehtazem_max_login_attempts" class="ehtazem-input" value="<?php echo esc_attr( get_option( 'ehtazem_max_login_attempts', '5' ) ); ?>" min="3" max="10" style="max-width: 100px;">
+						<span><?php esc_html_e( 'محاولات قبل المنع', 'ehtazem-elementor' ); ?></span>
+						<small class="help-text"><?php esc_html_e( 'عدد المحاولات الفاشلة المسموح بها قبل حظر IP', 'ehtazem-elementor' ); ?></small>
+					</div>
+
+					<div class="form-actions">
+						<button type="submit" name="save_urls_settings" class="ehtazem-btn ehtazem-btn-primary">
+							<i class="fas fa-save"></i> <?php esc_html_e( 'حفظ التغييرات', 'ehtazem-elementor' ); ?>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Handle Settings Save
 	 */
 	public function handle_settings_save() {
@@ -435,6 +522,22 @@ class Ehtazem_Admin_Settings {
 			update_option( 'ehtazem_cache_duration', absint( $_POST['ehtazem_cache_duration'] ) );
 
 			add_settings_error( 'ehtazem_settings', 'settings_updated', __( 'تم حفظ إعدادات الأداء بنجاح', 'ehtazem-elementor' ), 'success' );
+		}
+
+		// URLs & Security Settings
+		if ( isset( $_POST['save_urls_settings'] ) && check_admin_referer( 'ehtazem_save_urls_settings', 'ehtazem_urls_nonce' ) ) {
+			if ( isset( $_POST['ehtazem_dashboard_url'] ) ) {
+				update_option( 'ehtazem_dashboard_url', sanitize_title( $_POST['ehtazem_dashboard_url'] ) );
+			}
+			if ( isset( $_POST['ehtazem_custom_login_url'] ) ) {
+				update_option( 'ehtazem_custom_login_url', sanitize_title( $_POST['ehtazem_custom_login_url'] ) );
+			}
+			update_option( 'ehtazem_hide_wp_admin', isset( $_POST['ehtazem_hide_wp_admin'] ) ? '1' : '0' );
+			if ( isset( $_POST['ehtazem_max_login_attempts'] ) ) {
+				update_option( 'ehtazem_max_login_attempts', absint( $_POST['ehtazem_max_login_attempts'] ) );
+			}
+
+			add_settings_error( 'ehtazem_settings', 'settings_updated', __( 'تم حفظ إعدادات URLs والأمان بنجاح', 'ehtazem-elementor' ), 'success' );
 		}
 	}
 }
