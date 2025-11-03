@@ -46,8 +46,13 @@ class Ehtazem_System_Health {
 		?>
 		<div class="wrap ehtazem-admin-wrap">
 			<div class="ehtazem-admin-header">
-				<h1><?php esc_html_e( 'فحص صحة النظام', 'ehtazem-elementor' ); ?></h1>
-				<p class="description"><?php esc_html_e( 'تحقق من صحة النظام والمتطلبات التقنية', 'ehtazem-elementor' ); ?></p>
+				<div class="header-top">
+					<img src="https://puiux.com/wp-content/uploads/2021/09/Logo-Black-Copress.svg" alt="PUIUX" class="puiux-logo">
+					<div>
+						<h1><?php esc_html_e( 'فحص صحة النظام - احتزم', 'ehtazem-elementor' ); ?></h1>
+						<p class="description"><?php esc_html_e( 'تحقق من صحة النظام والمتطلبات التقنية', 'ehtazem-elementor' ); ?></p>
+					</div>
+				</div>
 			</div>
 
 			<!-- Overall Status -->
@@ -178,6 +183,24 @@ class Ehtazem_System_Health {
 						<div id="performance-chart-container">
 							<canvas id="performance-chart"></canvas>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- PUIUX Footer -->
+			<div class="ehtazem-admin-footer">
+				<div class="footer-content">
+					<div class="footer-left">
+						<img src="https://puiux.com/wp-content/uploads/2021/09/Logo-Black-Copress.svg" alt="PUIUX" class="footer-logo">
+						<p><?php esc_html_e( 'مطور بواسطة PUIUX', 'ehtazem-elementor' ); ?></p>
+					</div>
+					<div class="footer-right">
+						<p><?php esc_html_e( '© 2025 PUIUX. جميع الحقوق محفوظة', 'ehtazem-elementor' ); ?></p>
+						<p>
+							<a href="https://puiux.com" target="_blank">puiux.com</a> |
+							<a href="mailto:Welcome@puiux.com">Welcome@puiux.com</a> |
+							<a href="tel:+966544420258">+966 544420258</a>
+						</p>
 					</div>
 				</div>
 			</div>

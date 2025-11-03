@@ -45,23 +45,15 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
 	 * Get script dependencies
 	 */
 	public function get_script_depends() {
-		return ['ehtazem-widgets'];
+		return ['ehtazem-widgets', 'swiper'];
 	}
 
 	/**
 	 * Get style dependencies
 	 */
 	public function get_style_depends() {
-		return ['ehtazem-widgets'];
+		return ['ehtazem-widgets', 'swiper'];
 	}
-
-    public function get_script_depends() {
-        return ['swiper'];
-    }
-
-    public function get_style_depends() {
-        return ['swiper'];
-    }
 
     protected function register_controls() {
 

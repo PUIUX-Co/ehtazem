@@ -30,11 +30,13 @@
 	--puiux-gray-800: #1f2937;
 	--puiux-gray-900: #1a1a1a;
 
-	/* Ehtazem Brand Colors */
+	/* Ehtazem Brand Colors - Extracted from Theme */
 	--ehtazem-blue: #1E40AF;
 	--ehtazem-blue-light: #3B82F6;
-	--ehtazem-gold: #F59E0B;
-	--ehtazem-gold-light: #FBBF24;
+	--ehtazem-gold: #D7B261;
+	--ehtazem-gold-dark: #857540;
+	--ehtazem-gold-light: #E5C78A;
+	--ehtazem-green: #4EA62F;
 
 	/* Status Colors */
 	--success: #10B981;
@@ -124,12 +126,80 @@
 	border-bottom: 1px solid var(--puiux-gray-200);
 }
 
+.ehtazem-admin-header .header-top {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 10px;
+}
+
+.ehtazem-admin-header .puiux-logo {
+	height: 50px;
+	margin-left: 20px;
+}
+
 .ehtazem-admin-header h1 {
 	margin-bottom: var(--spacing-sm);
 	background: linear-gradient(135deg, var(--ehtazem-blue) 0%, var(--ehtazem-blue-light) 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
+}
+
+/* ============================================
+   ADMIN FOOTER
+   ============================================ */
+.ehtazem-admin-footer {
+	margin-top: 60px;
+	padding: 30px 20px;
+	border-top: 2px solid var(--puiux-gray-200);
+	background: var(--puiux-gray-50);
+	border-radius: var(--radius-md);
+}
+
+.footer-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.footer-left {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.footer-logo {
+	height: 35px;
+}
+
+.footer-left p {
+	margin: 0;
+	color: var(--puiux-gray-700);
+	font-weight: 500;
+}
+
+.footer-right {
+	text-align: left;
+}
+
+.footer-right p {
+	margin: 5px 0;
+	color: var(--puiux-gray-600);
+	font-size: 14px;
+}
+
+.footer-right a {
+	color: var(--ehtazem-blue);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.footer-right a:hover {
+	text-decoration: underline;
+	color: var(--ehtazem-blue-light);
 }
 
 /* ============================================

@@ -113,8 +113,12 @@ final class Ehtazem_Elementor_Widgets {
 		if ( is_admin() ) {
 			add_action( 'admin_menu', [ $this, 'register_admin_menu' ] );
 			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
+			add_action( 'admin_init', [ $this, 'redirect_to_dashboard' ], 1 );
 			$this->load_admin_classes();
 		}
+
+		// Redirect to dashboard on admin login
+		add_action( 'wp_login', [ $this, 'set_redirect_transient' ], 10, 2 );
 	}
 
 	/**
@@ -771,6 +775,40 @@ final class Ehtazem_Elementor_Widgets {
 				'nonce' => wp_create_nonce( 'ehtazem_admin_nonce' ),
 			]
 		);
+	}
+
+	/**
+	 * Set redirect transient on login
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function set_redirect_transient( $user_login, $user ) {
+		set_transient( 'ehtazem_redirect_after_login_' . $user->ID, true, 30 );
+	}
+
+	/**
+	 * Redirect to Ehtazem Dashboard on login
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function redirect_to_dashboard() {
+		// Only redirect once after login
+		if ( get_transient( 'ehtazem_redirect_after_login_' . get_current_user_id() ) ) {
+			delete_transient( 'ehtazem_redirect_after_login_' . get_current_user_id() );
+
+			// Only redirect if user has manage_options capability
+			if ( current_user_can( 'manage_options' ) ) {
+				// Don't redirect if already on our pages or doing AJAX
+				if ( ! isset( $_GET['page'] ) || strpos( $_GET['page'], 'ehtazem' ) === false ) {
+					if ( ! wp_doing_ajax() ) {
+						wp_safe_redirect( admin_url( 'admin.php?page=ehtazem-dashboard' ) );
+						exit;
+					}
+				}
+			}
+		}
 	}
 }
 

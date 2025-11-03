@@ -39,13 +39,23 @@ class Ehtazem_Admin_Dashboard {
 
 		$stats = $this->get_statistics();
 		$recent_submissions = $this->get_recent_submissions( 10 );
-		$chart_data = $this->get_chart_data();
+		$chart_data = array(
+			'submissions' => $this->get_chart_data(),
+			'lead_distribution' => $this->get_lead_score_distribution(),
+			'type_distribution' => $this->get_submission_type_distribution(),
+			'status_distribution' => $this->get_status_distribution(),
+		);
 
 		?>
 		<div class="wrap ehtazem-admin-wrap">
 			<div class="ehtazem-admin-header">
-				<h1><?php esc_html_e( 'لوحة التحكم - PUIUX Ehtazem', 'ehtazem-elementor' ); ?></h1>
-				<p class="description"><?php esc_html_e( 'إدارة طلبات التواصل وتحليل البيانات', 'ehtazem-elementor' ); ?></p>
+				<div class="header-top">
+					<img src="https://puiux.com/wp-content/uploads/2021/09/Logo-Black-Copress.svg" alt="PUIUX" class="puiux-logo">
+					<div>
+						<h1><?php esc_html_e( 'لوحة التحكم - احتزم', 'ehtazem-elementor' ); ?></h1>
+						<p class="description"><?php esc_html_e( 'إدارة طلبات التواصل وتحليل البيانات', 'ehtazem-elementor' ); ?></p>
+					</div>
+				</div>
 			</div>
 
 			<!-- Statistics Cards -->
@@ -104,6 +114,45 @@ class Ehtazem_Admin_Dashboard {
 					</div>
 					<div class="card-body">
 						<canvas id="ehtazem-submissions-chart"></canvas>
+					</div>
+				</div>
+			</div>
+
+			<!-- Additional Charts Grid -->
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 30px;">
+				<!-- Lead Score Distribution Pie Chart -->
+				<div class="ehtazem-chart-container" data-aos="fade-up" data-aos-delay="200">
+					<div class="ehtazem-card">
+						<div class="card-header">
+							<h3><?php esc_html_e( 'توزيع العملاء حسب التصنيف', 'ehtazem-elementor' ); ?></h3>
+						</div>
+						<div class="card-body">
+							<canvas id="leadScorePieChart"></canvas>
+						</div>
+					</div>
+				</div>
+
+				<!-- Submissions by Type Bar Chart -->
+				<div class="ehtazem-chart-container" data-aos="fade-up" data-aos-delay="300">
+					<div class="ehtazem-card">
+						<div class="card-header">
+							<h3><?php esc_html_e( 'الطلبات حسب النوع', 'ehtazem-elementor' ); ?></h3>
+						</div>
+						<div class="card-body">
+							<canvas id="submissionTypeChart"></canvas>
+						</div>
+					</div>
+				</div>
+
+				<!-- Status Distribution Doughnut Chart -->
+				<div class="ehtazem-chart-container" data-aos="fade-up" data-aos-delay="400">
+					<div class="ehtazem-card">
+						<div class="card-header">
+							<h3><?php esc_html_e( 'حالة الطلبات', 'ehtazem-elementor' ); ?></h3>
+						</div>
+						<div class="card-body">
+							<canvas id="statusDoughnutChart"></canvas>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -242,6 +291,24 @@ class Ehtazem_Admin_Dashboard {
 								</tbody>
 							</table>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- PUIUX Footer -->
+			<div class="ehtazem-admin-footer">
+				<div class="footer-content">
+					<div class="footer-left">
+						<img src="https://puiux.com/wp-content/uploads/2021/09/Logo-Black-Copress.svg" alt="PUIUX" class="footer-logo">
+						<p><?php esc_html_e( 'مطور بواسطة PUIUX', 'ehtazem-elementor' ); ?></p>
+					</div>
+					<div class="footer-right">
+						<p><?php esc_html_e( '© 2025 PUIUX. جميع الحقوق محفوظة', 'ehtazem-elementor' ); ?></p>
+						<p>
+							<a href="https://puiux.com" target="_blank">puiux.com</a> |
+							<a href="mailto:Welcome@puiux.com">Welcome@puiux.com</a> |
+							<a href="tel:+966544420258">+966 544420258</a>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -533,5 +600,116 @@ class Ehtazem_Admin_Dashboard {
 
 		fclose( $output );
 		exit;
+	}
+
+	/**
+	 * Get Lead Score Distribution
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function get_lead_score_distribution() {
+		// Get all submissions
+		$args = array(
+			'post_type' => 'ehtazem_submissions',
+			'posts_per_page' => -1,
+			'post_status' => 'publish',
+		);
+
+		$submissions = get_posts( $args );
+
+		$hot = 0;
+		$warm = 0;
+		$cold = 0;
+
+		foreach ( $submissions as $submission ) {
+			$score = $this->calculate_lead_score( $submission->ID );
+			if ( $score >= 70 ) {
+				$hot++;
+			} elseif ( $score >= 40 ) {
+				$warm++;
+			} else {
+				$cold++;
+			}
+		}
+
+		return array(
+			'labels' => array( 'عملاء مهمين (70+)', 'عملاء محتملين (40-69)', 'عملاء عاديين (0-39)' ),
+			'data' => array( $hot, $warm, $cold ),
+			'backgroundColor' => array( '#EF4444', '#F59E0B', '#10B981' )
+		);
+	}
+
+	/**
+	 * Get Submission Type Distribution
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function get_submission_type_distribution() {
+		// Get all submissions
+		$args = array(
+			'post_type' => 'ehtazem_submissions',
+			'posts_per_page' => -1,
+			'post_status' => 'publish',
+		);
+
+		$submissions = get_posts( $args );
+
+		$intermediaries = 0;
+		$contact = 0;
+
+		foreach ( $submissions as $submission ) {
+			$form_type = get_post_meta( $submission->ID, '_form_type', true );
+			if ( $form_type === 'intermediaries' ) {
+				$intermediaries++;
+			} else {
+				$contact++;
+			}
+		}
+
+		return array(
+			'labels' => array( 'نموذج الوسطاء', 'نموذج التواصل' ),
+			'data' => array( $intermediaries, $contact ),
+			'backgroundColor' => array( '#1E40AF', '#F59E0B' )
+		);
+	}
+
+	/**
+	 * Get Status Distribution
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function get_status_distribution() {
+		// Get all submissions
+		$args = array(
+			'post_type' => 'ehtazem_submissions',
+			'posts_per_page' => -1,
+			'post_status' => 'publish',
+		);
+
+		$submissions = get_posts( $args );
+
+		$new = 0;
+		$in_progress = 0;
+		$completed = 0;
+
+		foreach ( $submissions as $submission ) {
+			$status = get_post_meta( $submission->ID, '_status', true );
+			if ( $status == 'completed' ) {
+				$completed++;
+			} elseif ( $status == 'in_progress' ) {
+				$in_progress++;
+			} else {
+				$new++;
+			}
+		}
+
+		return array(
+			'labels' => array( 'جديد', 'قيد المعالجة', 'مكتمل' ),
+			'data' => array( $new, $in_progress, $completed ),
+			'backgroundColor' => array( '#3B82F6', '#F59E0B', '#10B981' )
+		);
 	}
 }
