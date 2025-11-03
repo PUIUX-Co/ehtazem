@@ -390,18 +390,24 @@ class Ehtazem_Contact_Form_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$widget_id = $this->get_id();
+
+		// Add inline editing attributes
+		$this->add_inline_editing_attributes( 'badge_text', 'none' );
+		$this->add_inline_editing_attributes( 'title', 'basic' );
+		$this->add_inline_editing_attributes( 'description', 'advanced' );
+		$this->add_inline_editing_attributes( 'submit_button_text', 'none' );
 		?>
 
 		<section class="contactus-section" id="contactus-section" data-aos-duration="1500">
 			<div class="container">
 				<div class="contactus-header">
-					<div class="badge contact-badge" data-aos="zoom-in" data-aos-duration="1500">
+					<div class="badge contact-badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
 						<?php echo esc_html( $settings['badge_text'] ); ?>
 					</div>
-					<h4 class="contact-intro" data-aos="zoom-in" data-aos-duration="1900">
+					<h4 class="contact-intro" data-aos="zoom-in" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'title' ); ?>>
 						<?php echo esc_html( $settings['title'] ); ?>
 					</h4>
-					<p class="contact-desc" data-aos="zoom-in" data-aos-duration="2200">
+					<p class="contact-desc" data-aos="zoom-in" data-aos-duration="2200" <?php echo $this->get_render_attribute_string( 'description' ); ?>>
 						<?php echo esc_html( $settings['description'] ); ?>
 					</p>
 				</div>
@@ -435,7 +441,7 @@ class Ehtazem_Contact_Form_Widget extends \Elementor\Widget_Base {
 								<div class="alert"></div>
 							</div>
 
-							<button type="submit" class="submit-btn">
+							<button type="submit" class="submit-btn" <?php echo $this->get_render_attribute_string( 'submit_button_text' ); ?>>
 								<?php echo esc_html( $settings['submit_button_text'] ); ?>
 							</button>
 						</form>

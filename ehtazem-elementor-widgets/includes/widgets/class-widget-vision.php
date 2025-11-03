@@ -207,17 +207,28 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'badge_text', 'none' );
+        $this->add_inline_editing_attributes( 'intro_title', 'basic' );
+        $this->add_inline_editing_attributes( 'intro_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'vision_1_number', 'none' );
+        $this->add_inline_editing_attributes( 'vision_1_title', 'basic' );
+        $this->add_inline_editing_attributes( 'vision_1_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'vision_2_number', 'none' );
+        $this->add_inline_editing_attributes( 'vision_2_title', 'basic' );
+        $this->add_inline_editing_attributes( 'vision_2_description', 'advanced' );
         ?>
         <section class="vision-section" id="vision-section">
             <div class="container">
                 <div class="vision-intro">
-                    <div class="badge" data-aos="zoom-in" data-aos-duration="1500">
+                    <div class="badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
                         <?php echo esc_html($settings['badge_text']); ?>
                     </div>
-                    <h4 class="vision-intro-title" data-aos="zoom-in" data-aos-duration="1900">
+                    <h4 class="vision-intro-title" data-aos="zoom-in" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'intro_title' ); ?>>
                         <?php echo esc_html($settings['intro_title']); ?>
                     </h4>
-                    <p class="vision-intro-p" data-aos="zoom-in" data-aos-duration="2200">
+                    <p class="vision-intro-p" data-aos="zoom-in" data-aos-duration="2200" <?php echo $this->get_render_attribute_string( 'intro_description' ); ?>>
                         <?php echo esc_html($settings['intro_description']); ?>
                     </p>
                 </div>
@@ -226,12 +237,12 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="desc1-intro" data-aos="zoom-in-left" data-aos-duration="1500">
-                                    <p class="desc-num"><?php echo esc_html($settings['vision_1_number']); ?></p>
-                                    <h2 class="desc-title"><?php echo esc_html($settings['vision_1_title']); ?></h2>
+                                    <p class="desc-num" <?php echo $this->get_render_attribute_string( 'vision_1_number' ); ?>><?php echo esc_html($settings['vision_1_number']); ?></p>
+                                    <h2 class="desc-title" <?php echo $this->get_render_attribute_string( 'vision_1_title' ); ?>><?php echo esc_html($settings['vision_1_title']); ?></h2>
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <p class="vision-desc-p" data-aos="zoom-in-right" data-aos-duration="1500">
+                                <p class="vision-desc-p" data-aos="zoom-in-right" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'vision_1_description' ); ?>>
                                     <?php echo esc_html($settings['vision_1_description']); ?>
                                 </p>
                             </div>
@@ -241,12 +252,12 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="desc2-intro" data-aos="zoom-in-left" data-aos-duration="1500">
-                                    <p class="desc-num"><?php echo esc_html($settings['vision_2_number']); ?></p>
-                                    <h2 class="desc-title"><?php echo esc_html($settings['vision_2_title']); ?></h2>
+                                    <p class="desc-num" <?php echo $this->get_render_attribute_string( 'vision_2_number' ); ?>><?php echo esc_html($settings['vision_2_number']); ?></p>
+                                    <h2 class="desc-title" <?php echo $this->get_render_attribute_string( 'vision_2_title' ); ?>><?php echo esc_html($settings['vision_2_title']); ?></h2>
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <p class="vision-desc-p" data-aos="zoom-in-right" data-aos-duration="1500">
+                                <p class="vision-desc-p" data-aos="zoom-in-right" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'vision_2_description' ); ?>>
                                     <?php echo esc_html($settings['vision_2_description']); ?>
                                 </p>
                             </div>

@@ -250,18 +250,23 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $widget_id = $this->get_id();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'badge_text', 'none' );
+        $this->add_inline_editing_attributes( 'section_title', 'basic' );
+        $this->add_inline_editing_attributes( 'section_description', 'advanced' );
         ?>
         <section class="questions-section" id="questions-section">
             <div class="container">
                 <div class="faq">
                     <div class="faq-header">
-                        <div class="faq-badge badge" data-aos="zoom-in" data-aos-duration="1500">
+                        <div class="faq-badge badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
                             <?php echo esc_html($settings['badge_text']); ?>
                         </div>
-                        <h1 class="faq-title" data-aos="zoom-in" data-aos-duration="1900">
+                        <h1 class="faq-title" data-aos="zoom-in" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'section_title' ); ?>>
                             <?php echo esc_html($settings['section_title']); ?>
                         </h1>
-                        <p class="faq-description" data-aos="zoom-in" data-aos-duration="2200">
+                        <p class="faq-description" data-aos="zoom-in" data-aos-duration="2200" <?php echo $this->get_render_attribute_string( 'section_description' ); ?>>
                             <?php echo esc_html($settings['section_description']); ?>
                         </p>
                     </div>
@@ -269,16 +274,20 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
                     <div class="accordion" id="faqAccordion<?php echo esc_attr($widget_id); ?>">
                         <?php foreach ($settings['faq_items'] as $index => $item) :
                             $item_id = 'faq' . $widget_id . $index;
+                            $question_key = 'faq_items.' . $index . '.question';
+                            $answer_key = 'faq_items.' . $index . '.answer';
+                            $this->add_inline_editing_attributes( $question_key, 'basic' );
+                            $this->add_inline_editing_attributes( $answer_key, 'advanced' );
                         ?>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#<?php echo esc_attr($item_id); ?>">
+                                        data-bs-target="#<?php echo esc_attr($item_id); ?>" <?php echo $this->get_render_attribute_string( $question_key ); ?>>
                                         <?php echo esc_html($item['question']); ?>
                                     </button>
                                 </h2>
                                 <div id="<?php echo esc_attr($item_id); ?>" class="accordion-collapse collapse" data-bs-parent="#faqAccordion<?php echo esc_attr($widget_id); ?>">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body" <?php echo $this->get_render_attribute_string( $answer_key ); ?>>
                                         <?php echo esc_html($item['answer']); ?>
                                     </div>
                                 </div>

@@ -334,6 +334,19 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'badge_text', 'none' );
+        $this->add_inline_editing_attributes( 'section_title', 'basic' );
+        $this->add_inline_editing_attributes( 'circle_1_number', 'none' );
+        $this->add_inline_editing_attributes( 'circle_1_title', 'basic' );
+        $this->add_inline_editing_attributes( 'circle_1_description', 'basic' );
+        $this->add_inline_editing_attributes( 'circle_2_number', 'none' );
+        $this->add_inline_editing_attributes( 'circle_2_title', 'basic' );
+        $this->add_inline_editing_attributes( 'circle_2_description', 'basic' );
+        $this->add_inline_editing_attributes( 'circle_3_number', 'none' );
+        $this->add_inline_editing_attributes( 'circle_3_title', 'basic' );
+        $this->add_inline_editing_attributes( 'circle_3_description', 'basic' );
         ?>
         <section class="org-structure-section" id="org-structure-section">
             <div class="ellipse-bg ellipse1"></div>
@@ -341,10 +354,10 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
 
             <div class="org-container">
                 <div class="org-header">
-                    <div class="badge" data-aos="zoom-in" data-aos-duration="1500">
+                    <div class="badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
                         <?php echo esc_html($settings['badge_text']); ?>
                     </div>
-                    <h2 class="org-title" data-aos="zoom-in" data-aos-duration="1900">
+                    <h2 class="org-title" data-aos="zoom-in" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'section_title' ); ?>>
                         <?php echo wp_kses_post($settings['section_title']); ?>
                     </h2>
                 </div>
@@ -385,10 +398,10 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
                     <div class="org-circles-container">
                         <!-- Circle 1 - Right -->
                         <div class="org-item org-item-1">
-                            <div class="org-number"><?php echo esc_html($settings['circle_1_number']); ?></div>
+                            <div class="org-number" <?php echo $this->get_render_attribute_string( 'circle_1_number' ); ?>><?php echo esc_html($settings['circle_1_number']); ?></div>
                             <div class="org-content">
-                                <h3 class="org-dept-title"><?php echo wp_kses_post($settings['circle_1_title']); ?></h3>
-                                <p class="org-dept-desc"><?php echo wp_kses_post($settings['circle_1_description']); ?></p>
+                                <h3 class="org-dept-title" <?php echo $this->get_render_attribute_string( 'circle_1_title' ); ?>><?php echo wp_kses_post($settings['circle_1_title']); ?></h3>
+                                <p class="org-dept-desc" <?php echo $this->get_render_attribute_string( 'circle_1_description' ); ?>><?php echo wp_kses_post($settings['circle_1_description']); ?></p>
                             </div>
                             <div class="org-circle-wrapper">
                                 <div class="org-circle">
@@ -404,19 +417,19 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
                                     <img src="<?php echo esc_url($settings['circle_2_icon']['url']); ?>" alt="">
                                 </div>
                             </div>
-                            <div class="org-number"><?php echo esc_html($settings['circle_2_number']); ?></div>
+                            <div class="org-number" <?php echo $this->get_render_attribute_string( 'circle_2_number' ); ?>><?php echo esc_html($settings['circle_2_number']); ?></div>
                             <div class="org-content">
-                                <h3 class="org-dept-title"><?php echo wp_kses_post($settings['circle_2_title']); ?></h3>
-                                <p class="org-dept-desc"><?php echo wp_kses_post($settings['circle_2_description']); ?></p>
+                                <h3 class="org-dept-title" <?php echo $this->get_render_attribute_string( 'circle_2_title' ); ?>><?php echo wp_kses_post($settings['circle_2_title']); ?></h3>
+                                <p class="org-dept-desc" <?php echo $this->get_render_attribute_string( 'circle_2_description' ); ?>><?php echo wp_kses_post($settings['circle_2_description']); ?></p>
                             </div>
                         </div>
 
                         <!-- Circle 3 - Left -->
                         <div class="org-item org-item-3">
-                            <div class="org-number"><?php echo esc_html($settings['circle_3_number']); ?></div>
+                            <div class="org-number" <?php echo $this->get_render_attribute_string( 'circle_3_number' ); ?>><?php echo esc_html($settings['circle_3_number']); ?></div>
                             <div class="org-content">
-                                <h3 class="org-dept-title"><?php echo wp_kses_post($settings['circle_3_title']); ?></h3>
-                                <p class="org-dept-desc"><?php echo wp_kses_post($settings['circle_3_description']); ?></p>
+                                <h3 class="org-dept-title" <?php echo $this->get_render_attribute_string( 'circle_3_title' ); ?>><?php echo wp_kses_post($settings['circle_3_title']); ?></h3>
+                                <p class="org-dept-desc" <?php echo $this->get_render_attribute_string( 'circle_3_description' ); ?>><?php echo wp_kses_post($settings['circle_3_description']); ?></p>
                             </div>
                             <div class="org-circle-wrapper">
                                 <div class="org-circle">

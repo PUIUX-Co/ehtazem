@@ -390,19 +390,34 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'badge_text', 'none' );
+        $this->add_inline_editing_attributes( 'main_title', 'basic' );
+        $this->add_inline_editing_attributes( 'subtitle', 'advanced' );
+        $this->add_inline_editing_attributes( 'center_text', 'none' );
+        $this->add_inline_editing_attributes( 'under_center_text', 'none' );
+        $this->add_inline_editing_attributes( 'feature_1_title', 'basic' );
+        $this->add_inline_editing_attributes( 'feature_1_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'feature_2_title', 'basic' );
+        $this->add_inline_editing_attributes( 'feature_2_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'feature_3_title', 'basic' );
+        $this->add_inline_editing_attributes( 'feature_3_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'feature_4_title', 'basic' );
+        $this->add_inline_editing_attributes( 'feature_4_description', 'advanced' );
         ?>
         <div class="section-features" id="section-features">
             <div class="bg-decoration bg-decoration-1"></div>
             <div class="bg-decoration bg-decoration-2"></div>
 
             <div class="header-features">
-                <div class="badge" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
                     <?php echo esc_html($settings['badge_text']); ?>
                 </div>
-                <h1 class="main-title" data-aos="zoom-in" data-aos-duration="1900">
+                <h1 class="main-title" data-aos="zoom-in" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'main_title' ); ?>>
                     <?php echo esc_html($settings['main_title']); ?>
                 </h1>
-                <p class="subtitle" data-aos="zoom-in" data-aos-duration="2200">
+                <p class="subtitle" data-aos="zoom-in" data-aos-duration="2200" <?php echo $this->get_render_attribute_string( 'subtitle' ); ?>>
                     <?php echo esc_html($settings['subtitle']); ?>
                 </p>
             </div>
@@ -426,8 +441,8 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
                             <img alt="<?php echo esc_attr($settings['feature_1_title']); ?>" src="<?php echo esc_url($settings['feature_1_icon']['url']); ?>" />
                         </div>
                     </div>
-                    <h3 class="feature-title"><?php echo esc_html($settings['feature_1_title']); ?></h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" <?php echo $this->get_render_attribute_string( 'feature_1_title' ); ?>><?php echo esc_html($settings['feature_1_title']); ?></h3>
+                    <p class="feature-description" <?php echo $this->get_render_attribute_string( 'feature_1_description' ); ?>>
                         <?php echo esc_html($settings['feature_1_description']); ?>
                     </p>
                 </div>
@@ -450,8 +465,8 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
                             <img alt="<?php echo esc_attr($settings['feature_2_title']); ?>" src="<?php echo esc_url($settings['feature_2_icon']['url']); ?>" />
                         </div>
                     </div>
-                    <h3 class="feature-title"><?php echo esc_html($settings['feature_2_title']); ?></h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" <?php echo $this->get_render_attribute_string( 'feature_2_title' ); ?>><?php echo esc_html($settings['feature_2_title']); ?></h3>
+                    <p class="feature-description" <?php echo $this->get_render_attribute_string( 'feature_2_description' ); ?>>
                         <?php echo esc_html($settings['feature_2_description']); ?>
                     </p>
                 </div>
@@ -460,8 +475,8 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
                 <div class="center-element">
                     <div class="center-circle">
                         <div class="center-circle-texts">
-                            <div class="center-text"><?php echo esc_html($settings['center_text']); ?></div>
-                            <p class="under-center"><?php echo esc_html($settings['under_center_text']); ?></p>
+                            <div class="center-text" <?php echo $this->get_render_attribute_string( 'center_text' ); ?>><?php echo esc_html($settings['center_text']); ?></div>
+                            <p class="under-center" <?php echo $this->get_render_attribute_string( 'under_center_text' ); ?>><?php echo esc_html($settings['under_center_text']); ?></p>
                         </div>
 
                         <img alt="احتزم" src="<?php echo esc_url($settings['center_image']['url']); ?>" class="center-img" />
@@ -492,8 +507,8 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
                             <img alt="<?php echo esc_attr($settings['feature_3_title']); ?>" src="<?php echo esc_url($settings['feature_3_icon']['url']); ?>" />
                         </div>
                     </div>
-                    <h3 class="feature-title"><?php echo esc_html($settings['feature_3_title']); ?></h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" <?php echo $this->get_render_attribute_string( 'feature_3_title' ); ?>><?php echo esc_html($settings['feature_3_title']); ?></h3>
+                    <p class="feature-description" <?php echo $this->get_render_attribute_string( 'feature_3_description' ); ?>>
                         <?php echo esc_html($settings['feature_3_description']); ?>
                     </p>
                 </div>
@@ -516,8 +531,8 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
                             <img alt="<?php echo esc_attr($settings['feature_4_title']); ?>" src="<?php echo esc_url($settings['feature_4_icon']['url']); ?>" />
                         </div>
                     </div>
-                    <h3 class="feature-title"><?php echo esc_html($settings['feature_4_title']); ?></h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" <?php echo $this->get_render_attribute_string( 'feature_4_title' ); ?>><?php echo esc_html($settings['feature_4_title']); ?></h3>
+                    <p class="feature-description" <?php echo $this->get_render_attribute_string( 'feature_4_description' ); ?>>
                         <?php echo esc_html($settings['feature_4_description']); ?>
                     </p>
                 </div>

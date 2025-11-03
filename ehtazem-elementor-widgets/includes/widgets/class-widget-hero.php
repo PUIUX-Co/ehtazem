@@ -371,6 +371,13 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$bg_url = $settings['background_image']['url'];
+
+		// Add inline editing attributes
+		$this->add_inline_editing_attributes( 'hero_title_part1', 'basic' );
+		$this->add_inline_editing_attributes( 'hero_title_part2', 'basic' );
+		$this->add_inline_editing_attributes( 'hero_subtitle', 'basic' );
+		$this->add_inline_editing_attributes( 'hero_description', 'advanced' );
+		$this->add_inline_editing_attributes( 'primary_button_text', 'none' );
 		?>
 
 		<section class="hero" id="hero-section">
@@ -380,19 +387,32 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			<?php endif; ?>
 			<div class="container hero-content">
 				<div class="hero-body" data-aos="fade-up" data-aos-duration="1500">
-					<h1 class="hero-title"><span><?php echo esc_html( $settings['hero_title_part1'] ); ?></span><br><?php echo esc_html( $settings['hero_title_part2'] ); ?></h1>
-					<p class="hero-subtitle"><?php echo esc_html( $settings['hero_subtitle'] ); ?></p>
-					<p class="hero-desc"><?php echo esc_html( $settings['hero_description'] ); ?></p>
+					<h1 class="hero-title">
+						<span <?php echo $this->get_render_attribute_string( 'hero_title_part1' ); ?>>
+							<?php echo esc_html( $settings['hero_title_part1'] ); ?>
+						</span><br>
+						<span <?php echo $this->get_render_attribute_string( 'hero_title_part2' ); ?>>
+							<?php echo esc_html( $settings['hero_title_part2'] ); ?>
+						</span>
+					</h1>
+					<p class="hero-subtitle" <?php echo $this->get_render_attribute_string( 'hero_subtitle' ); ?>>
+						<?php echo esc_html( $settings['hero_subtitle'] ); ?>
+					</p>
+					<p class="hero-desc" <?php echo $this->get_render_attribute_string( 'hero_description' ); ?>>
+						<?php echo esc_html( $settings['hero_description'] ); ?>
+					</p>
 					<div class="hero-actions">
 						<?php if ( ! empty( $settings['primary_button_link']['url'] ) ) :
 							$this->add_link_attributes( 'primary_button_link', $settings['primary_button_link'] );
 						?>
 							<a class="hero-primary" <?php echo $this->get_render_attribute_string( 'primary_button_link' ); ?>>
-								<?php echo esc_html( $settings['primary_button_text'] ); ?>
+								<span <?php echo $this->get_render_attribute_string( 'primary_button_text' ); ?>>
+									<?php echo esc_html( $settings['primary_button_text'] ); ?>
+								</span>
 								<i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
 							</a>
 						<?php else : ?>
-							<button class="hero-primary">
+							<button class="hero-primary" <?php echo $this->get_render_attribute_string( 'primary_button_text' ); ?>>
 								<?php echo esc_html( $settings['primary_button_text'] ); ?>
 								<i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
 							</button>

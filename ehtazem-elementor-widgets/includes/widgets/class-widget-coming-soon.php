@@ -308,6 +308,14 @@ class Ehtazem_Coming_Soon_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'title', 'basic' );
+        $this->add_inline_editing_attributes( 'subtitle', 'basic' );
+        $this->add_inline_editing_attributes( 'intro_text', 'basic' );
+        $this->add_inline_editing_attributes( 'button_text', 'none' );
+        $this->add_inline_editing_attributes( 'side_text_1', 'basic' );
+        $this->add_inline_editing_attributes( 'side_text_2', 'basic' );
         ?>
         <section class="soon" id="soon-section">
             <div class="soon-deco">
@@ -319,23 +327,25 @@ class Ehtazem_Coming_Soon_Widget extends \Elementor\Widget_Base {
                         <div class="col-md-6">
                             <div class="side-1-soon">
                                 <div class="soon-intro">
-                                    <h2 class="soon-title" data-aos="fade-left" data-aos-duration="1500">
+                                    <h2 class="soon-title" data-aos="fade-left" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'title' ); ?>>
                                         <?php echo esc_html($settings['title']); ?>
                                     </h2>
-                                    <p class="soon-descrep-intro" data-aos="fade-left" data-aos-duration="1900">
+                                    <p class="soon-descrep-intro" data-aos="fade-left" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'subtitle' ); ?>>
                                         <?php echo wp_kses_post($settings['subtitle']); ?>
                                     </p>
                                 </div>
                                 <div class="soon-features">
-                                    <p class="soon-features-descrep" data-aos="fade-left" data-aos-duration="2000">
+                                    <p class="soon-features-descrep" data-aos="fade-left" data-aos-duration="2000" <?php echo $this->get_render_attribute_string( 'intro_text' ); ?>>
                                         <?php echo esc_html($settings['intro_text']); ?>
                                     </p>
                                     <ul class="soon-uln">
                                         <?php
                                         $delay = 2500;
-                                        foreach ($settings['features_list'] as $feature) :
+                                        foreach ($settings['features_list'] as $index => $feature) :
+                                            $feature_key = 'features_list.' . $index . '.feature_text';
+                                            $this->add_inline_editing_attributes( $feature_key, 'none' );
                                         ?>
-                                            <li data-aos="fade-left" data-aos-duration="<?php echo esc_attr($delay); ?>">
+                                            <li data-aos="fade-left" data-aos-duration="<?php echo esc_attr($delay); ?>" <?php echo $this->get_render_attribute_string( $feature_key ); ?>>
                                                 <?php echo esc_html($feature['feature_text']); ?>
                                             </li>
                                         <?php
@@ -344,7 +354,7 @@ class Ehtazem_Coming_Soon_Widget extends \Elementor\Widget_Base {
                                         ?>
                                     </ul>
                                 </div>
-                                <button class="soon-btn" data-aos="fade-left" data-aos-duration="3000">
+                                <button class="soon-btn" data-aos="fade-left" data-aos-duration="3000" <?php echo $this->get_render_attribute_string( 'button_text' ); ?>>
                                     <?php echo esc_html($settings['button_text']); ?>
                                 </button>
                             </div>
@@ -355,8 +365,8 @@ class Ehtazem_Coming_Soon_Widget extends \Elementor\Widget_Base {
                                     <img src="<?php echo esc_url($settings['side_image']['url']); ?>" alt="image" class="side2-soon-image">
                                 </div>
                                 <div class="soon-side2-desc">
-                                    <p class="side-2soon-p1"><?php echo esc_html($settings['side_text_1']); ?></p>
-                                    <p class="side-2soon-p2"><?php echo esc_html($settings['side_text_2']); ?></p>
+                                    <p class="side-2soon-p1" <?php echo $this->get_render_attribute_string( 'side_text_1' ); ?>><?php echo esc_html($settings['side_text_1']); ?></p>
+                                    <p class="side-2soon-p2" <?php echo $this->get_render_attribute_string( 'side_text_2' ); ?>><?php echo esc_html($settings['side_text_2']); ?></p>
                                     <div class="soon-side2-deco">
                                         <img src="<?php echo esc_url($settings['side_decoration']['url']); ?>" alt="image" class="soon-side2-deco-img">
                                     </div>

@@ -296,6 +296,16 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'badge_text', 'none' );
+        $this->add_inline_editing_attributes( 'footer_title', 'basic' );
+        $this->add_inline_editing_attributes( 'footer_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'contact_button_text', 'none' );
+        $this->add_inline_editing_attributes( 'phone_number', 'none' );
+        $this->add_inline_editing_attributes( 'email', 'none' );
+        $this->add_inline_editing_attributes( 'copyright_text', 'none' );
+        $this->add_inline_editing_attributes( 'made_by_text', 'none' );
         ?>
         <footer class="site-footer" id="footer">
             <div class="container">
@@ -338,7 +348,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
                         <div class="col-12 col-lg-4 order-lg-1">
                             <div class="contact-chips-container">
                                 <a href="tel:<?php echo esc_attr(str_replace(' ', '', $settings['phone_number'])); ?>" class="contact-chip contact-chip-right">
-                                    <span class="chip-text"><?php echo esc_html($settings['phone_number']); ?></span>
+                                    <span class="chip-text" <?php echo $this->get_render_attribute_string( 'phone_number' ); ?>><?php echo esc_html($settings['phone_number']); ?></span>
                                 </a>
                             </div>
                         </div>
@@ -346,12 +356,14 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
                         <!-- Main Footer Content -->
                         <div class="col-12 col-lg-4 order-lg-2">
                             <div class="footer-head">
-                                <div class="badge footer-badge"><?php echo esc_html($settings['badge_text']); ?></div>
-                                <h2 class="footer-title"><?php echo esc_html($settings['footer_title']); ?></h2>
-                                <p class="footer-intro"><?php echo esc_html($settings['footer_description']); ?></p>
+                                <div class="badge footer-badge" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>><?php echo esc_html($settings['badge_text']); ?></div>
+                                <h2 class="footer-title" <?php echo $this->get_render_attribute_string( 'footer_title' ); ?>><?php echo esc_html($settings['footer_title']); ?></h2>
+                                <p class="footer-intro" <?php echo $this->get_render_attribute_string( 'footer_description' ); ?>><?php echo esc_html($settings['footer_description']); ?></p>
                                 <div class="footer-contact-button">
                                     <a class="footer-contact-btn" href="<?php echo esc_url($settings['contact_button_link']['url']); ?>">
-                                        <?php echo esc_html($settings['contact_button_text']); ?>
+                                        <span <?php echo $this->get_render_attribute_string( 'contact_button_text' ); ?>>
+                                            <?php echo esc_html($settings['contact_button_text']); ?>
+                                        </span>
                                         <i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
                                     </a>
                                 </div>
@@ -362,7 +374,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
                         <div class="col-12 col-lg-4 order-lg-3">
                             <div class="contact-chips-container">
                                 <a href="mailto:<?php echo esc_attr($settings['email']); ?>" class="contact-chip contact-chip-left">
-                                    <span class="chip-text"><?php echo esc_html($settings['email']); ?></span>
+                                    <span class="chip-text" <?php echo $this->get_render_attribute_string( 'email' ); ?>><?php echo esc_html($settings['email']); ?></span>
                                 </a>
                             </div>
                         </div>
@@ -375,12 +387,12 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
                         <div class="col-12 col-md-6">
                             <div class="brand-mini">
                                 <img src="<?php echo esc_url($settings['brand_logo']['url']); ?>" alt="Ehtazem" class="brand-mini-logo">
-                                <p class="copyright"><?php echo esc_html($settings['copyright_text']); ?></p>
+                                <p class="copyright" <?php echo $this->get_render_attribute_string( 'copyright_text' ); ?>><?php echo esc_html($settings['copyright_text']); ?></p>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="made-by">
-                                <span class="madeby-p"><?php echo esc_html($settings['made_by_text']); ?></span>
+                                <span class="madeby-p" <?php echo $this->get_render_attribute_string( 'made_by_text' ); ?>><?php echo esc_html($settings['made_by_text']); ?></span>
                                 <img src="<?php echo esc_url($settings['made_by_logo']['url']); ?>" alt="PUIUX" class="made-by-logo">
                             </div>
                         </div>

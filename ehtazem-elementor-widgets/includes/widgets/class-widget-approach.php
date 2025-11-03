@@ -302,30 +302,41 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'badge_text', 'none' );
+        $this->add_inline_editing_attributes( 'title', 'basic' );
+        $this->add_inline_editing_attributes( 'description', 'advanced' );
+        $this->add_inline_editing_attributes( 'button_text', 'none' );
+        $this->add_inline_editing_attributes( 'circle_top_text', 'none' );
+        $this->add_inline_editing_attributes( 'circle_bottom_right_text', 'none' );
+        $this->add_inline_editing_attributes( 'circle_bottom_left_text', 'none' );
         ?>
         <section class="approach-section" id="approach-section">
             <div class="container">
                 <div class="approach-container">
                     <div class="approach-right">
-                        <div class="badge badge-small" data-aos="fade-left" data-aos-duration="1500">
+                        <div class="badge badge-small" data-aos="fade-left" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
                             <?php echo esc_html($settings['badge_text']); ?>
                         </div>
-                        <h2 class="approach-title" data-aos="fade-left" data-aos-duration="1800">
+                        <h2 class="approach-title" data-aos="fade-left" data-aos-duration="1800" <?php echo $this->get_render_attribute_string( 'title' ); ?>>
                             <?php echo wp_kses_post($settings['title']); ?>
                         </h2>
-                        <p class="approach-text" data-aos="fade-left" data-aos-duration="1900">
+                        <p class="approach-text" data-aos="fade-left" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'description' ); ?>>
                             <?php echo esc_html($settings['description']); ?>
                         </p>
                         <a class="standard-contact-btn" href="<?php echo esc_url($settings['button_link']['url']); ?>" data-aos="fade-left" data-aos-duration="1900">
-                            <?php echo esc_html($settings['button_text']); ?>
+                            <span <?php echo $this->get_render_attribute_string( 'button_text' ); ?>>
+                                <?php echo esc_html($settings['button_text']); ?>
+                            </span>
                             <i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
                         </a>
                     </div>
                     <div class="approach-left" data-aos="fade-right" data-aos-duration="1500">
                         <div class="circle-grid">
-                            <div class="circle circle-top"><?php echo esc_html($settings['circle_top_text']); ?></div>
-                            <div class="circle circle-bottom-right"><?php echo esc_html($settings['circle_bottom_right_text']); ?></div>
-                            <div class="circle circle-bottom-left"><?php echo esc_html($settings['circle_bottom_left_text']); ?></div>
+                            <div class="circle circle-top" <?php echo $this->get_render_attribute_string( 'circle_top_text' ); ?>><?php echo esc_html($settings['circle_top_text']); ?></div>
+                            <div class="circle circle-bottom-right" <?php echo $this->get_render_attribute_string( 'circle_bottom_right_text' ); ?>><?php echo esc_html($settings['circle_bottom_right_text']); ?></div>
+                            <div class="circle circle-bottom-left" <?php echo $this->get_render_attribute_string( 'circle_bottom_left_text' ); ?>><?php echo esc_html($settings['circle_bottom_left_text']); ?></div>
                         </div>
                     </div>
                 </div>

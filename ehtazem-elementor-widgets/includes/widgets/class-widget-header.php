@@ -368,6 +368,10 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$logo_url = $settings['logo_image']['url'];
 		$logo_link = $settings['logo_link']['url'];
+
+		// Add inline editing attributes
+		$this->add_inline_editing_attributes( 'menu_button_text', 'none' );
+		$this->add_inline_editing_attributes( 'contact_button_text', 'none' );
 		?>
 
 		<header class="header" id="header">
@@ -380,7 +384,7 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 					</div>
 					<div class="menu">
 						<div class="dropdown">
-							<button class="btn menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<button class="btn menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" <?php echo $this->get_render_attribute_string( 'menu_button_text' ); ?>>
 								<?php echo esc_html( $settings['menu_button_text'] ); ?>
 							</button>
 							<ul class="dropdown-menu">
@@ -396,8 +400,11 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 
 								<!-- Menu Items -->
 								<li class="menu-items-wrapper">
-									<?php foreach ( $settings['menu_items'] as $item ) : ?>
-										<a class="dropdown-item" href="<?php echo esc_attr( $item['menu_item_link'] ); ?>">
+									<?php foreach ( $settings['menu_items'] as $index => $item ) :
+										$menu_item_key = 'menu_items.' . $index . '.menu_item_text';
+										$this->add_inline_editing_attributes( $menu_item_key, 'none' );
+									?>
+										<a class="dropdown-item" href="<?php echo esc_attr( $item['menu_item_link'] ); ?>" <?php echo $this->get_render_attribute_string( $menu_item_key ); ?>>
 											<?php echo esc_html( $item['menu_item_text'] ); ?>
 										</a>
 									<?php endforeach; ?>
@@ -406,7 +413,9 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 								<!-- Menu Footer with Contact Button -->
 								<li>
 									<a href="<?php echo esc_attr( $settings['contact_button_link'] ); ?>" class="contactUs-btn-header" data-bs-toggle="dropdown">
-										<?php echo esc_html( $settings['contact_button_text'] ); ?>
+										<span <?php echo $this->get_render_attribute_string( 'contact_button_text' ); ?>>
+											<?php echo esc_html( $settings['contact_button_text'] ); ?>
+										</span>
 										<?php if ( 'yes' === $settings['show_arrow_icon'] ) : ?>
 											<i class="fa-solid fa-arrow-up arrow-contus-head"></i>
 										<?php endif; ?>
@@ -417,7 +426,9 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 					</div>
 					<div class="contactUs-header">
 						<a href="<?php echo esc_attr( $settings['contact_button_link'] ); ?>" class="contactUs-btn-header">
-							<?php echo esc_html( $settings['contact_button_text'] ); ?>
+							<span <?php echo $this->get_render_attribute_string( 'contact_button_text' ); ?>>
+								<?php echo esc_html( $settings['contact_button_text'] ); ?>
+							</span>
 							<?php if ( 'yes' === $settings['show_arrow_icon'] ) : ?>
 								<i class="fa-solid fa-arrow-up arrow-contus-head"></i>
 							<?php endif; ?>

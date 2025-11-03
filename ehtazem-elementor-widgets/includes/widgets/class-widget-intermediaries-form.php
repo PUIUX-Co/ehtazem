@@ -368,6 +368,14 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$widget_id = $this->get_id();
+
+		// Add inline editing attributes
+		$this->add_inline_editing_attributes( 'badge_text', 'none' );
+		$this->add_inline_editing_attributes( 'title', 'basic' );
+		$this->add_inline_editing_attributes( 'description', 'advanced' );
+		$this->add_inline_editing_attributes( 'investment_title', 'basic' );
+		$this->add_inline_editing_attributes( 'percentage', 'none' );
+		$this->add_inline_editing_attributes( 'submit_button_text', 'none' );
 		?>
 
 		<section class="intermediaries-section" id="intermediaries-section">
@@ -380,19 +388,19 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 				<div class="row">
 					<div class="col-md-5">
 						<div class="intermediaries-intro">
-							<div class="badge intermediate-badge" data-aos="fade-left" data-aos-duration="1500">
+							<div class="badge intermediate-badge" data-aos="fade-left" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
 								<?php echo esc_html( $settings['badge_text'] ); ?>
 							</div>
-							<h4 class="intermediate-title" data-aos="fade-left" data-aos-duration="1900">
+							<h4 class="intermediate-title" data-aos="fade-left" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'title' ); ?>>
 								<?php echo nl2br( esc_html( $settings['title'] ) ); ?>
 							</h4>
-							<p class="intermediate-p" data-aos="fade-left" data-aos-duration="2000">
+							<p class="intermediate-p" data-aos="fade-left" data-aos-duration="2000" <?php echo $this->get_render_attribute_string( 'description' ); ?>>
 								<?php echo nl2br( esc_html( $settings['description'] ) ); ?>
 							</p>
 							<div class="intermediares-percent">
 								<div class="invest-ehtazem" data-aos="fade-left" data-aos-duration="2200">
-									<h5 class="invest-ehtazem-h"><?php echo esc_html( $settings['investment_title'] ); ?></h5>
-									<div class="percent"><?php echo esc_html( $settings['percentage'] ); ?></div>
+									<h5 class="invest-ehtazem-h" <?php echo $this->get_render_attribute_string( 'investment_title' ); ?>><?php echo esc_html( $settings['investment_title'] ); ?></h5>
+									<div class="percent" <?php echo $this->get_render_attribute_string( 'percentage' ); ?>><?php echo esc_html( $settings['percentage'] ); ?></div>
 								</div>
 								<div class="ehtazem-percent-curve" data-aos="fade-left" data-aos-duration="2300">
 									<svg width="184" height="95" viewBox="0 0 184 95" fill="none" xmlns="http://www.w3.org/2000/svg" class="percent-curve">
@@ -453,7 +461,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 								</div>
 
 								<div class="submit-b">
-									<button type="submit" class="btn-submit">
+									<button type="submit" class="btn-submit" <?php echo $this->get_render_attribute_string( 'submit_button_text' ); ?>>
 										<?php echo esc_html( $settings['submit_button_text'] ); ?>
 									</button>
 								</div>

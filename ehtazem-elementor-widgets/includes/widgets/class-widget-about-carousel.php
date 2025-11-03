@@ -342,15 +342,19 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $widget_id = $this->get_id();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'title', 'basic' );
+        $this->add_inline_editing_attributes( 'description', 'advanced' );
         ?>
         <section class="aboutUs-section" id="aboutUs-section">
             <div class="container">
                 <div class="aboutUs-content">
                     <div class="aboutUs-intro">
-                        <div class="aboutUs-title" data-aos="zoom-in" data-aos-duration="1500">
+                        <div class="aboutUs-title" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'title' ); ?>>
                             <?php echo esc_html($settings['title']); ?>
                         </div>
-                        <p class="aboutUs-desc" data-aos="zoom-in" data-aos-duration="1900">
+                        <p class="aboutUs-desc" data-aos="zoom-in" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'description' ); ?>>
                             <?php echo esc_html($settings['description']); ?>
                         </p>
                     </div>

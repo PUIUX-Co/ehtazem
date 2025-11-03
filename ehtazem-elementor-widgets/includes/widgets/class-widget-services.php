@@ -335,6 +335,17 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'section_title', 'basic' );
+        $this->add_inline_editing_attributes( 'section_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'service_1_title', 'basic' );
+        $this->add_inline_editing_attributes( 'service_1_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'service_2_title', 'basic' );
+        $this->add_inline_editing_attributes( 'service_2_description', 'advanced' );
+        $this->add_inline_editing_attributes( 'contact_text', 'none' );
+        $this->add_inline_editing_attributes( 'side_text_1', 'basic' );
+        $this->add_inline_editing_attributes( 'side_text_2', 'basic' );
         ?>
         <section class="ourServices-section" id="ourServices-section">
             <div class="container">
@@ -342,33 +353,35 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
                     <div class="col-md-5">
                         <div class="side-1-serv">
                             <div class="ourServices-intro">
-                                <h2 class="our-services-title" data-aos="fade-left" data-aos-duration="1500">
+                                <h2 class="our-services-title" data-aos="fade-left" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'section_title' ); ?>>
                                     <?php echo esc_html($settings['section_title']); ?>
                                 </h2>
-                                <p class="our-services-introdescrep" data-aos="fade-left" data-aos-duration="1900">
+                                <p class="our-services-introdescrep" data-aos="fade-left" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'section_description' ); ?>>
                                     <?php echo wp_kses_post($settings['section_description']); ?>
                                 </p>
                             </div>
                             <div class="serv-1">
                                 <div class="serv-1-intro" data-aos="fade-left" data-aos-duration="2000">
                                     <img class="serv-1-image" src="<?php echo esc_url($settings['service_1_image']['url']); ?>" />
-                                    <h2 class="serv-1-title"><?php echo esc_html($settings['service_1_title']); ?></h2>
+                                    <h2 class="serv-1-title" <?php echo $this->get_render_attribute_string( 'service_1_title' ); ?>><?php echo esc_html($settings['service_1_title']); ?></h2>
                                 </div>
-                                <p class="serv-1-descrep" data-aos="fade-left" data-aos-duration="2200">
+                                <p class="serv-1-descrep" data-aos="fade-left" data-aos-duration="2200" <?php echo $this->get_render_attribute_string( 'service_1_description' ); ?>>
                                     <?php echo esc_html($settings['service_1_description']); ?>
                                 </p>
                             </div>
                             <div class="serv-2">
                                 <div class="serv-2-intro" data-aos="fade-left" data-aos-duration="2500">
                                     <img class="serv-2-image" src="<?php echo esc_url($settings['service_2_image']['url']); ?>" />
-                                    <h2 class="serv-2-title"><?php echo esc_html($settings['service_2_title']); ?></h2>
+                                    <h2 class="serv-2-title" <?php echo $this->get_render_attribute_string( 'service_2_title' ); ?>><?php echo esc_html($settings['service_2_title']); ?></h2>
                                 </div>
-                                <p class="serv-2-descrep" data-aos="fade-left" data-aos-duration="2900">
+                                <p class="serv-2-descrep" data-aos="fade-left" data-aos-duration="2900" <?php echo $this->get_render_attribute_string( 'service_2_description' ); ?>>
                                     <?php echo esc_html($settings['service_2_description']); ?>
                                 </p>
                             </div>
                             <a class="serveces-contact" href="<?php echo esc_url($settings['contact_link']['url']); ?>">
-                                <?php echo esc_html($settings['contact_text']); ?>
+                                <span <?php echo $this->get_render_attribute_string( 'contact_text' ); ?>>
+                                    <?php echo esc_html($settings['contact_text']); ?>
+                                </span>
                                 <i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
                             </a>
                         </div>
@@ -379,8 +392,8 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
                                 <img src="<?php echo esc_url($settings['side_image']['url']); ?>" alt="picture" class="services-images">
                             </div>
                             <div class="serv-side-2-desc">
-                                <p class="side-2-p1"><?php echo esc_html($settings['side_text_1']); ?></p>
-                                <p class="side-2-p2"><?php echo esc_html($settings['side_text_2']); ?></p>
+                                <p class="side-2-p1" <?php echo $this->get_render_attribute_string( 'side_text_1' ); ?>><?php echo esc_html($settings['side_text_1']); ?></p>
+                                <p class="side-2-p2" <?php echo $this->get_render_attribute_string( 'side_text_2' ); ?>><?php echo esc_html($settings['side_text_2']); ?></p>
                                 <div class="serv-deco">
                                     <img src="<?php echo esc_url($settings['side_decoration']['url']); ?>" alt="image" class="serv-deco-img">
                                 </div>

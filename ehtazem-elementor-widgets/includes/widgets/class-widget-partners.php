@@ -263,28 +263,40 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+
+        // Add inline editing attributes
+        $this->add_inline_editing_attributes( 'badge_text', 'none' );
+        $this->add_inline_editing_attributes( 'section_title', 'basic' );
+        $this->add_inline_editing_attributes( 'section_description', 'advanced' );
         ?>
         <section class="Ourpartners-section" id="Ourpartners-section">
             <div class="container">
                 <div class="Ourpartners-intro">
-                    <div class="badge Ourpartners-badge" data-aos="zoom-in" data-aos-duration="1500">
+                    <div class="badge Ourpartners-badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
                         <?php echo esc_html($settings['badge_text']); ?>
                     </div>
-                    <h4 class="Ourpartners-title" data-aos="zoom-in" data-aos-duration="1900">
+                    <h4 class="Ourpartners-title" data-aos="zoom-in" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'section_title' ); ?>>
                         <?php echo esc_html($settings['section_title']); ?>
                     </h4>
-                    <p class="Ourpartners-para" data-aos="zoom-in" data-aos-duration="2200">
+                    <p class="Ourpartners-para" data-aos="zoom-in" data-aos-duration="2200" <?php echo $this->get_render_attribute_string( 'section_description' ); ?>>
                         <?php echo esc_html($settings['section_description']); ?>
                     </p>
                 </div>
                 <div class="parteners-cards">
                     <div class="row g-4">
-                        <?php foreach ($settings['partners_list'] as $partner) : ?>
+                        <?php foreach ($settings['partners_list'] as $index => $partner) :
+                            $name_key = 'partners_list.' . $index . '.partner_name';
+                            $position_key = 'partners_list.' . $index . '.partner_position';
+                            $desc_key = 'partners_list.' . $index . '.partner_description';
+                            $this->add_inline_editing_attributes( $name_key, 'basic' );
+                            $this->add_inline_editing_attributes( $position_key, 'basic' );
+                            $this->add_inline_editing_attributes( $desc_key, 'advanced' );
+                        ?>
                             <div class="col-12 col-sm-6 col-lg-3">
                                 <div class="partener-card">
-                                    <h2 class="partener-card-name"><?php echo esc_html($partner['partner_name']); ?></h2>
-                                    <h4 class="partener-card-position"><?php echo esc_html($partner['partner_position']); ?></h4>
-                                    <p class="partener-card-desc"><?php echo esc_html($partner['partner_description']); ?></p>
+                                    <h2 class="partener-card-name" <?php echo $this->get_render_attribute_string( $name_key ); ?>><?php echo esc_html($partner['partner_name']); ?></h2>
+                                    <h4 class="partener-card-position" <?php echo $this->get_render_attribute_string( $position_key ); ?>><?php echo esc_html($partner['partner_position']); ?></h4>
+                                    <p class="partener-card-desc" <?php echo $this->get_render_attribute_string( $desc_key ); ?>><?php echo esc_html($partner['partner_description']); ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
