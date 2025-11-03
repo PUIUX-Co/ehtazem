@@ -88,6 +88,15 @@ final class Ehtazem_Elementor_Widgets {
 	}
 
 	/**
+	 * Admin Classes
+	 */
+	private $admin_dashboard;
+	private $admin_settings;
+	private $image_library;
+	private $email_templates;
+	private $system_health;
+
+	/**
 	 * Constructor
 	 *
 	 * @since 1.0.0
@@ -99,6 +108,13 @@ final class Ehtazem_Elementor_Widgets {
 		add_action( 'init', [ $this, 'register_submissions_post_type' ] );
 		add_action( 'wp_ajax_ehtazem_submit_form', [ $this, 'handle_form_submission' ] );
 		add_action( 'wp_ajax_nopriv_ehtazem_submit_form', [ $this, 'handle_form_submission' ] );
+
+		// Admin functionality
+		if ( is_admin() ) {
+			add_action( 'admin_menu', [ $this, 'register_admin_menu' ] );
+			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
+			$this->load_admin_classes();
+		}
 	}
 
 	/**
@@ -601,6 +617,160 @@ final class Ehtazem_Elementor_Widgets {
 			'message' => __( 'تم الإرسال بنجاح', 'ehtazem-elementor' ),
 			'post_id' => $post_id
 		) );
+	}
+
+	/**
+	 * Load Admin Classes
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function load_admin_classes() {
+		require_once( __DIR__ . '/admin/class-admin-dashboard.php' );
+		require_once( __DIR__ . '/admin/class-admin-settings.php' );
+		require_once( __DIR__ . '/admin/class-image-library.php' );
+		require_once( __DIR__ . '/admin/class-email-templates.php' );
+		require_once( __DIR__ . '/admin/class-system-health.php' );
+
+		$this->admin_dashboard = new Ehtazem_Admin_Dashboard();
+		$this->admin_settings = new Ehtazem_Admin_Settings();
+		$this->image_library = new Ehtazem_Image_Library();
+		$this->email_templates = new Ehtazem_Email_Templates();
+		$this->system_health = new Ehtazem_System_Health();
+	}
+
+	/**
+	 * Register Admin Menu
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function register_admin_menu() {
+		// Main menu page
+		add_menu_page(
+			__( 'PUIUX - Ehtazem', 'ehtazem-elementor' ),
+			__( 'PUIUX Ehtazem', 'ehtazem-elementor' ),
+			'manage_options',
+			'ehtazem-dashboard',
+			[ $this->admin_dashboard, 'render' ],
+			'dashicons-building',
+			30
+		);
+
+		// Dashboard submenu (default)
+		add_submenu_page(
+			'ehtazem-dashboard',
+			__( 'لوحة التحكم', 'ehtazem-elementor' ),
+			__( 'لوحة التحكم', 'ehtazem-elementor' ),
+			'manage_options',
+			'ehtazem-dashboard',
+			[ $this->admin_dashboard, 'render' ]
+		);
+
+		// Settings submenu
+		add_submenu_page(
+			'ehtazem-dashboard',
+			__( 'الإعدادات', 'ehtazem-elementor' ),
+			__( 'الإعدادات', 'ehtazem-elementor' ),
+			'manage_options',
+			'ehtazem-settings',
+			[ $this->admin_settings, 'render' ]
+		);
+
+		// Image Library submenu
+		add_submenu_page(
+			'ehtazem-dashboard',
+			__( 'مكتبة الصور', 'ehtazem-elementor' ),
+			__( 'مكتبة الصور', 'ehtazem-elementor' ),
+			'manage_options',
+			'ehtazem-image-library',
+			[ $this->image_library, 'render' ]
+		);
+
+		// Email Templates submenu
+		add_submenu_page(
+			'ehtazem-dashboard',
+			__( 'قوالب البريد الإلكتروني', 'ehtazem-elementor' ),
+			__( 'قوالب البريد', 'ehtazem-elementor' ),
+			'manage_options',
+			'ehtazem-email-templates',
+			[ $this->email_templates, 'render' ]
+		);
+
+		// System Health submenu
+		add_submenu_page(
+			'ehtazem-dashboard',
+			__( 'فحص صحة النظام', 'ehtazem-elementor' ),
+			__( 'فحص النظام', 'ehtazem-elementor' ),
+			'manage_options',
+			'ehtazem-system-health',
+			[ $this->system_health, 'render' ]
+		);
+	}
+
+	/**
+	 * Enqueue Admin Assets
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function enqueue_admin_assets( $hook ) {
+		// Only load on our admin pages
+		if ( strpos( $hook, 'ehtazem' ) === false ) {
+			return;
+		}
+
+		// AOS Library
+		wp_enqueue_style(
+			'ehtazem-aos',
+			'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css',
+			[],
+			'2.3.4'
+		);
+
+		wp_enqueue_script(
+			'ehtazem-aos',
+			'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js',
+			[],
+			'2.3.4',
+			true
+		);
+
+		// Chart.js
+		wp_enqueue_script(
+			'ehtazem-chart',
+			plugins_url( 'admin/assets/js/chart.min.js', __FILE__ ),
+			[],
+			'4.4.0',
+			true
+		);
+
+		// Admin CSS
+		wp_enqueue_style(
+			'ehtazem-admin',
+			plugins_url( 'admin/assets/css/admin.css', __FILE__ ),
+			[],
+			self::VERSION
+		);
+
+		// Admin JS
+		wp_enqueue_script(
+			'ehtazem-admin',
+			plugins_url( 'admin/assets/js/admin.js', __FILE__ ),
+			[ 'jquery', 'ehtazem-chart', 'ehtazem-aos' ],
+			self::VERSION,
+			true
+		);
+
+		// Localize script for AJAX
+		wp_localize_script(
+			'ehtazem-admin',
+			'ehtazemAdmin',
+			[
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce( 'ehtazem_admin_nonce' ),
+			]
+		);
 	}
 }
 
