@@ -71,16 +71,54 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Section Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'خدماتنا الاستثنائية',
                 'label_block' => true,
             ]
         );
+
+		$this->add_responsive_control(
+			'section_title_font_size',
+			[
+				'label' => esc_html__('حجم الخط', 'ehtazem-elementor-widgets'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 120,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.5,
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 48,
+				],
+				'tablet_default' => [
+					'unit' => 'px',
+					'size' => 36,
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => 28,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .our-services-title' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->add_control(
             'section_description',
             [
                 'label' => esc_html__('Section Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::WYSIWYG,
+                'dynamic' => ['active' => true],
                 'default' => 'نقدم حلولاً <strong>عقارية</strong> مبتكرة تضمن الثقة والنجاح <strong>الاستثماري</strong>',
             ]
         );
@@ -101,8 +139,9 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Service 1 Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/cup.png',
                 ],
             ]
         );
@@ -112,16 +151,54 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Service 1 Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'إدارة الصناديق العقارية',
                 'label_block' => true,
             ]
         );
+
+		$this->add_responsive_control(
+			'service_1_title_font_size',
+			[
+				'label' => esc_html__('حجم خط العنوان', 'ehtazem-elementor-widgets'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 80,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.5,
+						'max' => 6,
+						'step' => 0.1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 24,
+				],
+				'tablet_default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => 18,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .serv-1-title' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->add_control(
             'service_1_description',
             [
                 'label' => esc_html__('Service 1 Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'إنشاء، بيع، وإدارة صناديق مرخصة بعوائد مضمونة في بيئة موثوقة، مدعومة باستثمارات مليارية.',
                 'rows' => 3,
             ]
@@ -143,8 +220,9 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Service 2 Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/cup.png',
                 ],
             ]
         );
@@ -154,16 +232,54 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Service 2 Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'الوساطة العقارية مع احتزم',
                 'label_block' => true,
             ]
         );
+
+		$this->add_responsive_control(
+			'service_2_title_font_size',
+			[
+				'label' => esc_html__('حجم خط العنوان', 'ehtazem-elementor-widgets'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 80,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.5,
+						'max' => 6,
+						'step' => 0.1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 24,
+				],
+				'tablet_default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => 18,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .serv-2-title' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->add_control(
             'service_2_description',
             [
                 'label' => esc_html__('Service 2 Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'نهج جديد بمعايير أخلاقية صارمة وفرق متخصصة تضمن تنفيذ صفقات استثمارية بنجاح.',
                 'rows' => 3,
             ]
@@ -185,6 +301,7 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Button Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'تواصل معنا',
                 'label_block' => true,
             ]
@@ -195,6 +312,7 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Button Link', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#contactus-section',
                 ],
@@ -217,8 +335,9 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Side Image', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );
@@ -228,6 +347,7 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Side Text 1', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'احتزم ..',
                 'label_block' => true,
             ]
@@ -238,6 +358,7 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Side Text 2', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '..لتتم',
                 'label_block' => true,
             ]
@@ -248,8 +369,9 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Decoration Image', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );

@@ -71,6 +71,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Badge Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'مزايا احتزم',
                 'label_block' => true,
             ]
@@ -81,8 +82,28 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Main Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'لماذا تختار احتزم؟',
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'main_title_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 120, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 10, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 48],
+                'tablet_default' => ['unit' => 'px', 'size' => 36],
+                'mobile_default' => ['unit' => 'px', 'size' => 28],
+                'selectors' => [
+                    '{{WRAPPER}} .main-title' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -91,6 +112,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Subtitle', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'خبراتنا المتراكمة في استخدام، تطوير التطبيقات البرمجية، خطوط الإنتاج، الاستشارات التقنية المهنية المتنوعة، التسويق الصناعي توفر لك 6 من 10',
                 'rows' => 3,
             ]
@@ -112,6 +134,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Center Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'احتزم',
                 'label_block' => true,
             ]
@@ -122,6 +145,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Under Center Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'احتزم .. لتتم',
                 'label_block' => true,
             ]
@@ -132,8 +156,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Center Background Image', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );
@@ -154,8 +179,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/ranking.png',
                 ],
             ]
         );
@@ -165,8 +191,28 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'استشارات متخصصة في الصناعة',
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'feature_1_title_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 60, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 5, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 24],
+                'tablet_default' => ['unit' => 'px', 'size' => 20],
+                'mobile_default' => ['unit' => 'px', 'size' => 18],
+                'selectors' => [
+                    '{{WRAPPER}} .feature-card.top-right .feature-title' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -175,6 +221,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'استراتيجيات مخصصة مبنية على أساس المجال الصناعي والاحتياجات الفريدة للأعمال والتطوير الرقمي الشامل',
                 'rows' => 3,
             ]
@@ -196,8 +243,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/ranking.png',
                 ],
             ]
         );
@@ -207,6 +255,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'تطبيقات متكاملة',
                 'label_block' => true,
             ]
@@ -217,6 +266,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'حلول برمجية شاملة تغطي كافة جوانب عملك من إدارة الموارد إلى التسويق والمبيعات وخدمة العملاء',
                 'rows' => 3,
             ]
@@ -238,8 +288,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/ranking.png',
                 ],
             ]
         );
@@ -249,6 +300,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'موثوقية وأمان الأنظمة',
                 'label_block' => true,
             ]
@@ -259,6 +311,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'حلول رائدة متقدمة لمواكبة التطورات وضمان استمرارية FMECA وأدوات TRIZ أمان البيانات في مرافق الإنتاج',
                 'rows' => 3,
             ]
@@ -280,8 +333,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/ranking.png',
                 ],
             ]
         );
@@ -291,6 +345,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'تحليل احصائي متقدم',
                 'label_block' => true,
             ]
@@ -301,6 +356,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'إمكانيات تحليلية لا مثيل لها لإيجاد رؤى تحليلية وإحصائية قابلة للتنفيذ والتطوير واتخاذ قرارات فعالة',
                 'rows' => 3,
             ]
@@ -322,8 +378,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Star Image', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );
@@ -333,8 +390,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Line Image', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );
@@ -344,8 +402,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Path Image 1', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );
@@ -355,8 +414,9 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Path Image 2', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );

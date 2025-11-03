@@ -71,6 +71,7 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Badge Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'رؤية متكاملة',
                 'label_block' => true,
             ]
@@ -81,16 +82,54 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'قوتنا على مستويين متكاملين',
                 'label_block' => true,
             ]
         );
+
+		$this->add_responsive_control(
+			'intro_title_font_size',
+			[
+				'label' => esc_html__('حجم الخط', 'ehtazem-elementor-widgets'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 120,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.5,
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 48,
+				],
+				'tablet_default' => [
+					'unit' => 'px',
+					'size' => 36,
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => 28,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .vision-intro-title' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->add_control(
             'intro_description',
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'نتميز بقوة مزدوجة تجمع بين شبكة تحالفات عالمية تفتح لنا أسواقًا جديدة بخبرات راسخة، وفريق نخبة من الخبراء يحول الرؤية إلى إنجازات واقعية.',
                 'rows' => 3,
             ]
@@ -112,6 +151,7 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Number', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '001',
                 'label_block' => true,
             ]
@@ -122,16 +162,54 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'شبكة التحالفات العالمية',
                 'label_block' => true,
             ]
         );
+
+		$this->add_responsive_control(
+			'vision_1_title_font_size',
+			[
+				'label' => esc_html__('حجم خط العنوان', 'ehtazem-elementor-widgets'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 80,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.5,
+						'max' => 6,
+						'step' => 0.1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 24,
+				],
+				'tablet_default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => 18,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .desc-title' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->add_control(
             'vision_1_description',
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'انطلاقًا من جذورنا المحلية الراسخة التي امتدت لشراكات استراتيجية مع كيانات عالمية واستثمارات دولية مرموقة، فتحنا أبوابًا لأسواق جديدة. هذه الشراكات لم تقتصر على الاسم، بل نقلت خبرات حقيقية إلى مشاريعنا. نضمن لكل مشروع ميزة تنافسية وبصمة مبتكرة تضمن له الاستدامة والجاذبية السوقية.',
                 'rows' => 5,
             ]
@@ -153,6 +231,7 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Number', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '002',
                 'label_block' => true,
             ]
@@ -163,6 +242,7 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'فريق من نخبة الخبراء',
                 'label_block' => true,
             ]
@@ -173,6 +253,7 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'اخترنا بعناية فريقًا متكاملًا يضم خبراء في العقار، الاستثمار، الهندسة، وإدارة الصفقات. كل عضو يشغل موقعه لأنه يمتلك خبرة عميقة وقدرة حقيقية على تحويل الرؤية إلى إنجاز. هذا الفريق هو الذراع التنفيذي الذي يحول الفرص إلى مشاريع متكاملة، والمشاريع إلى قصص نجاح ترفع سقف التوقعات وتلزم السوق كله بالارتقاء.',
                 'rows' => 5,
             ]

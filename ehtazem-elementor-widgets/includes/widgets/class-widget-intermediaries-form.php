@@ -90,6 +90,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'نص الشارة', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'بوابة الوسطاء', 'ehtazem-elementor' ),
 				'label_block' => true,
 			]
@@ -100,8 +101,28 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'العنوان', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'ضع عرضك الآن', 'ehtazem-elementor' ),
 				'rows' => 2,
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_font_size',
+			[
+				'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => ['min' => 10, 'max' => 120, 'step' => 1],
+					'em' => ['min' => 0.5, 'max' => 10, 'step' => 0.1],
+				],
+				'default' => ['unit' => 'px', 'size' => 48],
+				'tablet_default' => ['unit' => 'px', 'size' => 36],
+				'mobile_default' => ['unit' => 'px', 'size' => 28],
+				'selectors' => [
+					'{{WRAPPER}} .intermediate-title' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -110,6 +131,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'الوصف', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'بعد الموافقة على عرضك من قِبل وحدة التمكين العقاري، نضمن لك الوصول إلى مشترٍ مناسب خلال فترة وجيزة.', 'ehtazem-elementor' ),
 				'rows' => 3,
 			]
@@ -120,6 +142,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'عنوان الاستثمار', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'استثمر مع احتزم', 'ehtazem-elementor' ),
 				'label_block' => true,
 			]
@@ -130,6 +153,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'نسبة الاستثمار', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( '50%+', 'ehtazem-elementor' ),
 			]
 		);
@@ -139,6 +163,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'نص زر الإرسال', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'إرسال', 'ehtazem-elementor' ),
 			]
 		);
@@ -159,8 +184,9 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'صورة الديكور', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
+				'dynamic' => ['active' => true],
 				'default' => [
-					'url' => plugins_url( 'assets/images/Group 594.png', dirname( dirname( __FILE__ ) ) . '/ehtazem-elementor.php' ),
+					'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/Group 594.png',
 				],
 			]
 		);
@@ -181,6 +207,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'رسالة النجاح', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'تم الإرسال ✓', 'ehtazem-elementor' ),
 			]
 		);
@@ -190,6 +217,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'رسالة الخطأ', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'حدث خطأ، يرجى المحاولة مرة أخرى', 'ehtazem-elementor' ),
 			]
 		);
@@ -199,6 +227,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'رسالة الحقل المطلوب', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'من فضلك املأ جميع الحقول المطلوبة', 'ehtazem-elementor' ),
 			]
 		);
@@ -208,6 +237,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'رسالة رقم الهاتف غير صحيح', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'رقم الهاتف غير صحيح (يجب أن يكون 10 أرقام على الأقل)', 'ehtazem-elementor' ),
 			]
 		);

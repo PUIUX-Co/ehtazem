@@ -71,6 +71,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Instagram URL', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#',
                 ],
@@ -82,6 +83,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Meta URL', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#',
                 ],
@@ -93,6 +95,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('LinkedIn URL', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#',
                 ],
@@ -104,6 +107,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Google URL', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#',
                 ],
@@ -115,6 +119,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Twitter URL', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#',
                 ],
@@ -137,6 +142,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Phone Number', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '+966 544420258',
                 'label_block' => true,
             ]
@@ -147,6 +153,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Email', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'welcome@ehtazem.com',
                 'label_block' => true,
             ]
@@ -168,6 +175,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Badge Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'إحتزم...لتتم',
                 'label_block' => true,
             ]
@@ -178,8 +186,28 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Footer Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'وحدة التمكين العقاري',
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'footer_title_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 120, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 10, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 36],
+                'tablet_default' => ['unit' => 'px', 'size' => 28],
+                'mobile_default' => ['unit' => 'px', 'size' => 24],
+                'selectors' => [
+                    '{{WRAPPER}} .footer-title' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -188,6 +216,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Footer Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'نعيد صياغة السوق العقاري السعودي من خلال حلول مبتكرة في الوساطة وإدارة الصناديق العقارية، مدعومين باستثمارات مليارية، تراخيص من هيئة سوق المال، وشراكات عالمية.',
                 'rows' => 5,
             ]
@@ -198,6 +227,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Contact Button Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'تواصل معنا',
                 'label_block' => true,
             ]
@@ -208,6 +238,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Contact Button Link', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#contactus-section',
                 ],
@@ -242,8 +273,9 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Brand Logo', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/ehtazemfooterlogo.svg',
                 ],
             ]
         );
@@ -253,6 +285,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Copyright Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '©2025 جميع الحقوق محفوظة لشركة احتزم',
                 'label_block' => true,
             ]
@@ -263,6 +296,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Made By Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'صنع من قبل',
                 'label_block' => true,
             ]
@@ -273,8 +307,9 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Made By Logo', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/PUIUX.svg',
                 ],
             ]
         );

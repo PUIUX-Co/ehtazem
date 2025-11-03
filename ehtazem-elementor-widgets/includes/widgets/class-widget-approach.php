@@ -71,6 +71,7 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Badge Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'معاييرنا',
                 'label_block' => true,
             ]
@@ -81,8 +82,28 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'نهج فريد يجمع بين الشفافية،<br> الجودة',
                 'rows' => 2,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'title_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 120, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 10, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 48],
+                'tablet_default' => ['unit' => 'px', 'size' => 36],
+                'mobile_default' => ['unit' => 'px', 'size' => 28],
+                'selectors' => [
+                    '{{WRAPPER}} .approach-title' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -91,6 +112,7 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'في احتزم نلزم معايير صارمة تُعيد صياغة السوق العقاري. نُنجز الشفافية بين تقييم الصفقات بدقة وكود أخلاقي صارم، ومعيار IREQI المعتمد لضمان استثمارات مالية ناضجة تدعم رؤية الجيل العقاري القادم.',
                 'rows' => 5,
             ]
@@ -101,6 +123,7 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Button Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'تواصل معنا',
                 'label_block' => true,
             ]
@@ -111,6 +134,7 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Button Link', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::URL,
+                'dynamic' => ['active' => true],
                 'default' => [
                     'url' => '#contactus-section',
                 ],
@@ -133,8 +157,28 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Top Circle Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'عيار IREQI',
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'circle_top_text_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 60, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 5, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 24],
+                'tablet_default' => ['unit' => 'px', 'size' => 20],
+                'mobile_default' => ['unit' => 'px', 'size' => 18],
+                'selectors' => [
+                    '{{WRAPPER}} .circle-top' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -143,6 +187,7 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Bottom Right Circle Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'كود أخلاقى',
                 'label_block' => true,
             ]
@@ -153,6 +198,7 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Bottom Left Circle Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'تقييم الصفقات',
                 'label_block' => true,
             ]

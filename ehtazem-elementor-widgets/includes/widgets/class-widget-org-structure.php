@@ -71,6 +71,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Badge Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'رحلتنا',
                 'label_block' => true,
             ]
@@ -81,8 +82,28 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'هيكل تنظيمي متين يضمن تنفيذ<br>المشاريع بكفاءة',
                 'rows' => 2,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'section_title_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 120, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 10, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 48],
+                'tablet_default' => ['unit' => 'px', 'size' => 36],
+                'mobile_default' => ['unit' => 'px', 'size' => 28],
+                'selectors' => [
+                    '{{WRAPPER}} .org-title' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -102,6 +123,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Number', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '1',
                 'label_block' => true,
             ]
@@ -112,6 +134,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'دائرة الاكتشاف<br>العقاري',
                 'rows' => 2,
             ]
@@ -122,6 +145,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'لضمان توفير حلول متنوعة<br>للعملاء نبحث حلا منفصلا',
                 'rows' => 2,
             ]
@@ -132,8 +156,9 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/Ellipse_2990.png',
                 ],
             ]
         );
@@ -154,6 +179,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Number', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '2',
                 'label_block' => true,
             ]
@@ -164,6 +190,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'دائرة التوثيق<br>والتسجيل',
                 'rows' => 2,
             ]
@@ -174,6 +201,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'تمحيص الوجهة والقيام<br>بالمراسم الملحقية',
                 'rows' => 2,
             ]
@@ -184,8 +212,9 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/Ellipse_2990.png',
                 ],
             ]
         );
@@ -206,6 +235,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Number', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => '3',
                 'label_block' => true,
             ]
@@ -216,6 +246,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'دائرة التمكين<br>والعلاقات',
                 'rows' => 2,
             ]
@@ -226,6 +257,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'بناء شراكات استراتيجية<br>مدنية ومالية',
                 'rows' => 2,
             ]
@@ -236,8 +268,9 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Icon', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/Ellipse_2990.png',
                 ],
             ]
         );

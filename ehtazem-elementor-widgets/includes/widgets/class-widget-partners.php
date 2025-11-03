@@ -71,6 +71,7 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Badge Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'شركاؤنا',
                 'label_block' => true,
             ]
@@ -81,8 +82,28 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'قادة يصنعون المستقبل',
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'section_title_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 120, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 10, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 48],
+                'tablet_default' => ['unit' => 'px', 'size' => 36],
+                'mobile_default' => ['unit' => 'px', 'size' => 28],
+                'selectors' => [
+                    '{{WRAPPER}} .Ourpartners-title' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -91,6 +112,7 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'احتزم، يقود فريقنا من الشركاء ذوي الرؤية الثاقبة والخبرة العميقة وحدة التمكين العقاري نحو إعادة صياغة السوق. كل شريك يترك بصمة مميزة تجمع بين الابتكار،',
                 'rows' => 3,
             ]
@@ -114,6 +136,7 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Partner Name', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'م. مشاري مطر العتيبي',
                 'label_block' => true,
             ]
@@ -124,6 +147,7 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Position', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'مؤسس شركة احتزم',
                 'label_block' => true,
             ]
@@ -134,6 +158,7 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'صياغة معايير جديدة للسوق والبداية من المشاريع العملاقة',
                 'rows' => 3,
             ]

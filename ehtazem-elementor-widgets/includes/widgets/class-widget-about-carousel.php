@@ -79,22 +79,96 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'نبذة عن احتزم',
                 'placeholder' => esc_html__('Enter title', 'ehtazem-elementor-widgets'),
                 'label_block' => true,
             ]
         );
 
+		$this->add_responsive_control(
+			'title_font_size',
+			[
+				'label' => esc_html__('حجم الخط', 'ehtazem-elementor-widgets'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 120,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.5,
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 48,
+				],
+				'tablet_default' => [
+					'unit' => 'px',
+					'size' => 36,
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => 28,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .aboutUs-title' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
         $this->add_control(
             'description',
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'نلتزم ببناء الثقة من خلال تنفيذ مشاريع عقارية بأعلى معايير الاحترافية. مع تاريخ من الإنجازات الملموسة، نضمن لمستثمرينا تنفيذًا دقيقًا وشفافًا، مدعومين بخبراتنا الواسعة في السوق السعودي.',
                 'placeholder' => esc_html__('Enter description', 'ehtazem-elementor-widgets'),
                 'rows' => 5,
             ]
         );
+
+		$this->add_responsive_control(
+			'description_font_size',
+			[
+				'label' => esc_html__('حجم خط الوصف', 'ehtazem-elementor-widgets'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', 'em', 'rem'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 60,
+						'step' => 1,
+					],
+					'em' => [
+						'min' => 0.5,
+						'max' => 5,
+						'step' => 0.1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 18,
+				],
+				'tablet_default' => [
+					'unit' => 'px',
+					'size' => 16,
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .aboutUs-desc' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->end_controls_section();
 
@@ -114,8 +188,9 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Image', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );
@@ -125,6 +200,7 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Image Alt Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'aboutUs-image',
                 'label_block' => true,
             ]
@@ -162,6 +238,7 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Slides Per View', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
+                'dynamic' => ['active' => true],
                 'default' => 3,
                 'min' => 1,
                 'max' => 10,
@@ -173,6 +250,7 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Space Between Slides', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
+                'dynamic' => ['active' => true],
                 'default' => 30,
                 'min' => 0,
                 'max' => 100,
@@ -208,6 +286,7 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Autoplay Delay (ms)', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
+                'dynamic' => ['active' => true],
                 'default' => 3000,
                 'min' => 1000,
                 'max' => 10000,
@@ -222,6 +301,7 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Speed (ms)', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
+                'dynamic' => ['active' => true],
                 'default' => 500,
                 'min' => 100,
                 'max' => 3000,

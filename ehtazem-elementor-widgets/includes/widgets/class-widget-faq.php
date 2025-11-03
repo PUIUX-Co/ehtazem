@@ -71,6 +71,7 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Badge Text', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'سؤال وجواب',
                 'label_block' => true,
             ]
@@ -81,8 +82,28 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Title', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'الأسئلة الشائعة',
                 'label_block' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'section_title_font_size',
+            [
+                'label' => esc_html__('حجم الخط', 'ehtazem-elementor'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 10, 'max' => 120, 'step' => 1],
+                    'em' => ['min' => 0.5, 'max' => 10, 'step' => 0.1],
+                ],
+                'default' => ['unit' => 'px', 'size' => 48],
+                'tablet_default' => ['unit' => 'px', 'size' => 36],
+                'mobile_default' => ['unit' => 'px', 'size' => 28],
+                'selectors' => [
+                    '{{WRAPPER}} .faq-title' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -91,6 +112,7 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Description', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'نهجنا المتكامل يجمع بين تقييم الصفقات بدقة، كود أخلاقي صلب، ومعيار REQI المبتكر، لضمان استثمارات مليارية ناجحة تدعم رؤية الجيل العقاري القادم.',
                 'rows' => 3,
             ]
@@ -101,8 +123,9 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Center Decoration Image', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'dynamic' => ['active' => true],
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugin_dir_url(dirname(__FILE__, 2)) . 'assets/images/image 1.png',
                 ],
             ]
         );
@@ -125,6 +148,7 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Question', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'dynamic' => ['active' => true],
                 'default' => 'ما الذي يميز احتزم في إدارة الصناديق العقارية؟',
                 'label_block' => true,
             ]
@@ -135,6 +159,7 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Answer', 'ehtazem-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'dynamic' => ['active' => true],
                 'default' => 'نقدّم صناديق مرخصة من هيئة سوق المال، مدعومة باستثمارات مليارية وتشديد دقيق لضمان عوائد مستدامة.',
                 'rows' => 3,
             ]
