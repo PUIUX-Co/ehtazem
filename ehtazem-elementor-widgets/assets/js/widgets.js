@@ -397,3 +397,93 @@ document.addEventListener("DOMContentLoaded", function () {
 
  // Start observing the social-icons container
  observer.observe(socialIcons);
+
+/* ============================================
+   EHTAZEM FORM AJAX SUBMISSION
+   Handles all forms with class 'ehtazem-form'
+   ============================================ */
+document.addEventListener('DOMContentLoaded', function() {
+    const ehtazemForms = document.querySelectorAll('.ehtazem-form');
+
+    ehtazemForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('[type="submit"], .submit-btn');
+            const messagesDiv = form.querySelector('.form-messages');
+            const formData = new FormData(form);
+
+            // Get form type from hidden input
+            const formType = formData.get('form_type') || 'contact';
+
+            // Add action and nonce
+            formData.append('action', 'ehtazem_submit_form');
+            formData.append('nonce', form.querySelector('[name="nonce"]')?.value || '');
+
+            // Disable button and show loading
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'جاري الإرسال...';
+            }
+
+            // Send AJAX request
+            fetch('/wp-admin/admin-ajax.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (messagesDiv) {
+                    messagesDiv.style.display = 'block';
+
+                    if (data.success) {
+                        messagesDiv.innerHTML = `<div class="alert alert-success">${data.data.message || 'تم الإرسال بنجاح!'}</div>`;
+                        form.reset();
+
+                        // Success button state
+                        if (submitBtn) {
+                            submitBtn.textContent = 'تم الإرسال ✓';
+                            submitBtn.style.background = '#4EA62F';
+                        }
+                    } else {
+                        messagesDiv.innerHTML = `<div class="alert alert-danger">${data.data.message || 'حدث خطأ، حاول مرة أخرى'}</div>`;
+
+                        // Reset button
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = formType === 'intermediaries' ? 'إرسال' : 'إرسال';
+                        }
+                    }
+                }
+
+                // Auto-hide message after 5 seconds
+                setTimeout(() => {
+                    if (messagesDiv) {
+                        messagesDiv.style.display = 'none';
+                    }
+
+                    // Reset button to original state
+                    if (submitBtn && data.success) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = formType === 'intermediaries' ? 'إرسال' : 'إرسال';
+                        submitBtn.style.background = '';
+                    }
+                }, 5000);
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+
+                if (messagesDiv) {
+                    messagesDiv.style.display = 'block';
+                    messagesDiv.innerHTML = '<div class="alert alert-danger">حدث خطأ في الاتصال، حاول مرة أخرى</div>';
+                }
+
+                // Reset button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = formType === 'intermediaries' ? 'إرسال' : 'إرسال';
+                }
+            });
+        });
+    });
+});

@@ -501,7 +501,7 @@ class Ehtazem_Contact_Form_Widget extends \Elementor\Widget_Base {
 
 						<input type="hidden" name="action" value="ehtazem_submit_form">
 						<input type="hidden" name="form_type" value="contact">
-						<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ehtazem_form_nonce'); ?>">
+						<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ehtazem_form_submission'); ?>">
 
 						<button type="submit" class="submit-btn">
 							<?php echo esc_html($settings['submit_button_text']); ?>

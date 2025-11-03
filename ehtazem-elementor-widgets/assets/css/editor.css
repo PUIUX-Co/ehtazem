@@ -2,7 +2,7 @@
  * Elementor Editor Styles
  *
  * PUIUX - Ehtazem Elementor Widgets
- * Ensures fonts and icons display correctly in Elementor Editor
+ * Ensures fonts, colors, and icons display correctly in Elementor Editor
  *
  * Development, Design & Programming by PUIUX
  * Copyright (c) 2025 PUIUX. All rights reserved.
@@ -13,6 +13,19 @@
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+/* ========================================
+   Ehtazem Colors - Apply to Editor
+   ======================================== */
+
+.elementor-editor-active {
+    --primary-color: #D7B261;
+    --secondary-color: #0B6D55;
+    --tertiary-color: #00402E;
+    --quaternary-color: #000000;
+    --quinary-color: #FFFFFF;
+    --gradient-color: linear-gradient(45.53deg, #857540 -37.94%, #D7B261 73.48%);
+}
 
 /* Apply Cairo font to all Ehtazem widgets in editor */
 .elementor-element[data-widget_type^="ehtazem-"] *,

@@ -1,9 +1,8 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+/* ==================================================
+   EHTAZEM WIDGETS STYLES - SCOPED TO PREVENT CONFLICTS
+   ================================================== */
 
+/* CSS Variables (Safe - Global) */
 :root {
     --primary-color: #D7B261;
     --secondary-color: #0B6D55;
@@ -13,39 +12,49 @@
     --gradient-color: linear-gradient(45.53deg, #857540 -37.94%, #D7B261 73.48%);
 }
 
-::selection {
+/* ==================================================
+   WIDGET-SCOPED RESETS
+   Only affects Ehtazem widgets, not other elements
+   ================================================== */
+
+/* Scope to Elementor widget containers only */
+.elementor-widget-container * {
+    box-sizing: border-box;
+}
+
+/* Scope to widget wrapper for typography */
+[class*="elementor-widget-ehtazem"] .elementor-widget-container {
+    direction: rtl;
+    font-family: "Cairo", sans-serif;
+}
+
+/* Selection color only inside widgets */
+[class*="elementor-widget-ehtazem"] ::selection {
     background-color: #c7af61;
     color: var(--quinary-color);
 }
 
-::-webkit-scrollbar {
+/* Scrollbar styling only for widget containers */
+[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar {
     width: 10px;
 }
 
-/* الخلفية الخلفية للمسار */
-::-webkit-scrollbar-track {
+[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar-track {
     background: var(--tertiary-color);
 }
 
-/* لون مقبض التمرير */
-::-webkit-scrollbar-thumb {
+[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar-thumb {
     background: #857540;
     border-radius: 10px;
 }
 
-/* عند تمرير الماوس على المقبض */
-::-webkit-scrollbar-thumb:hover {
+[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar-thumb:hover {
     background: #b9a45e;
 }
 
-a {
+/* Links inside widgets only */
+[class*="elementor-widget-ehtazem"] a {
     text-decoration: none;
-}
-
-body {
-    direction: rtl;
-    font-family: "Cairo", sans-serif;
-    background-color: #F8F8F8;
 }
 
 img.logo-img {
