@@ -119,7 +119,7 @@ class Ehtazem_Admin_Dashboard {
 			</div>
 
 			<!-- Additional Charts Grid -->
-			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 30px;">
+			<div class="ehtazem-charts-wrapper">
 				<!-- Lead Score Distribution Pie Chart -->
 				<div class="ehtazem-chart-container" data-aos="fade-up" data-aos-delay="200">
 					<div class="ehtazem-card">

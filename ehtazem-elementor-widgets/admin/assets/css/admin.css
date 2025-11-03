@@ -1351,31 +1351,200 @@ body.rtl .ehtazem-admin-wrap * {
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+/* Charts Grid Wrapper */
+.ehtazem-charts-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	gap: var(--spacing-lg);
+	margin-bottom: var(--spacing-xl);
+}
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+	.ehtazem-admin-header .header-top {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-md);
+	}
+
+	.ehtazem-stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.ehtazem-charts-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.ehtazem-chart-container canvas {
+		height: 300px !important;
+	}
+
+	.ehtazem-table {
+		font-size: 13px;
+	}
+
+	.ehtazem-table thead th,
+	.ehtazem-table tbody td {
+		padding: var(--spacing-sm) var(--spacing-md);
+	}
+}
+
+/* Mobile (782px and below) */
 @media (max-width: 782px) {
+	.ehtazem-admin-wrap {
+		padding: var(--spacing-md);
+	}
+
+	.ehtazem-admin-header .puiux-logo {
+		max-width: 100px;
+	}
+
+	.ehtazem-admin-header h1 {
+		font-size: 24px;
+	}
+
 	.ehtazem-stats-grid {
 		grid-template-columns: 1fr;
+		gap: var(--spacing-md);
+	}
+
+	.ehtazem-stat-card {
+		padding: var(--spacing-lg);
+	}
+
+	.stat-icon {
+		width: 50px;
+		height: 50px;
+		font-size: 20px;
+	}
+
+	.stat-content h3 {
+		font-size: 24px;
+	}
+
+	.stat-content p {
+		font-size: 12px;
+	}
+
+	.ehtazem-charts-section {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	#ehtazem-submissions-chart {
+		height: 250px !important;
+	}
+
+	.ehtazem-chart-container canvas {
+		height: 250px !important;
 	}
 
 	.filter-form {
 		flex-direction: column;
+		gap: var(--spacing-sm);
 	}
 
 	.filter-form .ehtazem-select,
-	.filter-form .ehtazem-input {
+	.filter-form .ehtazem-input,
+	.filter-form .ehtazem-btn {
 		width: 100%;
 	}
 
 	.ehtazem-tabs {
 		flex-direction: column;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.ehtazem-tabs .tab-link {
+		white-space: nowrap;
 	}
 
 	.form-actions {
 		flex-direction: column;
+		gap: var(--spacing-sm);
 	}
 
 	.ehtazem-btn {
 		width: 100%;
 		justify-content: center;
+		padding: var(--spacing-md);
+	}
+
+	.table-responsive {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		border-radius: var(--radius-md);
+	}
+
+	.ehtazem-table {
+		min-width: 600px;
+	}
+
+	.action-buttons {
+		flex-wrap: nowrap;
+		gap: var(--spacing-xs);
+	}
+
+	.btn-action {
+		padding: 6px 8px;
+		font-size: 12px;
+	}
+
+	.ehtazem-admin-footer {
+		padding: var(--spacing-lg);
+	}
+
+	.ehtazem-admin-footer .footer-content {
+		flex-direction: column;
+		text-align: center;
+		gap: var(--spacing-md);
+	}
+
+	.footer-left,
+	.footer-right {
+		text-align: center;
+	}
+
+	.footer-logo {
+		max-width: 80px;
+	}
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+	.ehtazem-admin-header h1 {
+		font-size: 20px;
+	}
+
+	.ehtazem-admin-header .description {
+		font-size: 12px;
+	}
+
+	.stat-content h3 {
+		font-size: 20px;
+	}
+
+	.card-header h2,
+	.card-header h3 {
+		font-size: 16px;
+	}
+
+	#ehtazem-chart-period {
+		font-size: 12px;
+		padding: 6px 10px;
+	}
+
+	.lead-score {
+		min-width: 50px;
+	}
+
+	.lead-score .score-value {
+		font-size: 12px;
+	}
+
+	.score-bar {
+		height: 3px;
 	}
 }
 

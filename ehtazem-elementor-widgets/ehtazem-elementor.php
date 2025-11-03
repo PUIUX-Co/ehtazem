@@ -118,6 +118,8 @@ final class Ehtazem_Elementor_Widgets {
 			add_action( 'admin_menu', [ $this, 'register_admin_menu' ] );
 			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
 			add_action( 'admin_init', [ $this, 'redirect_to_dashboard' ], 1 );
+			add_action( 'admin_init', [ $this, 'handle_submissions_export' ] );
+			add_action( 'restrict_manage_posts', [ $this, 'add_export_button' ] );
 			$this->load_admin_classes();
 		}
 
@@ -363,6 +365,11 @@ final class Ehtazem_Elementor_Widgets {
 	 * @access public
 	 */
 	public function enqueue_widget_styles() {
+		// Performance optimization: Only load if Ehtazem widgets are used
+		if ( ! $this->page_has_ehtazem_widgets() ) {
+			return;
+		}
+
 		// Enqueue main widget styles
 		wp_enqueue_style( 'ehtazem-widgets', plugins_url( 'assets/css/widgets.css', __FILE__ ), [], self::VERSION );
 
@@ -382,6 +389,11 @@ final class Ehtazem_Elementor_Widgets {
 	 * @access public
 	 */
 	public function enqueue_widget_scripts() {
+		// Performance optimization: Only load if Ehtazem widgets are used
+		if ( ! $this->page_has_ehtazem_widgets() ) {
+			return;
+		}
+
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js', ['jquery'], '5.3.8', true );
 		wp_enqueue_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], '11', true );
@@ -389,6 +401,66 @@ final class Ehtazem_Elementor_Widgets {
 		wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', [], '3.12.2', true );
 		wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', ['gsap'], '3.12.2', true );
 		wp_enqueue_script( 'ehtazem-widgets', plugins_url( 'assets/js/widgets.js', __FILE__ ), ['jquery', 'swiper-js', 'aos-js'], self::VERSION, true );
+	}
+
+	/**
+	 * Check if Current Page Has Ehtazem Widgets
+	 *
+	 * Performance optimization to conditionally load assets
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 * @return bool
+	 */
+	private function page_has_ehtazem_widgets() {
+		// Always load in Elementor editor/preview
+		if ( \Elementor\Plugin::$instance->preview->is_preview_mode() || \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+			return true;
+		}
+
+		// Get current post
+		$post_id = get_the_ID();
+		if ( ! $post_id ) {
+			return false;
+		}
+
+		// Check if post uses Elementor
+		if ( ! \Elementor\Plugin::$instance->documents->get( $post_id ) ) {
+			return false;
+		}
+
+		// Get Elementor data
+		$document = \Elementor\Plugin::$instance->documents->get( $post_id );
+		$data = $document ? $document->get_elements_data() : [];
+
+		// Check if any Ehtazem widgets are used
+		return $this->has_ehtazem_widget_recursive( $data );
+	}
+
+	/**
+	 * Recursively Check for Ehtazem Widgets
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 * @param array $elements Elementor elements data
+	 * @return bool
+	 */
+	private function has_ehtazem_widget_recursive( $elements ) {
+		foreach ( $elements as $element ) {
+			// Check if this is an Ehtazem widget
+			if ( isset( $element['widgetType'] ) && strpos( $element['widgetType'], 'ehtazem-' ) === 0 ) {
+				return true;
+			}
+
+			// Recursively check child elements
+			if ( ! empty( $element['elements'] ) ) {
+				if ( $this->has_ehtazem_widget_recursive( $element['elements'] ) ) {
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 	/**
@@ -628,6 +700,125 @@ final class Ehtazem_Elementor_Widgets {
 	}
 
 	/**
+	 * Add Export Button to Submissions Page
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function add_export_button( $post_type ) {
+		if ( $post_type === 'ehtazem_submissions' ) {
+			$export_url = wp_nonce_url(
+				admin_url( 'edit.php?post_type=ehtazem_submissions&action=export_submissions' ),
+				'export_submissions'
+			);
+			?>
+			<a href="<?php echo esc_url( $export_url ); ?>" class="button button-primary" style="margin-left: 10px;">
+				<span class="dashicons dashicons-download" style="vertical-align: middle; margin-left: 5px;"></span>
+				<?php esc_html_e( 'تصدير CSV', 'ehtazem-elementor' ); ?>
+			</a>
+			<?php
+		}
+	}
+
+	/**
+	 * Handle Submissions Export
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function handle_submissions_export() {
+		// Check if export action is triggered
+		if ( ! isset( $_GET['action'] ) || $_GET['action'] !== 'export_submissions' ) {
+			return;
+		}
+
+		// Check post type
+		if ( ! isset( $_GET['post_type'] ) || $_GET['post_type'] !== 'ehtazem_submissions' ) {
+			return;
+		}
+
+		// Verify nonce
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], 'export_submissions' ) ) {
+			wp_die( __( 'خطأ في التحقق من الأمان', 'ehtazem-elementor' ) );
+		}
+
+		// Check user capabilities
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( __( 'ليس لديك صلاحية لتصدير البيانات', 'ehtazem-elementor' ) );
+		}
+
+		// Get all submissions
+		$args = array(
+			'post_type' => 'ehtazem_submissions',
+			'posts_per_page' => -1,
+			'post_status' => 'publish',
+			'orderby' => 'date',
+			'order' => 'DESC',
+		);
+
+		$submissions = get_posts( $args );
+
+		// Set headers for CSV download
+		header( 'Content-Type: text/csv; charset=utf-8' );
+		header( 'Content-Disposition: attachment; filename=ehtazem-submissions-' . date( 'Y-m-d-His' ) . '.csv' );
+		header( 'Pragma: no-cache' );
+		header( 'Expires: 0' );
+
+		// Create output stream
+		$output = fopen( 'php://output', 'w' );
+
+		// Add BOM for UTF-8
+		fprintf( $output, chr(0xEF).chr(0xBB).chr(0xBF) );
+
+		// CSV headers
+		fputcsv( $output, array(
+			'#',
+			'الاسم',
+			'رقم الهاتف',
+			'الشركة',
+			'المنطقة',
+			'نوع النموذج',
+			'الحالة',
+			'التفاصيل',
+			'التاريخ',
+		) );
+
+		// CSV data
+		$counter = 1;
+		foreach ( $submissions as $submission ) {
+			$form_type = get_post_meta( $submission->ID, '_form_type', true );
+			$status = get_post_meta( $submission->ID, '_status', true );
+			$status = $status ? $status : 'new';
+
+			$status_labels = array(
+				'new' => 'جديد',
+				'in_progress' => 'قيد المعالجة',
+				'completed' => 'مكتمل',
+			);
+
+			$form_type_labels = array(
+				'intermediaries' => 'نموذج الوسطاء',
+				'contact' => 'نموذج التواصل',
+			);
+
+			fputcsv( $output, array(
+				$counter++,
+				get_post_meta( $submission->ID, '_full_name', true ),
+				get_post_meta( $submission->ID, '_phone', true ),
+				get_post_meta( $submission->ID, '_company', true ),
+				get_post_meta( $submission->ID, '_region', true ),
+				isset( $form_type_labels[$form_type] ) ? $form_type_labels[$form_type] : $form_type,
+				isset( $status_labels[$status] ) ? $status_labels[$status] : $status,
+				get_post_meta( $submission->ID, '_details', true ) . ' ' . get_post_meta( $submission->ID, '_question', true ),
+				get_the_date( 'Y-m-d H:i:s', $submission->ID ),
+			) );
+		}
+
+		fclose( $output );
+		exit;
+	}
+
+	/**
 	 * Load Admin Classes
 	 *
 	 * @since 1.0.0
@@ -713,6 +904,15 @@ final class Ehtazem_Elementor_Widgets {
 			'manage_options',
 			'ehtazem-system-health',
 			[ $this->system_health, 'render' ]
+		);
+
+		// Submissions submenu - Link to Custom Post Type
+		add_submenu_page(
+			'ehtazem-dashboard',
+			__( 'طلبات التواصل', 'ehtazem-elementor' ),
+			__( 'طلبات التواصل', 'ehtazem-elementor' ),
+			'manage_options',
+			'edit.php?post_type=ehtazem_submissions'
 		);
 	}
 

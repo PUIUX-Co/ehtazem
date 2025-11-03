@@ -25,17 +25,44 @@
 		 * Initialize Charts
 		 */
 		initCharts: function() {
-			if (typeof Chart === 'undefined' || !$('#ehtazem-submissions-chart').length) {
+			if (typeof Chart === 'undefined') {
 				return;
 			}
 
-			const ctx = document.getElementById('ehtazem-submissions-chart').getContext('2d');
-
 			// Get data from PHP
-			const chartData = typeof window.chartData !== 'undefined' ? window.chartData : {
-				labels: [],
-				values: []
-			};
+			const chartData = typeof window.chartData !== 'undefined' ? window.chartData : {};
+
+			// Initialize main submissions line chart
+			if ($('#ehtazem-submissions-chart').length && chartData.submissions) {
+				this.initSubmissionsChart(chartData.submissions);
+			}
+
+			// Initialize lead score pie chart
+			if ($('#leadScorePieChart').length && chartData.lead_distribution) {
+				this.initLeadScorePieChart(chartData.lead_distribution);
+			}
+
+			// Initialize submission type bar chart
+			if ($('#submissionTypeChart').length && chartData.type_distribution) {
+				this.initSubmissionTypeChart(chartData.type_distribution);
+			}
+
+			// Initialize status doughnut chart
+			if ($('#statusDoughnutChart').length && chartData.status_distribution) {
+				this.initStatusDoughnutChart(chartData.status_distribution);
+			}
+
+			// Chart period selector
+			$('#ehtazem-chart-period').on('change', function() {
+				EhtazemAdmin.showNotification('جاري تحديث البيانات...', 'info');
+			});
+		},
+
+		/**
+		 * Initialize Submissions Line Chart
+		 */
+		initSubmissionsChart: function(data) {
+			const ctx = document.getElementById('ehtazem-submissions-chart').getContext('2d');
 
 			// Create gradient
 			const gradient = ctx.createLinearGradient(0, 0, 0, 400);
@@ -45,10 +72,10 @@
 			new Chart(ctx, {
 				type: 'line',
 				data: {
-					labels: chartData.labels,
+					labels: data.labels || [],
 					datasets: [{
 						label: 'الطلبات',
-						data: chartData.values,
+						data: data.values || [],
 						borderColor: '#1E40AF',
 						backgroundColor: gradient,
 						borderWidth: 3,
@@ -64,6 +91,10 @@
 				options: {
 					responsive: true,
 					maintainAspectRatio: false,
+					interaction: {
+						intersect: false,
+						mode: 'index'
+					},
 					plugins: {
 						legend: {
 							display: true,
@@ -92,7 +123,8 @@
 							padding: 12,
 							borderColor: '#1E40AF',
 							borderWidth: 1,
-							displayColors: false
+							displayColors: false,
+							rtl: true
 						}
 					},
 					scales: {
@@ -123,11 +155,212 @@
 					}
 				}
 			});
+		},
 
-			// Chart period selector
-			$('#ehtazem-chart-period').on('change', function() {
-				// In a real implementation, this would reload the chart data
-				EhtazemAdmin.showNotification('جاري تحديث البيانات...', 'info');
+		/**
+		 * Initialize Lead Score Pie Chart
+		 */
+		initLeadScorePieChart: function(data) {
+			const ctx = document.getElementById('leadScorePieChart').getContext('2d');
+
+			new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: data.labels || [],
+					datasets: [{
+						data: data.data || [],
+						backgroundColor: data.backgroundColor || ['#EF4444', '#F59E0B', '#10B981'],
+						borderWidth: 2,
+						borderColor: '#fff'
+					}]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					interaction: {
+						mode: 'nearest'
+					},
+					plugins: {
+						legend: {
+							position: 'bottom',
+							labels: {
+								font: {
+									family: 'Cairo',
+									size: 13
+								},
+								padding: 15,
+								usePointStyle: true,
+								pointStyle: 'circle'
+							}
+						},
+						tooltip: {
+							backgroundColor: 'rgba(0, 0, 0, 0.8)',
+							titleFont: {
+								family: 'Cairo',
+								size: 14
+							},
+							bodyFont: {
+								family: 'Cairo',
+								size: 13
+							},
+							padding: 12,
+							rtl: true,
+							callbacks: {
+								label: function(context) {
+									let label = context.label || '';
+									if (label) {
+										label += ': ';
+									}
+									label += context.parsed;
+									const total = context.dataset.data.reduce((a, b) => a + b, 0);
+									const percentage = ((context.parsed / total) * 100).toFixed(1);
+									label += ' (' + percentage + '%)';
+									return label;
+								}
+							}
+						}
+					}
+				}
+			});
+		},
+
+		/**
+		 * Initialize Submission Type Bar Chart
+		 */
+		initSubmissionTypeChart: function(data) {
+			const ctx = document.getElementById('submissionTypeChart').getContext('2d');
+
+			new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: data.labels || [],
+					datasets: [{
+						label: 'عدد الطلبات',
+						data: data.data || [],
+						backgroundColor: data.backgroundColor || ['#1E40AF', '#F59E0B'],
+						borderWidth: 0,
+						borderRadius: 8
+					}]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					interaction: {
+						mode: 'index'
+					},
+					plugins: {
+						legend: {
+							display: false
+						},
+						tooltip: {
+							backgroundColor: 'rgba(0, 0, 0, 0.8)',
+							titleFont: {
+								family: 'Cairo',
+								size: 14
+							},
+							bodyFont: {
+								family: 'Cairo',
+								size: 13
+							},
+							padding: 12,
+							rtl: true
+						}
+					},
+					scales: {
+						y: {
+							beginAtZero: true,
+							ticks: {
+								font: {
+									family: 'Cairo',
+									size: 12
+								},
+								stepSize: 1
+							},
+							grid: {
+								color: 'rgba(0, 0, 0, 0.05)'
+							}
+						},
+						x: {
+							ticks: {
+								font: {
+									family: 'Cairo',
+									size: 12
+								}
+							},
+							grid: {
+								display: false
+							}
+						}
+					}
+				}
+			});
+		},
+
+		/**
+		 * Initialize Status Doughnut Chart
+		 */
+		initStatusDoughnutChart: function(data) {
+			const ctx = document.getElementById('statusDoughnutChart').getContext('2d');
+
+			new Chart(ctx, {
+				type: 'doughnut',
+				data: {
+					labels: data.labels || [],
+					datasets: [{
+						data: data.data || [],
+						backgroundColor: data.backgroundColor || ['#3B82F6', '#F59E0B', '#10B981'],
+						borderWidth: 2,
+						borderColor: '#fff'
+					}]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					cutout: '65%',
+					interaction: {
+						mode: 'nearest'
+					},
+					plugins: {
+						legend: {
+							position: 'bottom',
+							labels: {
+								font: {
+									family: 'Cairo',
+									size: 13
+								},
+								padding: 15,
+								usePointStyle: true,
+								pointStyle: 'circle'
+							}
+						},
+						tooltip: {
+							backgroundColor: 'rgba(0, 0, 0, 0.8)',
+							titleFont: {
+								family: 'Cairo',
+								size: 14
+							},
+							bodyFont: {
+								family: 'Cairo',
+								size: 13
+							},
+							padding: 12,
+							rtl: true,
+							callbacks: {
+								label: function(context) {
+									let label = context.label || '';
+									if (label) {
+										label += ': ';
+									}
+									label += context.parsed;
+									const total = context.dataset.data.reduce((a, b) => a + b, 0);
+									const percentage = ((context.parsed / total) * 100).toFixed(1);
+									label += ' (' + percentage + '%)';
+									return label;
+								}
+							}
+						}
+					}
+				}
 			});
 		},
 
