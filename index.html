@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-Sw3YxwqTSpQqk3cIY0xg5O0N4x6xX0G7tQ2Qx3h+Qw8XrD7N6Q1l1xqO0o1l3mUOCk2W1kM2bJ4Zqv0m7Hq5Yg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Ehtazem</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#" class="logo-link"><img src="./assets/images/EhtazemLogo.svg" alt="Ehtazem"
+                            class="logo-img"></a>
+                </div>
+                <div class="menu">
+                    <div class="dropdown">
+                        <button class="btn menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            القائمة
+                        </button>
+                        <ul class="dropdown-menu">
+                            <!-- Menu Header with Logo and Close Button -->
+                            <li>
+                                <a href="#" class="logo-link">
+                                    <img src="./assets/images/EhtazemLogo.svg" alt="Ehtazem" class="logo-img">
+                                </a>
+                                <button class="close-btn" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </li>
+
+                            <!-- Menu Items -->
+                            <li class="menu-items-wrapper">
+                                <a class="dropdown-item" href="#aboutUs-section">نبذة عنا</a>
+                                <a class="dropdown-item" href="#ourServices-section">خدماتنا</a>
+                                <a class="dropdown-item" href="#org-structure-section">رحلتنا</a>
+                                <a class="dropdown-item" href="#approach-section">معايرنا</a>
+                                <a class="dropdown-item" href="#section-features">المزايا</a>
+                                <a class="dropdown-item" href="#Ourpartners-section">شركاؤنا</a>
+                                <a class="dropdown-item" href="#questions-section">الأسئلة الشائعة</a>
+                                <a class="dropdown-item" href="#contactus-section">تواصل معنا</a>
+                            </li>
+
+                            <!-- Menu Footer with Contact Button -->
+                            <li>
+                                <a href="#contactus-section" class="contactUs-btn-header" data-bs-toggle="dropdown">
+                                    تواصل معنا
+                                    <i class="fa-solid fa-arrow-up arrow-contus-head"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contactUs-header">
+                    <a href="#contactus-section" class="contactUs-btn-header">
+                        تواصل معنا
+                        <i class="fa-solid fa-arrow-up arrow-contus-head"></i>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+    <main>
+        <section class="hero" id="hero-section">
+
+            <img class="hero-bg" src="./assets/images/image 1.png" alt="background">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="hero-body" data-aos="fade-up" data-aos-duration="1500">
+                    <h1 class="hero-title"><span>وحدة التمكين</span><br>العقاري</h1>
+                    <p class="hero-subtitle">لا نَعِد فقط، نحن ننفذ</p>
+                    <p class="hero-desc">إعادة صياغة الوساطة وإدارة الصناديق العقارية باستثمارات مليارية وتراخيص من هيئة
+                        سوق المال.</p>
+                    <div class="hero-actions">
+                        <button class=" hero-primary">الذهاب إلى احتزم
+                            <i class="fa-solid fa-arrow-left  arrow-join-head arrow-hero-down"></i>
+                        </button>
+                        <div class="hero-arrow ">
+                            <a class=" down-btn  hero-btn" href="#aboutUs-section">
+                                <i class="fa-solid fa-arrow-down arrow-hero-play"></i>
+                            </a>
+
+                        </div>
+                        <div class="hero-media ">
+                            <a class=" play-btn  hero-btn">
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.16675 8.00001V5.62668C3.16675 2.68001 5.25341 1.47334 7.80675 2.94668L9.86675 4.13334L11.9267 5.32001C14.4801 6.79334 14.4801 9.20668 11.9267 10.68L9.86675 11.8667L7.80675 13.0533C5.25341 14.5267 3.16675 13.32 3.16675 10.3733V8.00001Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="aboutUs-section" id="aboutUs-section">
+            <div class="container">
+                <div class="aboutUs-content">
+                    <div class="aboutUs-intro">
+                        <div class="aboutUs-title"  data-aos="zoom-in" data-aos-duration="1500">نبذة عن احتزم
+                        </div>
+
+                        <p class="aboutUs-desc"  data-aos="zoom-in" data-aos-duration="1900">نلتزم ببناء الثقة من خلال تنفيذ مشاريع عقارية بأعلى معايير الاحترافية.
+                            مع تاريخ من الإنجازات الملموسة، نضمن لمستثمرينا تنفيذًا دقيقًا وشفافًا، مدعومين بخبراتنا
+                            الواسعة في السوق السعودي.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="aboutUs-images swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 7.png" alt="aboutUs-image"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 6.png" alt="aboutUs-image"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 5.png" alt="aboutUs-image"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 8.png" alt="aboutUs-image"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 2.png" alt="aboutUs-image"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 7.png" alt="aboutUs-image"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 3.png" alt="aboutUs-image"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img-card-about"><img src="./assets/images/image 5.png" alt="aboutUs-image"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="aboutUs-controls">
+                <button class="aboutUs-prev" aria-label="previous">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button class="aboutUs-next" aria-label="next">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </section>
+        <section class="ourServices-section" id="ourServices-section">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-5">
+                        <div class="side-1-serv" >
+                            <div class="ourServices-intro">
+                                <h2 class="our-services-title" data-aos="fade-left" data-aos-duration="1500">خدماتنا الاستثنائية</h2>
+                                <p class="our-services-introdescrep" data-aos="fade-left" data-aos-duration="1900">نقدم حلولاً <strong>عقارية</strong> مبتكرة تضمن
+                                    الثقة والنجاح <strong>الاستثماري</strong></p>
+                            </div>
+                            <div class="serv-1">
+                                <div class="serv-1-intro" data-aos="fade-left" data-aos-duration="2000">
+                                    <img class="serv-1-image" src="./assets/images/b.png" />
+                                    <h2 class="serv-1-title">إدارة الصناديق العقارية</h2>
+                                </div>
+                                <p class="serv-1-descrep" data-aos="fade-left" data-aos-duration="2200">إنشاء، بيع، وإدارة صناديق مرخصة بعوائد مضمونة في بيئة موثوقة،
+                                    مدعومة باستثمارات مليارية.</p>
+
+                            </div>
+                            <div class="serv-2">
+                                <div class="serv-2-intro" data-aos="fade-left" data-aos-duration="2500">
+                                    <img class="serv-2-image" src="./assets/images/a.png" />
+                                    <h2 class="serv-2-title">الوساطة العقارية مع احتزم</h2>
+                                </div>
+                                <p class="serv-2-descrep" data-aos="fade-left" data-aos-duration="2900">نهج جديد بمعايير أخلاقية صارمة وفرق متخصصة تضمن تنفيذ صفقات
+                                    استثمارية بنجاح.</p>
+                            </div>
+                            <a class="serveces-contact" href="#contactus-section">تواصل معنا
+                                <i class="fa-solid fa-arrow-left  arrow-join-head arrow-hero-down"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5">
+                        <div class="serv-side-2" data-aos="fade-right" data-aos-duration="1500">
+                            <div class="servs-image">
+                                <img src="./assets/images/image 7.png" alt="picture" class="services-images">
+                            </div>
+
+                            <div class="serv-side-2-desc">
+                                <p class="side-2-p1">احتزم ..</p>
+                                <p class="side-2-p2">..لتتم</p>
+                                <div class="serv-deco">
+                                    <img src="./assets/images/Group 600.png" alt="image" class="serv-deco-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="soon" id="soon-section">
+            <div class="soon-deco" >
+                <img src="./assets/images/Group 607.png" alt="decoration" class="soon-deco-image">
+            </div>
+            <div class="container">
+                <div class="soon-sec">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="side-1-soon"  >
+                                <div class="soon-intro">
+                                    <h2 class="soon-title" data-aos="fade-left" data-aos-duration="1500">قريبا</h2>
+                                    <p class="soon-descrep-intro" data-aos="fade-left" data-aos-duration="1900">الجيل العقاري <br/>القادم</p>
+                                </div>
+                                <div class="soon-features">
+                                    <p class="soon-features-descrep" data-aos="fade-left" data-aos-duration="2000">قريبًا: مشروع ثوري يعيد تشكيل السوق العقاري!</p>
+                                    <ul class="soon-uln">
+                                        <li data-aos="fade-left" data-aos-duration="2500">احترافية عالية بمعايير داخلية صارمة</li>
+                                        <li data-aos="fade-left" data-aos-duration="2700">تنظيم ذكي لحلول تشغيلية مبتكرة</li>
+                                        <li data-aos="fade-left" data-aos-duration="2900">مرخص من هيئة سوق المال</li>
+                                    </ul>
+                                </div>
+                                <button class="soon-btn" data-aos="fade-left" data-aos-duration="3000">ترقبو الكشف عن التفاصيل
+
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="side-2-soon"  data-aos="fade-right" data-aos-duration="1500">
+
+                                <div class="soon-img">
+                                    <img src="./assets/images/m.png" alt="image" class="side2-soon-image">
+                                </div>
+
+                                <div class="soon-side2-desc">
+                                    <p class="side-2soon-p1">احتزم ..</p>
+                                    <p class="side-2soon-p2">..لتتم</p>
+                                    <div class="soon-side2-deco">
+                                        <img src="./assets/images/Group 600.png" alt="image"
+                                            class="soon-side2-deco-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Start: Organizational Structure Section -->
+        <section class="org-structure-section" id="org-structure-section">
+            <div class="ellipse-bg ellipse1"></div>
+            <div class="ellipse-bg ellipse2"></div>
+
+            <div class="org-container">
+                <div class="org-header" >
+                    <div class="badge" data-aos="zoom-in" data-aos-duration="1500">رحلتنا</div>
+                    <h2 class="org-title" data-aos="zoom-in" data-aos-duration="1900">هيكل تنظيمي متين يضمن تنفيذ<br>المشاريع بكفاءة</h2>
+                </div>
+
+                <div class="org-wave-wrapper">
+                    <!-- Animated curved lines and dots -->
+                    <div class="wave-lines-container">
+                        <!-- Gradient Line -->
+                        <svg class="wave-line-1" width="1201" height="250" viewBox="0 0 1201 250" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1200 154.5C1128 235.5 947.5 338.7 801.5 103.5C619 -190.5 452.5 249.5 326.5 176.5C200.5 103.5 162 0.999207 1.5 154.5"
+                                stroke="url(#paint0_linear_150_952)" stroke-width="2" />
+                            <defs>
+                                <linearGradient id="paint0_linear_150_952" x1="1200" y1="124.728" x2="1.5" y2="124.728"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop offset="0.00397385" stop-color="#4EA62F" stop-opacity="0" />
+                                    <stop offset="0.502741" stop-color="#4EA62F" />
+                                    <stop offset="1" stop-color="#4EA62F" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <!-- Solid Gold Line -->
+                        <svg class="wave-line-2" width="1201" height="250" viewBox="0 0 1201 250" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1200 154.403C1128 235.403 947.5 338.603 801.5 103.403C619 -190.597 452.5 249.403 326.5 176.403C200.5 103.403 162 0.902527 1.5 154.403"
+                                stroke="#D7B261" stroke-width="2" />
+                        </svg>
+
+                        <!-- Moving dots -->
+                        <div class="moving-dot dot-1"></div>
+                        <div class="moving-dot dot-2"></div>
+                        <div class="moving-dot dot-3"></div>
+                    </div>
+
+                    <div class="org-circles-container">
+                        <!-- Circle 1 - Right -->
+                        <div class="org-item org-item-1">
+                            <div class="org-number">1</div>
+
+                            <div class="org-content">
+                                <h3 class="org-dept-title">دائرة الاكتشاف<br>العقاري</h3>
+                                <p class="org-dept-desc">لضمان توفير حلول متنوعة<br>للعملاء نبحث حلا منفصلا</p>
+                            </div>
+                            <div class="org-circle-wrapper">
+                                <div class="org-circle">
+                                    <img src="./assets/images/search-favorite.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Circle 2 - Center -->
+                        <div class="org-item org-item-2">
+                            <div class="org-circle-wrapper">
+                                <div class="org-circle">
+                                    <img src="./assets/images/favorite-chart.png" alt="">
+                                </div>
+                            </div>
+                            <div class="org-number">2</div>
+                            <div class="org-content">
+                                <h3 class="org-dept-title">دائرة التوثيق<br>والتسجيل</h3>
+                                <p class="org-dept-desc">تمحيص الوجهة والقيام<br>بالمراسم الملحقية</p>
+                            </div>
+                        </div>
+
+                        <!-- Circle 3 - Left -->
+                        <div class="org-item org-item-3">
+                            <div class="org-number">3</div>
+
+                            <div class="org-content">
+                                <h3 class="org-dept-title">دائرة التمكين<br>والعلاقات</h3>
+                                <p class="org-dept-desc">بناء شراكات استراتيجية<br>مدنية ومالية</p>
+                            </div>
+                            <div class="org-circle-wrapper">
+                                <div class="org-circle">
+                                    <img src="./assets/images/cup2.png" alt="cup">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End: Organizational Structure Section -->
+        <!-- Start: Approach Section -->
+        <!-- Start: Approach Section -->
+        <section class="approach-section" id="approach-section">
+            <div class="container">
+                <div class="approach-container">
+                    <div class="approach-right" >
+                        <div class="badge badge-small" data-aos="fade-left" data-aos-duration="1500">معاييرنا</div>
+                        <h2 class="approach-title" data-aos="fade-left" data-aos-duration="1800">نهج فريد يجمع بين الشفافية،<br> الجودة</h2>
+                        <p class="approach-text" data-aos="fade-left" data-aos-duration="1900">
+                            في احتزم نلزم معايير صارمة تُعيد صياغة السوق العقاري. نُنجز الشفافية بين تقييم الصفقات بدقة
+                            وكود
+                            أخلاقي صارم، ومعيار IREQI المعتمد لضمان استثمارات مالية ناضجة تدعم رؤية الجيل العقاري
+                            القادم.
+                        </p>
+                        <a class="standard-contact-btn" data--h-bstatus="0OBSERVED" href="#contactus-section" data-aos="fade-left" data-aos-duration="1900">تواصل معنا
+                            <i class="fa-solid fa-arrow-left  arrow-join-head arrow-hero-down"
+                                data--h-bstatus="0OBSERVED"></i>
+                        </a>
+                    </div>
+                    <div class="approach-left" data-aos="fade-right" data-aos-duration="1500">
+                        <div class="circle-grid">
+                            <div class="circle circle-top">عيار IREQI</div>
+                            <div class="circle circle-bottom-right">كود أخلاقى</div>
+                            <div class="circle circle-bottom-left">تقييم الصفقات</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End: Approach Section -->
+        <div class="section-features" id="section-features">
+            <div class="bg-decoration bg-decoration-1"></div>
+            <div class="bg-decoration bg-decoration-2"></div>
+
+            <div class="header-features" >
+                <div class="badge" data-aos="zoom-in"  data-aos-duration="1500">مزايا احتزم</div>
+                <h1 class="main-title" data-aos="zoom-in"  data-aos-duration="1900">لماذا تختار احتزم؟</h1>
+                <p class="subtitle" data-aos="zoom-in"  data-aos-duration="2200">
+                    خبراتنا المتراكمة في استخدام، تطوير التطبيقات البرمجية، خطوط الإنتاج، الاستشارات التقنية المهنية
+                    المتنوعة، التسويق الصناعي توفر لك 6 من 10
+                </p>
+            </div>
+
+            <div class="grid-container-features">
+                <div class="empty-div-1"></div>
+
+                <!-- Top Right -->
+                <div class="feature-card top-right">
+                    <img alt="احتزم" src="./assets/images/center-img.png" class="cir-img" />
+                    <div class="linse_star-right">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="./assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="linse_star-left">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="./assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="icon-circle">
+                        <div class="icon-circle-img">
+                            <img alt="تطبيقات متكاملة" src="./assets/images/chart.png" />
+                        </div>
+                    </div>
+                    <h3 class="feature-title">استشارات متخصصة في الصناعة</h3>
+                    <p class="feature-description">
+                        استراتيجيات مخصصة مبنية على أساس المجال الصناعي والاحتياجات الفريدة للأعمال والتطوير الرقمي
+                        الشامل
+                    </p>
+                </div>
+
+                <div class="empty-div-2"></div>
+
+                <!-- Top Left -->
+                <div class="feature-card top-left">
+                    <img alt="احتزم" src="./assets/images/center-img.png" class="cir-img" />
+                    <div class="linse_star-right">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="linse_star-left">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="icon-circle">
+                        <div class="icon-circle-img">
+                            <img alt="تطبيقات متكاملة" src="./assets/images/cup.png" />
+                        </div>
+                    </div>
+                    <h3 class="feature-title">تطبيقات متكاملة</h3>
+                    <p class="feature-description">
+                        حلول برمجية شاملة تغطي كافة جوانب عملك من إدارة الموارد إلى التسويق والمبيعات وخدمة العملاء
+                    </p>
+                </div>
+
+                <!-- Center Circle -->
+                <div class="center-element">
+                    <div class="center-circle">
+                        <div class="center-circle-texts">
+                            <div class="center-text">احتزم</div>
+                        <p class="under-center">احتزم .. لتتم</p>
+                        </div>
+                        
+                        
+                        <img alt="احتزم" src="./assets/images/center-img.png" class="center-img" />
+
+                        <!-- Fan Container for rotation -->
+                        <div class="fan-container">
+                            <img alt="احتزم" src="./assets/images/_Path__.png" class="curve curve-1 path2" />
+                            <img alt="احتزم" src="./assets/images/_Path__.png" class="curve curve-2  path2" />
+                            <img alt="احتزم" src="./assets/images/_Path_.png" class="curve curve-3 path1" />
+                            <img alt="احتزم" src="./assets/images/_Path_.png" class="curve curve-4 path1" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Right -->
+                <div class="feature-card bottom-right">
+                    <img alt="احتزم" src="./assets/images/center-img.png" class="cir-img" />
+                    <div class="linse_star-right">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="./assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="linse_star-left">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="./assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="icon-circle">
+                        <div class="icon-circle-img">
+                            <img alt="تطبيقات متكاملة" src="./assets/images/ranking.png" />
+                        </div>
+                    </div>
+                    <h3 class="feature-title">موثوقية وأمان الأنظمة</h3>
+                    <p class="feature-description">
+                        حلول رائدة متقدمة لمواكبة التطورات وضمان استمرارية FMECA وأدوات TRIZ أمان البيانات في مرافق
+                        الإنتاج
+                    </p>
+                </div>
+
+                <div class="empty-div-3"></div>
+
+                <!-- Bottom Left -->
+                <div class="feature-card bottom-left">
+                    <img alt="احتزم" src="./assets/images/center-img.png" class="cir-img" />
+                    <div class="linse_star-right">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="./assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="linse_star-left">
+                        <img alt="احتزم" src="./assets/images/star.png" class="star-img" />
+                        <img alt="احتزم" src="./assets/images/line_2.png" class="line-img" />
+                    </div>
+                    <div class="icon-circle">
+                        <div class="icon-circle-img">
+                            <img alt="تطبيقات متكاملة" src="./assets/images/shield-security.png" />
+                        </div>
+                    </div>
+                    <h3 class="feature-title">تحليل احصائي متقدم</h3>
+                    <p class="feature-description">
+                        إمكانيات تحليلية لا مثيل لها لإيجاد رؤى تحليلية وإحصائية قابلة للتنفيذ والتطوير واتخاذ قرارات
+                        فعالة
+                    </p>
+                </div>
+
+                <div class="empty-div-4"></div>
+            </div>
+        </div>
+        <section class="vision-section" id="vision-section">
+            <div class="container">
+                <div class="vision-intro" >
+                    <div class="badge" data-aos="zoom-in" data-aos-duration="1500">رؤية متكاملة</div>
+                    <h4 class="vision-intro-title" data-aos="zoom-in" data-aos-duration="1900">قوتنا على مستويين متكاملين</h4>
+                    <p class="vision-intro-p" data-aos="zoom-in" data-aos-duration="2200">نتميز بقوة مزدوجة تجمع بين شبكة تحالفات عالمية تفتح لنا أسواقًا جديدة
+                        بخبرات راسخة، وفريق نخبة من الخبراء يحول الرؤية إلى إنجازات واقعية.</p>
+                </div>
+                <div class="vision-descreption">
+                    <div class="vision-desc">
+                        <div class="row">
+
+                            <div class="col-md-5">
+                                <div class="desc1-intro" data-aos="zoom-in-left" data-aos-duration="1500">
+                                    <p class="desc-num">001</p>
+                                    <h2 class="desc-title">شبكة التحالفات العالمية</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <p class="vision-desc-p" data-aos="zoom-in-right" data-aos-duration="1500">انطلاقًا من جذورنا المحلية الراسخة التي امتدت لشراكات
+                                    استراتيجية مع كيانات عالمية
+                                    واستثمارات دولية مرموقة، فتحنا أبوابًا لأسواق جديدة.
+                                    هذه الشراكات لم تقتصر على الاسم، بل نقلت خبرات حقيقية إلى مشاريعنا.
+                                    نضمن لكل مشروع ميزة تنافسية وبصمة مبتكرة تضمن له الاستدامة والجاذبية السوقية.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vision-desc">
+                        <div class="row">
+
+                            <div class="col-md-5">
+                                <div class="desc2-intro" data-aos="zoom-in-left" data-aos-duration="1500">
+                                    <p class="desc-num">002</p>
+                                    <h2 class="desc-title">فريق من نخبة الخبراء</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <p class="vision-desc-p" data-aos="zoom-in-right" data-aos-duration="1500">اخترنا بعناية فريقًا متكاملًا يضم خبراء في العقار، الاستثمار،
+                                    الهندسة، وإدارة الصفقات. كل عضو يشغل موقعه
+                                    لأنه يمتلك خبرة عميقة وقدرة حقيقية على تحويل الرؤية إلى إنجاز.
+                                    هذا الفريق هو الذراع التنفيذي الذي يحول الفرص إلى مشاريع متكاملة،
+                                    والمشاريع إلى قصص نجاح ترفع سقف التوقعات وتلزم السوق كله بالارتقاء.</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="intermediaries-section " id="intermediaries-section">
+
+            <img src="./assets/images/Group 594.png" alt="decoration" class="intermediares-deco-image">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="intermediaries-intro" >
+                            <div class="badge  intermediate-badge" data-aos="fade-left" data-aos-duration="1500">بوابة الوسطاء</div>
+                            <h4 class="intermediate-title" data-aos="fade-left" data-aos-duration="1900">ضع عرضك <br/>الآن</h4>
+                            <p class="intermediate-p" data-aos="fade-left" data-aos-duration="2000">بعد الموافقة على عرضك من قِبل وحدة التمكين العقاري، نضمن لك <br/> الوصول
+                                إلى مشترٍ مناسب خلال فترة وجيزة.</p>
+                            <div class="intermediares-percent">
+                                <div class="invest-ehtazem" data-aos="fade-left" data-aos-duration="2200">
+                                    <h5 class="invest-ehtazem-h" >استثمر مع احتزم</h5>
+                                    <div class="percent">50%+</div>
+                                </div>
+                                <div class="ehtazem-percent-curve" data-aos="fade-left" data-aos-duration="2300">
+                                    <svg width="184" height="95" viewBox="0 0 184 95" fill="none" xmlns="http://www.w3.org/2000/svg" class="percent-curve">
+                                        <!-- الدائرة الأولى -->
+                                        <circle class="circle-start" cx="6" cy="6" r="5.333" fill="url(#paint0_linear_150_1142)"/>
+                                        
+                                        <!-- المنحنى -->
+                                        <path class="curve-path" d="M6 6C6 6 33.5 32 62.7965 61.3823C68.3821 66.9679 77.3423 67.2645 83.285 62.0605C89.2277 56.8565 102.829 44.9466 102.829 44.9466C109.039 39.5082 118.259 39.3174 124.689 44.4942L178.5 89.1006" 
+                                              stroke="url(#paint0_linear_150_1142)" 
+                                              stroke-width="1.3" 
+                                              fill="none" 
+                                              stroke-linecap="round"/>
+                                        
+                                        <!-- الدائرة الأخيرة -->
+                                        <circle class="circle-end" cx="178.5" cy="89.1006" r="5.333" fill="url(#paint0_linear_150_1142)"/>
+                                        
+                                        <defs>
+                                            <linearGradient id="paint0_linear_150_1142" x1="850.636" y1="90.7523" x2="670.749" y2="-275.767" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0.589" stop-color="#857540"/>
+                                                <stop offset="1" stop-color="#D7B261"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="form-container" >
+                            <form >
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">الاسم بالكامل</label>
+                                        <input type="text" class="form-control" placeholder="اسمك">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">رقم الهاتف</label>
+                                        <input type="tel" class="form-control" placeholder="0995">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">اسم الشركة</label>
+                                        <input type="text" class="form-control" placeholder="اسم">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">المنطقة</label>
+                                        <input type="text" class="form-control" placeholder="0995">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label">تفاصيل العرض العقاري</label>
+                                        <textarea class="form-control" placeholder="........."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="submit-b">
+                                    <button type="submit" class="btn-submit">إرسال</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Ourpartners-section" id="Ourpartners-section">
+            <div class="container">
+                <div class="Ourpartners-intro">
+                    <div class="badge Ourpartners-badge"  data-aos="zoom-in"  data-aos-duration="1500">شركاؤنا</div>
+                    <h4 class="Ourpartners-title"  data-aos="zoom-in"  data-aos-duration="1900">قادة يصنعون المستقبل</h4>
+                    <p class="Ourpartners-para"  data-aos="zoom-in"  data-aos-duration="2200"> احتزم، يقود فريقنا من الشركاء ذوي الرؤية الثاقبة والخبرة العميقة
+                        وحدة التمكين العقاري نحو إعادة صياغة السوق. كل شريك يترك بصمة مميزة تجمع بين الابتكار، </p>
+                </div>
+                <div class="parteners-cards">
+                    <div class="row g-4">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="partener-card">
+                                <h2 class="partener-card-name">م. مشاري مطر العتيبي</h2>
+                                <h4 class="partener-card-position">مؤسس شركة احتزم</h4>
+                                <p class="partener-card-desc">صياغة معايير جديدة للسوق والبداية من المشاريع العملاقة</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="partener-card">
+                                <h2 class="partener-card-name"> أ. رائد مطر العتيبي</h2>
+                                <h4 class="partener-card-position">مالك لعدد من المؤسسات الرائدة في القطاع الصناعي</h4>
+                                <p class="partener-card-desc">اصتياد الفرص الخفية وتحويلها إلى استثمارات فعلية</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="partener-card">
+                                <h2 class="partener-card-name"> م. محمد عبدالله العتيبي</h2>
+                                <h4 class="partener-card-position">مهندس مدني خبير</h4>
+                                <p class="partener-card-desc">ضمان الالتزام بالمعايير الهندسية المتفوقة مع الحفاظ على
+                                    جاذبية العقار الاستثمارية.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="partener-card">
+                                <h2 class="partener-card-name">م. محمد سعد القرني</h2>
+                                <h4 class="partener-card-position">مهندس مدني خبير (كفاءة فريدة)</h4>
+                                <p class="partener-card-desc">مبتكر للحلول التشغيلية والاستثمارية لزيادة المردود المالي
+                                    والكفاءة في كل مشروع.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="questions-section" id="questions-section">
+            <div class="container">
+                <div class="faq">
+                    <div class="faq-header" >
+                        <div class="faq-badge badge" data-aos="zoom-in"  data-aos-duration="1500">سؤال وجواب</div>
+                        <h1 class="faq-title" data-aos="zoom-in"  data-aos-duration="1900">الأسئلة الشائعة</h1>
+                        <p class="faq-description" data-aos="zoom-in"  data-aos-duration="2200">
+                            نهجنا المتكامل يجمع بين تقييم الصفقات بدقة، كود أخلاقي صلب، ومعيار REQI المبتكر، لضمان
+                            استثمارات مليارية ناجحة تدعم رؤية الجيل العقاري القادم.
+                        </p>
+                    </div>
+                    <img src="./assets/images/center-img.png" alt="" class="ques-center-img">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
+                                    ما الذي يميز احتزم في إدارة الصناديق العقارية؟
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نقدّم صناديق مرخصة من هيئة سوق المال، مدعومة باستثمارات مليارية وتشديد دقيق لضمان
+                                    عوائد مستدامة.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
+                                    كيف تضمن احتزم الشفافية في الوساطة العقارية؟
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نلتزم بأعلى معايير الشفافية والمصداقية في جميع معاملاتنا العقارية، مع توفير تقارير
+                                    دورية وتحديثات مستمرة للعملاء.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3">
+                                    ما هي طبيعة الجيل العقاري القادم؟
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نركز على الاستثمارات العقارية المبتكرة والمستدامة التي تواكب التطورات الحديثة وتلبي
+                                    احتياجات المستقبل بكفاءة عالية.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4">
+                                    كيف يمكنني الاطمئنان إلى استثماراتي مع احترم؟
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نوفر نظام متابعة شامل ومعايير صارمة في اختيار الفرص الاستثمارية، بالإضافة إلى فريق
+                                    خبراء متخصص يعمل على حماية استثماراتك وتنميتها.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contactus-section" id="contactus-section"  data-aos-duration="1500">
+            <div class="container">
+                <div class="contactus-header" >
+                    <div class="badge contact-badge" data-aos="zoom-in"  data-aos-duration="1500">تواصل معنا</div>
+                    <h4 class="contact-intro" data-aos="zoom-in"  data-aos-duration="1900"> انضم إلى احتزم وكن جزءًا من النجاحات المليارية </h4>
+                    <p class="contact-desc" data-aos="zoom-in"  data-aos-duration="2200">نضمن لك تجربة استثمارية موثوقة ومبتكرة.تواصل معنا الآن لبدء رحلتك نحو
+                        استثمارات مليارية ناجحة!</p>
+                </div>
+                <div class="contacuUs-form-container">
+                    <div class="conactus-deco-up">
+                        <img src="./assets/images/center-img.png" alt="" class="conactus-deco-up-img">
+                    </div>
+                    <div class="form-card">
+
+
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">الإسم بالكامل</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="اسمك" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">رقم الهاتف</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="0995" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">سؤالك</label>
+                                <textarea class="form-control" id="question" placeholder="........" required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">إرسال</button>
+                        </form>
+                    </div>
+                    <div class="conactus-deco-bottom">
+                        <img src="./assets/images/center-img.png" alt="" class="conactus-deco-bottom-img">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="arc-bg"></div>
+
+            <!-- Social icons -->
+            <div class="social-icons d-flex justify-content-center align-items-end" >
+                <a class="social-icon" href="#" aria-label="Instagram" >
+                    <svg  viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="instgram-icon">
+                        <path
+                            d="M16 0.5C20.2113 0.5 20.7368 0.5155 22.3891 0.593C24.0398 0.6705 25.1636 0.92935 26.1525 1.31375C27.1755 1.70745 28.0373 2.24065 28.8991 3.1009C29.6873 3.87574 30.2971 4.81301 30.6862 5.8475C31.0691 6.83485 31.3295 7.96015 31.407 9.6109C31.4799 11.2632 31.5 11.7886 31.5 16C31.5 20.2113 31.4845 20.7368 31.407 22.3891C31.3295 24.0398 31.0691 25.1636 30.6862 26.1525C30.2982 27.1876 29.6882 28.1251 28.8991 28.8991C28.124 29.687 27.1868 30.2968 26.1525 30.6862C25.1651 31.0691 24.0398 31.3295 22.3891 31.407C20.7368 31.4799 20.2113 31.5 16 31.5C11.7886 31.5 11.2632 31.4845 9.6109 31.407C7.96015 31.3295 6.8364 31.0691 5.8475 30.6862C4.8126 30.2979 3.87517 29.688 3.1009 28.8991C2.31258 28.1244 1.70269 27.1871 1.31375 26.1525C0.92935 25.1651 0.6705 24.0398 0.593 22.3891C0.52015 20.7368 0.5 20.2113 0.5 16C0.5 11.7886 0.5155 11.2632 0.593 9.6109C0.6705 7.9586 0.92935 6.8364 1.31375 5.8475C1.70162 4.81238 2.31165 3.87485 3.1009 3.1009C3.87539 2.31231 4.81276 1.70238 5.8475 1.31375C6.8364 0.92935 7.9586 0.6705 9.6109 0.593C11.2632 0.52015 11.7886 0.5 16 0.5ZM16 8.25C13.9446 8.25 11.9733 9.06651 10.5199 10.5199C9.06651 11.9733 8.25 13.9446 8.25 16C8.25 18.0554 9.06651 20.0267 10.5199 21.4801C11.9733 22.9335 13.9446 23.75 16 23.75C18.0554 23.75 20.0267 22.9335 21.4801 21.4801C22.9335 20.0267 23.75 18.0554 23.75 16C23.75 13.9446 22.9335 11.9733 21.4801 10.5199C20.0267 9.06651 18.0554 8.25 16 8.25ZM26.075 7.8625C26.075 7.34864 25.8709 6.85583 25.5075 6.49248C25.1442 6.12913 24.6514 5.925 24.1375 5.925C23.6236 5.925 23.1308 6.12913 22.7675 6.49248C22.4041 6.85583 22.2 7.34864 22.2 7.8625C22.2 8.37636 22.4041 8.86917 22.7675 9.23252C23.1308 9.59587 23.6236 9.8 24.1375 9.8C24.6514 9.8 25.1442 9.59587 25.5075 9.23252C25.8709 8.86917 26.075 8.37636 26.075 7.8625ZM16 11.35C17.2333 11.35 18.416 11.8399 19.288 12.712C20.1601 13.584 20.65 14.7667 20.65 16C20.65 17.2333 20.1601 18.416 19.288 19.288C18.416 20.1601 17.2333 20.65 16 20.65C14.7667 20.65 13.584 20.1601 12.712 19.288C11.8399 18.416 11.35 17.2333 11.35 16C11.35 14.7667 11.8399 13.584 12.712 12.712C13.584 11.8399 14.7667 11.35 16 11.35Z"
+                            fill="url(#paint0_linear_150_1317)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_150_1317" x1="0.496152" y1="0.50323" x2="31.53"
+                                y2="0.50323" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#D8B263" />
+                                <stop offset="1" stop-color="#D7B261" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </a>
+                <a class="social-icon" href="#" aria-label="Meta" ><i class="fab fa-meta"></i></a>
+                <a class="social-icon center" href="#" aria-label="LinkedIn" ><i class="fab fa-linkedin-in"></i></a>
+                <a class="social-icon google-icon" href="#" aria-label="Google" ><i class="fab fa-google"></i></a>
+                <a class="social-icon twitter-icon" href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            </div>
+
+            <!-- Footer Content -->
+            <div class="footer-content">
+                <div class="row g-4 align-items-center">
+                    <!-- Contact Chips -->
+                    <div class="col-12 col-lg-4 order-lg-1">
+                        <div class="contact-chips-container">
+                            <a href="tel:+966551440009" class="contact-chip contact-chip-right">
+                                <span class="chip-text">+966 551 44 0009</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Main Footer Content -->
+                    <div class="col-12 col-lg-4 order-lg-2">
+                        <div class="footer-head">
+                            <div class="badge footer-badge">إحتزم...لتتم</div>
+                            <h2 class="footer-title">وحدة التمكين العقاري</h2>
+                            <p class="footer-intro">نعيد صياغة السوق العقاري السعودي من خلال حلول مبتكرة في الوساطة
+                                وإدارة
+                                الصناديق العقارية،
+                                مدعومين باستثمارات مليارية،
+                                تراخيص من هيئة سوق المال، وشراكات عالمية.</p>
+                            <div class="footer-contact-button">
+                                <a class="footer-contact-btn" href="#contactus-section">تواصل معنا
+                                    <i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Contact -->
+                    <div class="col-12 col-lg-4 order-lg-3">
+                        <div class="contact-chips-container">
+                            <a href="mailto:welcome@ehtazem.com" class="contact-chip contact-chip-left">
+                                <span class="chip-text">welcome@ehtazem.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+
+            <div class="row">
+                <div class="footer-bottom">
+                    <div class="col-12 col-md-6">
+                        <div class="brand-mini">
+                            <img src="./assets/images/ehtazemfooterlogo.svg" alt="Ehtazem" class="brand-mini-logo">
+                            <p class="copyright">©2025 جميع الحقوق محفوظة لشركة احتزم</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="made-by">
+                            <span class="madeby-p">صنع من قبل</span>
+                            <img src="./assets/images/PUIUX.svg" alt="PUIUX" class="made-by-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
