@@ -52,6 +52,27 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
+	 * Get custom help URL
+	 */
+	public function get_custom_help_url() {
+		return 'https://puiux.com/docs/ehtazem-widgets/' . $this->get_name();
+	}
+
+	/**
+	 * Get script dependencies
+	 */
+	public function get_script_depends() {
+		return ['ehtazem-widgets'];
+	}
+
+	/**
+	 * Get style dependencies
+	 */
+	public function get_style_depends() {
+		return ['ehtazem-widgets'];
+	}
+
+	/**
 	 * Register widget controls
 	 */
 	protected function register_controls() {
@@ -70,6 +91,7 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'صورة الشعار', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
+				'dynamic' => ['active' => true],
 				'default' => [
 					'url' => plugins_url( 'assets/images/EhtazemLogo.svg', dirname( dirname( __FILE__ ) ) . '/ehtazem-elementor.php' ),
 				],
@@ -81,8 +103,12 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'رابط الشعار', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::URL,
+				'dynamic' => ['active' => true],
+				'placeholder' => esc_html__( 'https://your-link.com', 'ehtazem-elementor' ),
 				'default' => [
 					'url' => '#',
+					'is_external' => false,
+					'nofollow' => false,
 				],
 			]
 		);
@@ -103,6 +129,7 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'نص زر القائمة', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'القائمة', 'ehtazem-elementor' ),
 			]
 		);
@@ -114,6 +141,7 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'النص', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'عنصر القائمة', 'ehtazem-elementor' ),
 			]
 		);
@@ -122,8 +150,14 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 			'menu_item_link',
 			[
 				'label' => esc_html__( 'الرابط', 'ehtazem-elementor' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => '#',
+				'type' => \Elementor\Controls_Manager::URL,
+				'dynamic' => ['active' => true],
+				'placeholder' => esc_html__( 'https://your-link.com', 'ehtazem-elementor' ),
+				'default' => [
+					'url' => '#',
+					'is_external' => false,
+					'nofollow' => false,
+				],
 			]
 		);
 
@@ -136,35 +170,35 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 				'default' => [
 					[
 						'menu_item_text' => esc_html__( 'نبذة عنا', 'ehtazem-elementor' ),
-						'menu_item_link' => '#aboutUs-section',
+						'menu_item_link' => ['url' => '#aboutUs-section', 'is_external' => false, 'nofollow' => false],
 					],
 					[
 						'menu_item_text' => esc_html__( 'خدماتنا', 'ehtazem-elementor' ),
-						'menu_item_link' => '#ourServices-section',
+						'menu_item_link' => ['url' => '#ourServices-section', 'is_external' => false, 'nofollow' => false],
 					],
 					[
 						'menu_item_text' => esc_html__( 'رحلتنا', 'ehtazem-elementor' ),
-						'menu_item_link' => '#org-structure-section',
+						'menu_item_link' => ['url' => '#org-structure-section', 'is_external' => false, 'nofollow' => false],
 					],
 					[
 						'menu_item_text' => esc_html__( 'معايرنا', 'ehtazem-elementor' ),
-						'menu_item_link' => '#approach-section',
+						'menu_item_link' => ['url' => '#approach-section', 'is_external' => false, 'nofollow' => false],
 					],
 					[
 						'menu_item_text' => esc_html__( 'المزايا', 'ehtazem-elementor' ),
-						'menu_item_link' => '#section-features',
+						'menu_item_link' => ['url' => '#section-features', 'is_external' => false, 'nofollow' => false],
 					],
 					[
 						'menu_item_text' => esc_html__( 'شركاؤنا', 'ehtazem-elementor' ),
-						'menu_item_link' => '#Ourpartners-section',
+						'menu_item_link' => ['url' => '#Ourpartners-section', 'is_external' => false, 'nofollow' => false],
 					],
 					[
 						'menu_item_text' => esc_html__( 'الأسئلة الشائعة', 'ehtazem-elementor' ),
-						'menu_item_link' => '#questions-section',
+						'menu_item_link' => ['url' => '#questions-section', 'is_external' => false, 'nofollow' => false],
 					],
 					[
 						'menu_item_text' => esc_html__( 'تواصل معنا', 'ehtazem-elementor' ),
-						'menu_item_link' => '#contactus-section',
+						'menu_item_link' => ['url' => '#contactus-section', 'is_external' => false, 'nofollow' => false],
 					],
 				],
 				'title_field' => '{{{ menu_item_text }}}',
@@ -187,6 +221,7 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'نص الزر', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'تواصل معنا', 'ehtazem-elementor' ),
 			]
 		);
@@ -195,8 +230,14 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 			'contact_button_link',
 			[
 				'label' => esc_html__( 'رابط الزر', 'ehtazem-elementor' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => '#contactus-section',
+				'type' => \Elementor\Controls_Manager::URL,
+				'dynamic' => ['active' => true],
+				'placeholder' => esc_html__( 'https://your-link.com', 'ehtazem-elementor' ),
+				'default' => [
+					'url' => '#contactus-section',
+					'is_external' => false,
+					'nofollow' => false,
+				],
 			]
 		);
 
@@ -209,6 +250,21 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 				'label_off' => esc_html__( 'لا', 'ehtazem-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'arrow_icon',
+			[
+				'label' => esc_html__( 'أيقونة السهم', 'ehtazem-elementor' ),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-arrow-up',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_arrow_icon' => 'yes',
+				],
 			]
 		);
 
@@ -359,6 +415,43 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		// Advanced Section for Custom CSS
+		$this->start_controls_section(
+			'custom_css_section',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'tab' => \Elementor\Controls_Manager::TAB_ADVANCED,
+			]
+		);
+
+		$this->add_control(
+			'custom_css',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'type' => \Elementor\Controls_Manager::CODE,
+				'language' => 'css',
+				'rows' => 20,
+				'description' => esc_html__( 'Add your custom CSS here. Use "selector" to target this widget.', 'ehtazem-elementor' ),
+				'selectors' => [
+					'{{WRAPPER}}' => '{{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'custom_css_description',
+			[
+				'type' => \Elementor\Controls_Manager::RAW_HTML,
+				'raw' => '<div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin-top: 10px;">
+					<strong>💡 Tip:</strong> Use <code>selector</code> to target this widget:<br>
+					<code>selector { color: red; }</code><br>
+					<code>selector .title { font-size: 24px; }</code>
+				</div>',
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -367,6 +460,11 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$logo_url = $settings['logo_image']['url'];
+
+		// Handle logo link
+		if ( ! empty( $settings['logo_link']['url'] ) ) {
+			$this->add_link_attributes( 'logo_link', $settings['logo_link'] );
+		}
 		$logo_link = $settings['logo_link']['url'];
 
 		// Add inline editing attributes
@@ -402,9 +500,13 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 								<li class="menu-items-wrapper">
 									<?php foreach ( $settings['menu_items'] as $index => $item ) :
 										$menu_item_key = 'menu_items.' . $index . '.menu_item_text';
+										$menu_link_key = 'menu_items.' . $index . '.menu_item_link';
 										$this->add_inline_editing_attributes( $menu_item_key, 'none' );
+										if ( ! empty( $item['menu_item_link']['url'] ) ) {
+											$this->add_link_attributes( $menu_link_key, $item['menu_item_link'] );
+										}
 									?>
-										<a class="dropdown-item" href="<?php echo esc_attr( $item['menu_item_link'] ); ?>" <?php echo $this->get_render_attribute_string( $menu_item_key ); ?>>
+										<a class="dropdown-item" <?php echo $this->get_render_attribute_string( $menu_link_key ); ?> <?php echo $this->get_render_attribute_string( $menu_item_key ); ?>>
 											<?php echo esc_html( $item['menu_item_text'] ); ?>
 										</a>
 									<?php endforeach; ?>
@@ -412,12 +514,17 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 
 								<!-- Menu Footer with Contact Button -->
 								<li>
-									<a href="<?php echo esc_attr( $settings['contact_button_link'] ); ?>" class="contactUs-btn-header" data-bs-toggle="dropdown">
+									<?php
+									if ( ! empty( $settings['contact_button_link']['url'] ) ) {
+										$this->add_link_attributes( 'menu_contact_button_link', $settings['contact_button_link'] );
+									}
+									?>
+									<a <?php echo $this->get_render_attribute_string( 'menu_contact_button_link' ); ?> class="contactUs-btn-header" data-bs-toggle="dropdown">
 										<span <?php echo $this->get_render_attribute_string( 'contact_button_text' ); ?>>
 											<?php echo esc_html( $settings['contact_button_text'] ); ?>
 										</span>
 										<?php if ( 'yes' === $settings['show_arrow_icon'] ) : ?>
-											<i class="fa-solid fa-arrow-up arrow-contus-head"></i>
+											<?php \Elementor\Icons_Manager::render_icon( $settings['arrow_icon'], [ 'aria-hidden' => 'true', 'class' => 'arrow-contus-head' ] ); ?>
 										<?php endif; ?>
 									</a>
 								</li>
@@ -425,12 +532,17 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 						</div>
 					</div>
 					<div class="contactUs-header">
-						<a href="<?php echo esc_attr( $settings['contact_button_link'] ); ?>" class="contactUs-btn-header">
+						<?php
+						if ( ! empty( $settings['contact_button_link']['url'] ) ) {
+							$this->add_link_attributes( 'main_contact_button_link', $settings['contact_button_link'] );
+						}
+						?>
+						<a <?php echo $this->get_render_attribute_string( 'main_contact_button_link' ); ?> class="contactUs-btn-header">
 							<span <?php echo $this->get_render_attribute_string( 'contact_button_text' ); ?>>
 								<?php echo esc_html( $settings['contact_button_text'] ); ?>
 							</span>
 							<?php if ( 'yes' === $settings['show_arrow_icon'] ) : ?>
-								<i class="fa-solid fa-arrow-up arrow-contus-head"></i>
+								<?php \Elementor\Icons_Manager::render_icon( $settings['arrow_icon'], [ 'aria-hidden' => 'true', 'class' => 'arrow-contus-head' ] ); ?>
 							<?php endif; ?>
 						</a>
 					</div>

@@ -50,6 +50,26 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 	public function get_keywords() {
 		return [ 'form', 'intermediaries', 'وسطاء', 'نموذج', 'ehtazem', 'احتزم' ];
 	}
+	/**
+	 * Get custom help URL
+	 */
+	public function get_custom_help_url() {
+		return 'https://puiux.com/docs/ehtazem-widgets/' . $this->get_name();
+	}
+
+	/**
+	 * Get script dependencies
+	 */
+	public function get_script_depends() {
+		return ['ehtazem-widgets'];
+	}
+
+	/**
+	 * Get style dependencies
+	 */
+	public function get_style_depends() {
+		return ['ehtazem-widgets'];
+	}
 
 	/**
 	 * Register widget controls
@@ -360,206 +380,45 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
+		// Advanced Section for Custom CSS
+		$this->start_controls_section(
+			'custom_css_section',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'tab' => \Elementor\Controls_Manager::TAB_ADVANCED,
+			]
+		);
+
+		$this->add_control(
+			'custom_css',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'type' => \Elementor\Controls_Manager::CODE,
+				'language' => 'css',
+				'rows' => 20,
+				'description' => esc_html__( 'Add your custom CSS here. Use "selector" to target this widget.', 'ehtazem-elementor' ),
+				'selectors' => [
+					'{{WRAPPER}}' => '{{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'custom_css_description',
+			[
+				'type' => \Elementor\Controls_Manager::RAW_HTML,
+				'raw' => '<div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin-top: 10px;">
+					<strong>💡 Tip:</strong> Use <code>selector</code> to target this widget:<br>
+					<code>selector { color: red; }</code><br>
+					<code>selector .title { font-size: 24px; }</code>
+				</div>',
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
 	 * Render widget output on the frontend
 	 */
-	protected function render() {
-		$settings = $this->get_settings_for_display();
-		$widget_id = $this->get_id();
-
-		// Add inline editing attributes
-		$this->add_inline_editing_attributes( 'badge_text', 'none' );
-		$this->add_inline_editing_attributes( 'title', 'basic' );
-		$this->add_inline_editing_attributes( 'description', 'advanced' );
-		$this->add_inline_editing_attributes( 'investment_title', 'basic' );
-		$this->add_inline_editing_attributes( 'percentage', 'none' );
-		$this->add_inline_editing_attributes( 'submit_button_text', 'none' );
-		?>
-
-		<section class="intermediaries-section" id="intermediaries-section">
-
-			<?php if ( ! empty( $settings['decoration_image']['url'] ) ) : ?>
-				<img src="<?php echo esc_url( $settings['decoration_image']['url'] ); ?>" alt="decoration" class="intermediares-deco-image">
-			<?php endif; ?>
-
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-5">
-						<div class="intermediaries-intro">
-							<div class="badge intermediate-badge" data-aos="fade-left" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>
-								<?php echo esc_html( $settings['badge_text'] ); ?>
-							</div>
-							<h4 class="intermediate-title" data-aos="fade-left" data-aos-duration="1900" <?php echo $this->get_render_attribute_string( 'title' ); ?>>
-								<?php echo nl2br( esc_html( $settings['title'] ) ); ?>
-							</h4>
-							<p class="intermediate-p" data-aos="fade-left" data-aos-duration="2000" <?php echo $this->get_render_attribute_string( 'description' ); ?>>
-								<?php echo nl2br( esc_html( $settings['description'] ) ); ?>
-							</p>
-							<div class="intermediares-percent">
-								<div class="invest-ehtazem" data-aos="fade-left" data-aos-duration="2200">
-									<h5 class="invest-ehtazem-h" <?php echo $this->get_render_attribute_string( 'investment_title' ); ?>><?php echo esc_html( $settings['investment_title'] ); ?></h5>
-									<div class="percent" <?php echo $this->get_render_attribute_string( 'percentage' ); ?>><?php echo esc_html( $settings['percentage'] ); ?></div>
-								</div>
-								<div class="ehtazem-percent-curve" data-aos="fade-left" data-aos-duration="2300">
-									<svg width="184" height="95" viewBox="0 0 184 95" fill="none" xmlns="http://www.w3.org/2000/svg" class="percent-curve">
-										<circle class="circle-start" cx="6" cy="6" r="5.333" fill="url(#paint0_linear_150_1142_<?php echo esc_attr( $widget_id ); ?>)"/>
-										<path class="curve-path" d="M6 6C6 6 33.5 32 62.7965 61.3823C68.3821 66.9679 77.3423 67.2645 83.285 62.0605C89.2277 56.8565 102.829 44.9466 102.829 44.9466C109.039 39.5082 118.259 39.3174 124.689 44.4942L178.5 89.1006"
-											stroke="url(#paint0_linear_150_1142_<?php echo esc_attr( $widget_id ); ?>)"
-											stroke-width="1.3"
-											fill="none"
-											stroke-linecap="round"/>
-										<circle class="circle-end" cx="178.5" cy="89.1006" r="5.333" fill="url(#paint0_linear_150_1142_<?php echo esc_attr( $widget_id ); ?>)"/>
-										<defs>
-											<linearGradient id="paint0_linear_150_1142_<?php echo esc_attr( $widget_id ); ?>" x1="850.636" y1="90.7523" x2="670.749" y2="-275.767" gradientUnits="userSpaceOnUse">
-												<stop offset="0.589" stop-color="#857540"/>
-												<stop offset="1" stop-color="#D7B261"/>
-											</linearGradient>
-										</defs>
-									</svg>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-7">
-						<div class="form-container">
-							<form class="ehtazem-intermediaries-form" data-form-type="intermediaries" data-widget-id="<?php echo esc_attr( $widget_id ); ?>">
-								<?php wp_nonce_field( 'ehtazem_form_submission', 'ehtazem_form_nonce' ); ?>
-
-								<div class="row">
-									<div class="col-md-6 mb-3">
-										<label class="form-label">الاسم بالكامل <span class="required">*</span></label>
-										<input type="text" name="full_name" class="form-control" placeholder="اسمك" required>
-									</div>
-									<div class="col-md-6 mb-3">
-										<label class="form-label">رقم الهاتف <span class="required">*</span></label>
-										<input type="tel" name="phone" class="form-control" placeholder="0995" required>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-md-6 mb-3">
-										<label class="form-label">اسم الشركة</label>
-										<input type="text" name="company" class="form-control" placeholder="اسم">
-									</div>
-									<div class="col-md-6 mb-3">
-										<label class="form-label">المنطقة</label>
-										<input type="text" name="region" class="form-control" placeholder="المنطقة">
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-12 mb-3">
-										<label class="form-label">تفاصيل العرض العقاري</label>
-										<textarea name="details" class="form-control" placeholder="........."></textarea>
-									</div>
-								</div>
-
-								<div class="form-messages" style="display: none;">
-									<div class="alert"></div>
-								</div>
-
-								<div class="submit-b">
-									<button type="submit" class="btn-submit" <?php echo $this->get_render_attribute_string( 'submit_button_text' ); ?>>
-										<?php echo esc_html( $settings['submit_button_text'] ); ?>
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<script>
-		jQuery(document).ready(function($) {
-			const widgetId = '<?php echo esc_js( $widget_id ); ?>';
-			const form = $('.ehtazem-intermediaries-form[data-widget-id="' + widgetId + '"]');
-			const submitBtn = form.find('.btn-submit');
-			const messagesContainer = form.find('.form-messages');
-			const alertDiv = form.find('.alert');
-
-			// Phone number formatting - only numbers
-			form.find('input[name="phone"]').on('input', function() {
-				this.value = this.value.replace(/[^0-9]/g, '');
-			});
-
-			// Form submission
-			form.on('submit', function(e) {
-				e.preventDefault();
-
-				// Get form data
-				const fullName = form.find('input[name="full_name"]').val().trim();
-				const phone = form.find('input[name="phone"]').val().trim();
-				const company = form.find('input[name="company"]').val().trim();
-				const region = form.find('input[name="region"]').val().trim();
-				const details = form.find('textarea[name="details"]').val().trim();
-				const nonce = form.find('input[name="ehtazem_form_nonce"]').val();
-
-				// Validation
-				if (fullName === '' || phone === '') {
-					showMessage('<?php echo esc_js( $settings['validation_message_required'] ); ?>', 'error');
-					return;
-				}
-
-				if (phone.length < 10) {
-					showMessage('<?php echo esc_js( $settings['validation_message_phone'] ); ?>', 'error');
-					return;
-				}
-
-				// Show loading state
-				submitBtn.prop('disabled', true);
-				submitBtn.html('جاري الإرسال...');
-
-				// Submit via AJAX
-				$.ajax({
-					url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
-					type: 'POST',
-					data: {
-						action: 'ehtazem_submit_form',
-						nonce: nonce,
-						form_type: 'intermediaries',
-						full_name: fullName,
-						phone: phone,
-						company: company,
-						region: region,
-						details: details
-					},
-					success: function(response) {
-						if (response.success) {
-							showMessage('<?php echo esc_js( $settings['success_message'] ); ?>', 'success');
-							form[0].reset();
-
-							// Reset button after 2 seconds
-							setTimeout(function() {
-								submitBtn.prop('disabled', false);
-								submitBtn.html('<?php echo esc_js( $settings['submit_button_text'] ); ?>');
-								messagesContainer.fadeOut();
-							}, 2000);
-						} else {
-							showMessage(response.data.message || '<?php echo esc_js( $settings['error_message'] ); ?>', 'error');
-							submitBtn.prop('disabled', false);
-							submitBtn.html('<?php echo esc_js( $settings['submit_button_text'] ); ?>');
-						}
-					},
-					error: function() {
-						showMessage('<?php echo esc_js( $settings['error_message'] ); ?>', 'error');
-						submitBtn.prop('disabled', false);
-						submitBtn.html('<?php echo esc_js( $settings['submit_button_text'] ); ?>');
-					}
-				});
-			});
-
-			function showMessage(message, type) {
-				alertDiv.removeClass('alert-success alert-danger');
-				alertDiv.addClass('alert-' + (type === 'success' ? 'success' : 'danger'));
-				alertDiv.html(message);
-				messagesContainer.fadeIn();
-			}
-		});
-		</script>
-
-		<?php
-	}
-}
+	protected function render

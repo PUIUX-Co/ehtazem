@@ -34,6 +34,26 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
     public function get_keywords() {
         return ['partners', 'team', 'ehtazem'];
     }
+	/**
+	 * Get custom help URL
+	 */
+	public function get_custom_help_url() {
+		return 'https://puiux.com/docs/ehtazem-widgets/' . $this->get_name();
+	}
+
+	/**
+	 * Get script dependencies
+	 */
+	public function get_script_depends() {
+		return ['ehtazem-widgets'];
+	}
+
+	/**
+	 * Get style dependencies
+	 */
+	public function get_style_depends() {
+		return ['ehtazem-widgets'];
+	}
 
     protected function register_controls() {
 
@@ -259,9 +279,46 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
         );
 
         $this->end_controls_section();
-    }
+		// Advanced Section for Custom CSS
+		$this->start_controls_section(
+			'custom_css_section',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'tab' => \Elementor\Controls_Manager::TAB_ADVANCED,
+			]
+		);
 
-    protected function render() {
+		$this->add_control(
+			'custom_css',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'type' => \Elementor\Controls_Manager::CODE,
+				'language' => 'css',
+				'rows' => 20,
+				'description' => esc_html__( 'Add your custom CSS here. Use "selector" to target this widget.', 'ehtazem-elementor' ),
+				'selectors' => [
+					'{{WRAPPER}}' => '{{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'custom_css_description',
+			[
+				'type' => \Elementor\Controls_Manager::RAW_HTML,
+				'raw' => '<div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin-top: 10px;">
+					<strong>💡 Tip:</strong> Use <code>selector</code> to target this widget:<br>
+					<code>selector { color: red; }</code><br>
+					<code>selector .title { font-size: 24px; }</code>
+				</div>',
+			]
+		);
+
+		$this->end_controls_section();
+
+	}
+
+	protected function render() {
         $settings = $this->get_settings_for_display();
 
         // Add inline editing attributes

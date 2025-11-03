@@ -52,6 +52,27 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
+	 * Get custom help URL
+	 */
+	public function get_custom_help_url() {
+		return 'https://puiux.com/docs/ehtazem-widgets/' . $this->get_name();
+	}
+
+	/**
+	 * Get script dependencies
+	 */
+	public function get_script_depends() {
+		return ['ehtazem-widgets'];
+	}
+
+	/**
+	 * Get style dependencies
+	 */
+	public function get_style_depends() {
+		return ['ehtazem-widgets'];
+	}
+
+	/**
 	 * Register widget controls
 	 */
 	protected function register_controls() {
@@ -70,6 +91,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'العنوان - الجزء الأول', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'وحدة التمكين', 'ehtazem-elementor' ),
 				'label_block' => true,
 			]
@@ -80,6 +102,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'العنوان - الجزء الثاني', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'العقاري', 'ehtazem-elementor' ),
 				'label_block' => true,
 			]
@@ -90,6 +113,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'العنوان الفرعي', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'لا نَعِد فقط، نحن ننفذ', 'ehtazem-elementor' ),
 				'label_block' => true,
 			]
@@ -100,6 +124,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'الوصف', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'إعادة صياغة الوساطة وإدارة الصناديق العقارية باستثمارات مليارية وتراخيص من هيئة سوق المال.', 'ehtazem-elementor' ),
 				'rows' => 3,
 			]
@@ -121,6 +146,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'صورة الخلفية', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
+				'dynamic' => ['active' => true],
 				'default' => [
 					'url' => plugins_url( 'assets/images/image 1.png', dirname( dirname( __FILE__ ) ) . '/ehtazem-elementor.php' ),
 				],
@@ -155,6 +181,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'نص الزر الأساسي', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'dynamic' => ['active' => true],
 				'default' => esc_html__( 'الذهاب إلى احتزم', 'ehtazem-elementor' ),
 			]
 		);
@@ -164,8 +191,12 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'رابط الزر الأساسي', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::URL,
+				'dynamic' => ['active' => true],
+				'placeholder' => esc_html__( 'https://your-link.com', 'ehtazem-elementor' ),
 				'default' => [
 					'url' => '#',
+					'is_external' => false,
+					'nofollow' => false,
 				],
 			]
 		);
@@ -186,8 +217,29 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			'arrow_button_link',
 			[
 				'label' => esc_html__( 'رابط زر السهم', 'ehtazem-elementor' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => '#aboutUs-section',
+				'type' => \Elementor\Controls_Manager::URL,
+				'dynamic' => ['active' => true],
+				'placeholder' => esc_html__( 'https://your-link.com', 'ehtazem-elementor' ),
+				'default' => [
+					'url' => '#aboutUs-section',
+					'is_external' => false,
+					'nofollow' => false,
+				],
+				'condition' => [
+					'show_arrow_button' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'arrow_down_icon',
+			[
+				'label' => esc_html__( 'أيقونة السهم للأسفل', 'ehtazem-elementor' ),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-arrow-down',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'show_arrow_button' => 'yes',
 				],
@@ -211,11 +263,27 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'رابط زر التشغيل', 'ehtazem-elementor' ),
 				'type' => \Elementor\Controls_Manager::URL,
+				'dynamic' => ['active' => true],
+				'placeholder' => esc_html__( 'https://your-link.com', 'ehtazem-elementor' ),
 				'default' => [
 					'url' => '#',
+					'is_external' => false,
+					'nofollow' => false,
 				],
 				'condition' => [
 					'show_play_button' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_arrow_icon',
+			[
+				'label' => esc_html__( 'أيقونة سهم الزر', 'ehtazem-elementor' ),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-arrow-left',
+					'library' => 'fa-solid',
 				],
 			]
 		);
@@ -363,6 +431,43 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		// Advanced Section for Custom CSS
+		$this->start_controls_section(
+			'custom_css_section',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'tab' => \Elementor\Controls_Manager::TAB_ADVANCED,
+			]
+		);
+
+		$this->add_control(
+			'custom_css',
+			[
+				'label' => esc_html__( 'Custom CSS', 'ehtazem-elementor' ),
+				'type' => \Elementor\Controls_Manager::CODE,
+				'language' => 'css',
+				'rows' => 20,
+				'description' => esc_html__( 'Add your custom CSS here. Use "selector" to target this widget.', 'ehtazem-elementor' ),
+				'selectors' => [
+					'{{WRAPPER}}' => '{{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'custom_css_description',
+			[
+				'type' => \Elementor\Controls_Manager::RAW_HTML,
+				'raw' => '<div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin-top: 10px;">
+					<strong>💡 Tip:</strong> Use <code>selector</code> to target this widget:<br>
+					<code>selector { color: red; }</code><br>
+					<code>selector .title { font-size: 24px; }</code>
+				</div>',
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -409,19 +514,23 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 								<span <?php echo $this->get_render_attribute_string( 'primary_button_text' ); ?>>
 									<?php echo esc_html( $settings['primary_button_text'] ); ?>
 								</span>
-								<i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
+								<?php \Elementor\Icons_Manager::render_icon( $settings['button_arrow_icon'], [ 'aria-hidden' => 'true', 'class' => 'arrow-join-head arrow-hero-down' ] ); ?>
 							</a>
 						<?php else : ?>
 							<button class="hero-primary" <?php echo $this->get_render_attribute_string( 'primary_button_text' ); ?>>
 								<?php echo esc_html( $settings['primary_button_text'] ); ?>
-								<i class="fa-solid fa-arrow-left arrow-join-head arrow-hero-down"></i>
+								<?php \Elementor\Icons_Manager::render_icon( $settings['button_arrow_icon'], [ 'aria-hidden' => 'true', 'class' => 'arrow-join-head arrow-hero-down' ] ); ?>
 							</button>
 						<?php endif; ?>
 
-						<?php if ( 'yes' === $settings['show_arrow_button'] ) : ?>
+						<?php if ( 'yes' === $settings['show_arrow_button'] ) :
+							if ( ! empty( $settings['arrow_button_link']['url'] ) ) {
+								$this->add_link_attributes( 'arrow_button_link_attr', $settings['arrow_button_link'] );
+							}
+						?>
 							<div class="hero-arrow">
-								<a class="down-btn hero-btn" href="<?php echo esc_attr( $settings['arrow_button_link'] ); ?>">
-									<i class="fa-solid fa-arrow-down arrow-hero-play"></i>
+								<a class="down-btn hero-btn" <?php echo $this->get_render_attribute_string( 'arrow_button_link_attr' ); ?>>
+									<?php \Elementor\Icons_Manager::render_icon( $settings['arrow_down_icon'], [ 'aria-hidden' => 'true', 'class' => 'arrow-hero-play' ] ); ?>
 								</a>
 							</div>
 						<?php endif; ?>
