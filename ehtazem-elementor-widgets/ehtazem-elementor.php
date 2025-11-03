@@ -278,17 +278,74 @@ final class Ehtazem_Elementor_Widgets {
 	}
 
 	/**
+	 * Enqueue Common Fonts and Icons
+	 * Used in both frontend and editor
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function enqueue_fonts_and_icons() {
+		// Cairo Font - Google Fonts
+		wp_enqueue_style(
+			'ehtazem-cairo-font',
+			'https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap',
+			[],
+			null
+		);
+
+		// Font Awesome Icons
+		wp_enqueue_style(
+			'ehtazem-font-awesome',
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+			[],
+			'6.5.1'
+		);
+
+		// Add inline CSS to ensure Cairo font applies to all widgets
+		$custom_css = "
+			/* PUIUX - Ehtazem: Ensure Cairo font applies everywhere */
+			.elementor-widget-ehtazem-header *,
+			.elementor-widget-ehtazem-hero *,
+			.elementor-widget-ehtazem-about-carousel *,
+			.elementor-widget-ehtazem-services *,
+			.elementor-widget-ehtazem-coming-soon *,
+			.elementor-widget-ehtazem-org-structure *,
+			.elementor-widget-ehtazem-approach *,
+			.elementor-widget-ehtazem-features *,
+			.elementor-widget-ehtazem-vision *,
+			.elementor-widget-ehtazem-intermediaries-form *,
+			.elementor-widget-ehtazem-partners *,
+			.elementor-widget-ehtazem-faq *,
+			.elementor-widget-ehtazem-contact-form *,
+			.elementor-widget-ehtazem-footer * {
+				font-family: 'Cairo', sans-serif !important;
+			}
+
+			/* Ensure Font Awesome icons display correctly */
+			.fa, .fas, .far, .fal, .fad, .fab {
+				font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Pro', 'Font Awesome 6 Brands' !important;
+				font-weight: 900;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		";
+		wp_add_inline_style( 'ehtazem-cairo-font', $custom_css );
+	}
+
+	/**
 	 * Enqueue Widget Styles
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 */
 	public function enqueue_widget_styles() {
+		// Enqueue main widget styles
 		wp_enqueue_style( 'ehtazem-widgets', plugins_url( 'assets/css/widgets.css', __FILE__ ), [], self::VERSION );
 
+		// Enqueue fonts and icons
+		$this->enqueue_fonts_and_icons();
+
 		// Enqueue external dependencies
-		wp_enqueue_style( 'cairo-font', 'https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap', [], null );
-		wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', [], '6.5.1' );
 		wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css', [], '5.3.8' );
 		wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11' );
 		wp_enqueue_style( 'aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', [], '2.3.4' );
@@ -312,12 +369,23 @@ final class Ehtazem_Elementor_Widgets {
 
 	/**
 	 * Enqueue Editor Styles
+	 * Ensures fonts and icons appear correctly in Elementor Editor
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 */
 	public function enqueue_editor_styles() {
-		wp_enqueue_style( 'ehtazem-editor', plugins_url( 'assets/css/widgets.css', __FILE__ ), [], self::VERSION );
+		// Enqueue main widget styles
+		wp_enqueue_style( 'ehtazem-widgets-editor', plugins_url( 'assets/css/widgets.css', __FILE__ ), [], self::VERSION );
+
+		// Enqueue dedicated editor styles
+		wp_enqueue_style( 'ehtazem-editor-specific', plugins_url( 'assets/css/editor.css', __FILE__ ), [], self::VERSION );
+
+		// Enqueue fonts and icons (CRITICAL for editor preview)
+		$this->enqueue_fonts_and_icons();
+
+		// Enqueue Bootstrap for proper layout in editor
+		wp_enqueue_style( 'ehtazem-bootstrap-editor', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css', [], '5.3.8' );
 	}
 
 	/**

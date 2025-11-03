@@ -1,0 +1,216 @@
+/**
+ * Elementor Editor Styles
+ *
+ * PUIUX - Ehtazem Elementor Widgets
+ * Ensures fonts and icons display correctly in Elementor Editor
+ *
+ * Development, Design & Programming by PUIUX
+ * Copyright (c) 2025 PUIUX. All rights reserved.
+ */
+
+/* ========================================
+   Cairo Font - Ensure it loads in editor
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+/* Apply Cairo font to all Ehtazem widgets in editor */
+.elementor-element[data-widget_type^="ehtazem-"] *,
+.elementor-widget-ehtazem-header *,
+.elementor-widget-ehtazem-hero *,
+.elementor-widget-ehtazem-about-carousel *,
+.elementor-widget-ehtazem-services *,
+.elementor-widget-ehtazem-coming-soon *,
+.elementor-widget-ehtazem-org-structure *,
+.elementor-widget-ehtazem-approach *,
+.elementor-widget-ehtazem-features *,
+.elementor-widget-ehtazem-vision *,
+.elementor-widget-ehtazem-intermediaries-form *,
+.elementor-widget-ehtazem-partners *,
+.elementor-widget-ehtazem-faq *,
+.elementor-widget-ehtazem-contact-form *,
+.elementor-widget-ehtazem-footer * {
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* ========================================
+   Font Awesome Icons - Ensure proper display
+   ======================================== */
+
+/* Font Awesome Solid */
+.fas,
+.fa-solid {
+    font-family: 'Font Awesome 6 Free' !important;
+    font-weight: 900 !important;
+}
+
+/* Font Awesome Regular */
+.far,
+.fa-regular {
+    font-family: 'Font Awesome 6 Free' !important;
+    font-weight: 400 !important;
+}
+
+/* Font Awesome Brands */
+.fab,
+.fa-brands {
+    font-family: 'Font Awesome 6 Brands' !important;
+    font-weight: 400 !important;
+}
+
+/* All Font Awesome icons */
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab,
+[class^="fa-"],
+[class*=" fa-"] {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* ========================================
+   RTL Support
+   ======================================== */
+
+[dir="rtl"] .elementor-element[data-widget_type^="ehtazem-"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ========================================
+   Widget Preview Enhancements in Editor
+   ======================================== */
+
+/* Better visibility for widgets in editor */
+.elementor-element[data-widget_type^="ehtazem-"] {
+    position: relative;
+}
+
+/* Widget label in editor */
+.elementor-element[data-widget_type^="ehtazem-"] .elementor-widget-container::before {
+    /* Removed to avoid clutter - can be enabled for debugging */
+    /* content: attr(data-widget_type); */
+    /* display: block; */
+    /* font-size: 10px; */
+    /* color: #999; */
+}
+
+/* ========================================
+   Form Fields in Editor
+   ======================================== */
+
+.elementor-widget-ehtazem-intermediaries-form .form-control,
+.elementor-widget-ehtazem-contact-form .form-control {
+    font-family: 'Cairo', sans-serif !important;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.elementor-widget-ehtazem-intermediaries-form .form-label,
+.elementor-widget-ehtazem-contact-form .form-label {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* ========================================
+   Button Styles in Editor
+   ======================================== */
+
+.elementor-element[data-widget_type^="ehtazem-"] button,
+.elementor-element[data-widget_type^="ehtazem-"] .btn,
+.elementor-element[data-widget_type^="ehtazem-"] a.btn {
+    font-family: 'Cairo', sans-serif !important;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   Typography Enhancement
+   ======================================== */
+
+/* Headings */
+.elementor-element[data-widget_type^="ehtazem-"] h1,
+.elementor-element[data-widget_type^="ehtazem-"] h2,
+.elementor-element[data-widget_type^="ehtazem-"] h3,
+.elementor-element[data-widget_type^="ehtazem-"] h4,
+.elementor-element[data-widget_type^="ehtazem-"] h5,
+.elementor-element[data-widget_type^="ehtazem-"] h6 {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700;
+}
+
+/* Paragraphs */
+.elementor-element[data-widget_type^="ehtazem-"] p {
+    font-family: 'Cairo', sans-serif !important;
+    line-height: 1.8;
+}
+
+/* ========================================
+   Editor UI Improvements
+   ======================================== */
+
+/* Better spacing in editor preview */
+.elementor-editor-active .elementor-element[data-widget_type^="ehtazem-"] {
+    padding: 10px;
+}
+
+/* Highlight active widget */
+.elementor-editor-active .elementor-element.elementor-element-edit-mode[data-widget_type^="ehtazem-"] {
+    outline: 2px solid #D7B261;
+    outline-offset: -2px;
+}
+
+/* ========================================
+   Animation Fixes for Editor
+   ======================================== */
+
+/* Disable AOS animations in editor for better editing experience */
+.elementor-editor-active [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* ========================================
+   Responsive Preview in Editor
+   ======================================== */
+
+/* Mobile preview */
+@media (max-width: 767px) {
+    .elementor-device-mobile .elementor-element[data-widget_type^="ehtazem-"] {
+        font-size: 14px;
+    }
+}
+
+/* Tablet preview */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .elementor-device-tablet .elementor-element[data-widget_type^="ehtazem-"] {
+        font-size: 15px;
+    }
+}
+
+/* ========================================
+   PUIUX Branding
+   ======================================== */
+
+/* Optional: Add subtle PUIUX branding in editor (can be removed) */
+/* .elementor-element[data-widget_type^="ehtazem-"]::after {
+    content: 'PUIUX - احتزم';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 9px;
+    color: #D7B261;
+    opacity: 0.3;
+    pointer-events: none;
+} */
