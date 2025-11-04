@@ -1,4 +1,17 @@
-* {
+/* ================================================
+   EHTAZEM ELEMENTOR WIDGETS - ISOLATED STYLES
+   ================================================
+   
+   نسخة معزولة 100% من ملفات الفرونت إند الأصلية
+   تم عزل جميع الـ Selectors لمنع التداخل مع:
+   - ملفات الثيم (Hello Elementor وغيره)
+   - ملفات Elementor الأساسية  
+   - أي Plugins أخرى
+   
+   جميع الـ Styles تؤثر فقط على الويدجتس، وليس على الموقع كله
+   ================================================ */
+
+.elementor-widget-container * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -13,36 +26,36 @@
     --gradient-color: linear-gradient(45.53deg, #857540 -37.94%, #D7B261 73.48%);
 }
 
-::selection {
+.elementor-widget-container ::selection {
     background-color: #c7af61;
     color: var(--quinary-color);
 }
 
-::-webkit-scrollbar {
+.elementor-widget-container ::-webkit-scrollbar {
     width: 10px;
 }
 
 /* الخلفية الخلفية للمسار */
-::-webkit-scrollbar-track {
+.elementor-widget-container ::-webkit-scrollbar-track {
     background: var(--tertiary-color);
 }
 
 /* لون مقبض التمرير */
-::-webkit-scrollbar-thumb {
+.elementor-widget-container ::-webkit-scrollbar-thumb {
     background: #857540;
     border-radius: 10px;
 }
 
 /* عند تمرير الماوس على المقبض */
-::-webkit-scrollbar-thumb:hover {
+.elementor-widget-container ::-webkit-scrollbar-thumb:hover {
     background: #b9a45e;
 }
 
-a {
+.elementor-widget-container a {
     text-decoration: none;
 }
 
-body {
+.elementor-widget-container {
     direction: rtl;
     font-family: "Cairo", sans-serif;
     background-color: #F8F8F8;
@@ -54,8 +67,7 @@ img.logo-img {
     object-fit: contain;
 }
 
-html,
-body {
+.elementor-widget-container {
     overflow-x: hidden;
 }
 
