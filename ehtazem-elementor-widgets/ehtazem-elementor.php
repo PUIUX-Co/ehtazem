@@ -1106,8 +1106,19 @@ final class Ehtazem_Elementor_Widgets {
 	 * @access public
 	 */
 	public function enqueue_admin_assets( $hook ) {
-		// Only load on our admin pages
-		if ( strpos( $hook, 'ehtazem' ) === false ) {
+		// Debug: Log the hook to see what pages we're on
+		error_log( 'EHTAZEM ADMIN HOOK: ' . $hook );
+
+		// Load on all admin pages OR specifically our ehtazem pages
+		// This ensures Font Awesome loads everywhere it's needed
+		$is_ehtazem_page = (
+			strpos( $hook, 'ehtazem' ) !== false ||
+			strpos( $hook, 'toplevel_page_ehtazem' ) !== false ||
+			$hook === 'toplevel_page_ehtazem-dashboard' ||
+			isset( $_GET['page'] ) && strpos( $_GET['page'], 'ehtazem' ) !== false
+		);
+
+		if ( ! $is_ehtazem_page ) {
 			return;
 		}
 
@@ -1118,6 +1129,35 @@ final class Ehtazem_Elementor_Widgets {
 			[],
 			'6.5.1'
 		);
+
+		error_log( 'EHTAZEM: Font Awesome enqueued for hook: ' . $hook );
+
+		// Add Font Awesome inline as fallback (ensures it always loads)
+		add_action( 'admin_head', function() {
+			echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />';
+			// Add custom CSS to ensure icons are visible
+			echo '<style>
+				.ehtazem-admin-wrap .fas,
+				.ehtazem-admin-wrap .fa,
+				.ehtazem-admin-wrap i[class^="fa"],
+				.ehtazem-admin-wrap i[class*=" fa"] {
+					font-family: "Font Awesome 6 Free" !important;
+					font-weight: 900 !important;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					display: inline-block !important;
+					font-style: normal !important;
+					font-variant: normal !important;
+					text-rendering: auto !important;
+					line-height: 1 !important;
+				}
+				.ehtazem-admin-wrap .btn-action i {
+					visibility: visible !important;
+					opacity: 1 !important;
+					font-size: 14px !important;
+				}
+			</style>';
+		}, 1 );
 
 		// AOS Library
 		wp_enqueue_style(

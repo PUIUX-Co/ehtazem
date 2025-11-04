@@ -687,14 +687,69 @@ body.rtl .ehtazem-admin-wrap * {
 /* Ensure icons are visible and properly sized */
 .fas, .fa, .far, .fal, .fad, .fab {
 	font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Pro', 'Font Awesome 6 Brands' !important;
-	font-weight: 900;
+	font-weight: 900 !important;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	display: inline-block;
-	font-style: normal;
-	font-variant: normal;
-	text-rendering: auto;
-	line-height: 1;
+	display: inline-block !important;
+	font-style: normal !important;
+	font-variant: normal !important;
+	text-rendering: auto !important;
+	line-height: 1 !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+/* Force Font Awesome on action button icons */
+.btn-action i {
+	font-family: 'Font Awesome 6 Free' !important;
+	font-weight: 900 !important;
+	display: inline-block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+/* Fallback: Add icons via CSS if Font Awesome fails to load */
+.btn-view .fa-eye::before {
+	content: '\f06e' !important;
+}
+
+.btn-progress .fa-clock::before {
+	content: '\f017' !important;
+}
+
+.btn-complete .fa-check::before {
+	content: '\f00c' !important;
+}
+
+/* Alternative fallback: Use emojis if Font Awesome completely fails */
+.btn-view i.fa-eye::after {
+	content: '👁️';
+	font-family: sans-serif !important;
+	font-weight: normal !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.btn-progress i.fa-clock::after {
+	content: '⏱️';
+	font-family: sans-serif !important;
+	font-weight: normal !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.btn-complete i.fa-check::after {
+	content: '✅';
+	font-family: sans-serif !important;
+	font-weight: normal !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 /* ============================================
