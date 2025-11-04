@@ -431,7 +431,7 @@ class Ehtazem_Footer_Widget extends \Elementor\Widget_Base {
 		}
 
 		?>
-        <footer class="site-footer ehtazem-widget-scope" id="footer">
+        <footer class="site-footer" id="footer">
             <div class="container">
                 <div class="arc-bg"></div>
 

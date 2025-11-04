@@ -475,7 +475,7 @@ class Ehtazem_Contact_Form_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="contactus-section ehtazem-widget-scope" id="contactus-section"  data-aos-duration="1500">
+		<section class="contactus-section" id="contactus-section"  data-aos-duration="1500">
 			<div class="container">
 				<div class="contactus-header" >
 					<div class="badge contact-badge" data-aos="zoom-in"  data-aos-duration="1500"><?php echo esc_html($settings['badge_text']); ?></div>

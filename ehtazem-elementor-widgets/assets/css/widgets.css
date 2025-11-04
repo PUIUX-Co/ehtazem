@@ -1,21 +1,9 @@
-/* ==================================================
-   EHTAZEM WIDGETS - ULTRA MEGA HIGH SPECIFICITY STYLES
-   Original CSS from: /home/user/ehtazem/css/style.css
-   Scoped to: .ehtazem-widget-scope x5 (repeated 5 times!)
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-   This ULTRA HIGH SPECIFICITY prevents Elementor's dynamic CSS from overriding our styles!
-
-   Example of Elementor's CSS (4 classes):
-   .elementor-109 .elementor-element.elementor-element-cbe4bec .aboutUs-title
-   Specificity: 0,0,4,0
-
-   Our CSS (6 classes = MUCH STRONGER):
-   .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-title
-   Specificity: 0,0,6,0  ✅ WINS!
-
-   ================================================== */
-
-/* Global CSS Variables - Safe to keep global */
 :root {
     --primary-color: #D7B261;
     --secondary-color: #0B6D55;
@@ -25,78 +13,70 @@
     --gradient-color: linear-gradient(45.53deg, #857540 -37.94%, #D7B261 73.48%);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-
-
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ::selection {
+::selection {
     background-color: #c7af61;
     color: var(--quinary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 10px;
 }
 
 /* الخلفية الخلفية للمسار */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: var(--tertiary-color);
 }
 
 /* لون مقبض التمرير */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #857540;
     border-radius: 10px;
 }
 
 /* عند تمرير الماوس على المقبض */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #b9a45e;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope a {
+a {
     text-decoration: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope {
+body {
     direction: rtl;
     font-family: "Cairo", sans-serif;
     background-color: #F8F8F8;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.logo-img {
+img.logo-img {
     width: 100px;
     height: 56px;
     object-fit: contain;
 }
 
 html,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope {
+body {
     overflow-x: hidden;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope header.header {
+header.header {
     position: absolute;
     z-index: 100;
     width: 100%;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button {
+.accordion-button {
     text-align: start !important;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .header-content {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 32px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ul.dropdown-menu {
+ul.dropdown-menu {
     position: fixed !important;
     width: 100vw !important;
     height: 100vh !important;
@@ -115,13 +95,13 @@ html,
     background-color: #091F2C;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ul.dropdown-menu.show {
+ul.dropdown-menu.show {
     transform: translateX(0) !important;
     display: flex !important;
 }
 
 /* Menu Header with Logo and Close Button */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:first-child {
+.dropdown-menu li:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -130,17 +110,17 @@ html,
     flex-shrink: 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:first-child a {
+.dropdown-menu li:first-child a {
     display: flex;
     align-items: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:first-child img {
+.dropdown-menu li:first-child img {
     max-height: 45px;
     width: auto;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .close-btn {
+.close-btn {
     background: none;
     border: none;
     color: white;
@@ -150,19 +130,19 @@ html,
     padding: 5px 10px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .close-btn:hover {
+.close-btn:hover {
     transform: rotate(90deg);
     color: var(--secondary-color);
 }
 
 /* Wrapper for menu items */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .menu-items-wrapper {
+.menu-items-wrapper {
     flex: 1;
     overflow-y: auto;
     padding: 2rem 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-item {
+.dropdown-item {
     display: block;
     width: 100%;
     padding: 17px 80px;
@@ -182,26 +162,26 @@ html,
     cursor: pointer;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-item:hover {
+.dropdown-item:hover {
     background-color: #d7b26115;
     color: var(--primary-color);
     border-right-color: var(--primary-color);
     padding-right: calc(80px + 1rem);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-item:active {
+.dropdown-item:active {
     background-color: #d7b26115;
     color: var(--primary-color);
 }
 
 /* Menu Footer with Contact Button */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:last-child {
+.dropdown-menu li:last-child {
     padding: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-shrink: 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:last-child a {
+.dropdown-menu li:last-child a {
     width: fit-content;
     padding: 14px 24px;
     color: white;
@@ -219,41 +199,41 @@ html,
     margin: auto;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:last-child a:hover {
+.dropdown-menu li:last-child a:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px #00402e2f;
     color: white;
 }
 
 /* Scrollbar Styling */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ul.dropdown-menu::-webkit-scrollbar {
+ul.dropdown-menu::-webkit-scrollbar {
     width: 8px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope button.btn.menu-btn {
+button.btn.menu-btn {
     background-color: #FFFFFF40;
     color: white;
     border-radius: 50px;
     padding: 13px 24px;
     transition: all .3s ease;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope button.btn.menu-btn:hover {
+button.btn.menu-btn:hover{
     transform: scale(1.1);
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ul.dropdown-menu::-webkit-scrollbar-track {
+ul.dropdown-menu::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ul.dropdown-menu::-webkit-scrollbar-thumb {
+ul.dropdown-menu::-webkit-scrollbar-thumb {
     background: #667eea;
     border-radius: 4px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope ul.dropdown-menu::-webkit-scrollbar-thumb:hover {
+ul.dropdown-menu::-webkit-scrollbar-thumb:hover {
     background: #764ba2;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header {
+.contactUs-btn-header {
     position: relative;
     padding: 5px 9px;
     border-radius: 40px;
@@ -270,7 +250,7 @@ html,
 
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope i.fa-solid.fa-arrow-up.arrow-contus-head {
+i.fa-solid.fa-arrow-up.arrow-contus-head {
     position: relative;
   overflow: hidden;
     transform: rotate(312deg);
@@ -280,7 +260,7 @@ html,
     font-size: 11px;
     transition: all .3s ease;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope i.fa-solid.fa-arrow-up.arrow-contus-head::after {
+i.fa-solid.fa-arrow-up.arrow-contus-head::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -290,18 +270,18 @@ html,
     z-index: -1;
     transition: transform 250ms ease-in-out;
   }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header:hover i.fa-solid.fa-arrow-up.arrow-contus-head::after {
+  .contactUs-btn-header:hover i.fa-solid.fa-arrow-up.arrow-contus-head::after{
     transform: translateX(0);
   }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header:hover i.fa-solid.fa-arrow-up.arrow-contus-head {
+.contactUs-btn-header:hover i.fa-solid.fa-arrow-up.arrow-contus-head {
     transform: rotate(269deg);
    
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header:hover {
+.contactUs-btn-header:hover{
     transform: translate(2px, 2px);
   
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header::after {
+.contactUs-btn-header::after{
     content: "";
     position: absolute;
     inset: 0;
@@ -311,11 +291,11 @@ html,
     transition: transform 250ms;
     border-radius:40px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header:hover::after {
+.contactUs-btn-header:hover::after {
     transform: translateX(0);
   }
 /* Hero section */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero {
+.hero {
     position: relative;
     color: #fff;
     display: flex;
@@ -323,11 +303,11 @@ html,
     height: 100vh;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope i.fa-solid.fa-arrow-down.arrow-hero-play {
+i.fa-solid.fa-arrow-down.arrow-hero-play {
     font-size: 12px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-bg {
+.hero-bg {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -336,7 +316,7 @@ html,
     z-index: 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-overlay {
+.hero-overlay {
     position: absolute;
     inset: 0;
     /*background: #0b0b0b;*/
@@ -344,13 +324,13 @@ html,
     z-index: 1;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-content {
+.hero-content {
     position: relative;
     z-index: 2;
     padding-bottom: 50px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-title {
+.hero-title {
     font-weight: 700;
     font-size: clamp(36px, 6vw, 80px);
     line-height: 1.2;
@@ -358,11 +338,11 @@ html,
     padding-bottom: 20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-title span {
+.hero-title span {
     color: var(--primary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-subtitle {
+.hero-subtitle {
     margin-top: 12px;
     opacity: 0.9;
     font-size: 16px;
@@ -375,13 +355,13 @@ html,
     justify-content: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-desc {
+.hero-desc {
     margin-top: 8px;
     color: #e9ecef;
     font-size: 18px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-actions {
+.hero-actions {
     margin-top: -57px;
     gap: 14px;
     display: flex;
@@ -389,7 +369,7 @@ html,
     justify-content: flex-end;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-primary {
+.hero-primary {
     padding: 7px 8px;
     border-radius: 9999px;
     display: flex;
@@ -403,24 +383,24 @@ html,
     transition: all .3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-primary:hover {
+.hero-primary:hover {
     transform: scale(1.05);
     background-color:var(--tertiary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.hero-desc {
+p.hero-desc {
     max-width: 500px;
     line-height: 1.8;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope i.fa-solid.fa-arrow-left.arrow-join-head {
+i.fa-solid.fa-arrow-left.arrow-join-head {
     padding: 10px 11px;
     background-color: #FFFFFF14;
     border-radius: 50%;
     font-size: 12px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-btn {
+.hero-btn {
     border-radius: 50%;
     background-color: #3E3C3D;
     border: 7px solid #414041;
@@ -433,19 +413,19 @@ html,
     justify-content: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-btn:hover {
+.hero-btn:hover {
     background-color: #585858;
     border: 7px solid #484744;
 }
 
 
 /*AboutUs section*/
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-intro {
+.aboutUs-intro {
     text-align: center;
     padding-bottom: 23px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-title {
+.aboutUs-title {
     width: fit-content;
     min-width: 117px;
     margin: auto;
@@ -459,7 +439,7 @@ html,
     justify-content: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-desc {
+.aboutUs-desc {
     font-size: clamp(18px, 4.2vw, 32px);
     color: #00402E;
     padding-top: 20px;
@@ -470,20 +450,20 @@ html,
 }
 
 /* AboutUs Swiper */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-section {
+.aboutUs-section {
     padding: 60px 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images {
+.aboutUs-images {
     width: 100%;
     padding-top: 24px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-slide {
+.aboutUs-images .swiper-slide {
     height: 100%;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images img {
+.aboutUs-images img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -492,35 +472,35 @@ html,
 
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-wrapper {
+.aboutUs-images .swiper-wrapper {
     align-items: flex-end;
 }
 
 
 /* Alternate slide heights: tall then short like the screenshot */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-slide:nth-child(odd) .img-card-about {
+.aboutUs-images .swiper-slide:nth-child(odd) .img-card-about {
     height: 360px;
     width: 100%;
 
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-slide:nth-child(even) .img-card-about {
+.aboutUs-images .swiper-slide:nth-child(even) .img-card-about {
     height: 240px;
     width: 100%;
 
 }
 
 .aboutUs-images .swiper-button-prev,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-button-next {
+.aboutUs-images .swiper-button-next {
     color: var(--secondary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-pagination-bullet-active {
+.aboutUs-images .swiper-pagination-bullet-active {
     background: var(--secondary-color);
 }
 
 /* Custom controls beneath slider */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-controls {
+.aboutUs-controls {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -528,7 +508,7 @@ html,
     margin-top: 16px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-controls button {
+.aboutUs-controls button {
     background: transparent;
     border: none;
     color: #404040;
@@ -541,16 +521,16 @@ html,
     transition: background .2s ease, transform .2s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-controls button:hover {
+.aboutUs-controls button:hover {
     background: #f2f2f2;
     transform: scale(1.05);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-controls i {
+.aboutUs-controls i {
     font-size: 18px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.our-services-title {
+h2.our-services-title {
     font-size: 16px;
     color: var(--tertiary-color);
     border: 1px solid #0000001A;
@@ -559,51 +539,51 @@ html,
     padding: 6px 16px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.our-services-introdescrep {
+p.our-services-introdescrep {
     font-size: 30px;
     color: var(--secondary-color);
     line-height: 1.7;
 }
 
 .serv-1-intro,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-2-intro {
+.serv-2-intro {
     display: flex;
     gap: 8px;
     align-items: center;
 }
 
 h2.serv-1-title,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-2-title {
+h2.serv-2-title {
     font-size: 27px;
     font-weight: bold;
     color: var(--quaternary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.serv-1-descrep, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.serv-2-descrep {
+p.serv-1-descrep, p.serv-2-descrep {
     font-size: 14px;
     color: #5D5D5D;
     line-height: 1.8;
 }
 .serv-1,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-2 {
+.serv-2 {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ourServices-intro {
+.ourServices-intro {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side-1-serv {
+.side-1-serv {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serveces-contact {
+.serveces-contact {
     padding: 7px 8px;
     border-radius: 9999px;
     display: flex;
@@ -618,21 +598,21 @@ h2.serv-1-title,
     transition: all .3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serveces-contact:hover {
+.serveces-contact:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 10px #00402e52;
     background-color:var(--tertiary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-side-2 {
+.serv-side-2 {
     border: 7px solid #D8B263;
     border-radius: 33px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-1-image, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-2-image {
+.serv-1-image,.serv-2-image {
     width: 40px;
     height: 67px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.services-images {
+img.services-images {
     width: 100%;
     height: 541px;
     border-top-left-radius: 24px;
@@ -642,7 +622,7 @@ h2.serv-1-title,
     z-index: -2;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-side-2-desc {
+.serv-side-2-desc {
 
     display: flex;
     background-color: var(--secondary-color);
@@ -654,7 +634,7 @@ h2.serv-1-title,
     position: relative;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon {
+.soon {
     background-color: var(--tertiary-color);
     margin-top: 100px;
     border-radius: 42px;
@@ -662,13 +642,13 @@ h2.serv-1-title,
    
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-deco {
+.soon-deco {
     position: absolute;
     left: 0px;
     bottom: 0px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.soon-title {
+h2.soon-title {
     font-size: 16px;
     color: var(--quinary-color);
     border: 1px solid #FFFFFF1A;
@@ -677,24 +657,24 @@ h2.serv-1-title,
     padding: 6px 16px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-sec {
+.soon-sec {
     padding: 100px 0px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.soon-descrep-intro {
+p.soon-descrep-intro {
     font-size: 64px;
     color: #D7B261;
     font-weight: bold;
     line-height: 1.6;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-features {
+.soon-features {
     color: #FFFFFF99;
     font-size: 18px;
     font-weight: 500;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-side2-desc {
+.soon-side2-desc {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -705,12 +685,12 @@ h2.serv-1-title,
     border-bottom-right-radius: 24px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-side2-deco {
+.soon-side2-deco {
     position: absolute;
     bottom: 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side2-soon-image {
+.side2-soon-image {
     width: 100%;
     height: 440px;
     object-fit: cover;
@@ -721,12 +701,12 @@ h2.serv-1-title,
 }
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-collapse.collapse.show {
+.accordion-collapse.collapse.show {
     background: #00000005;
     backdrop-filter: blur(10px);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side-2-soon {
+.side-2-soon {
     position: relative;
     border: 5px solid #D7B261;
     border-radius: 30px;
@@ -735,11 +715,11 @@ h2.serv-1-title,
 p.side-2-p1,
 p.side-2-p2,
 p.side-2soon-p1,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.side-2soon-p2 {
+p.side-2soon-p2 {
     margin: 0 !important;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-btn {
+.soon-btn {
     padding: 12px 24px;
     border-radius: 9999px;
     display: flex;
@@ -754,34 +734,34 @@ p.side-2soon-p1,
     transition: all .3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-btn:hover {
+.soon-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 10px #0b6d546c;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side-1-soon {
+.side-1-soon {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-deco {
+.serv-deco {
     position: absolute;
     bottom: 24px;
     z-index: -1;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.serv-deco-img {
+img.serv-deco-img {
     width: 127px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features {
+.section-features {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.center-img {
+img.center-img {
     width: 400px;
     object-fit: contain;
     height: 400px;
@@ -797,21 +777,21 @@ p.side-2soon-p1,
 /* Animations */
 
 @keyframes rotateCenter {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope from {
+    from {
         transform: translate(-50%, -50%) rotate(0deg);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope to {
+    to {
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
 @keyframes rotateFan {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope from {
+    from {
         transform: rotate(0deg);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope to {
+    to {
         transform: rotate(360deg);
     }
 }
@@ -819,12 +799,12 @@ p.side-2soon-p1,
 @keyframes twinkle {
 
     0%,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         opacity: 0.3;
         transform: scale(0.8);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         opacity: 1;
         transform: scale(1.2);
     }
@@ -833,11 +813,11 @@ p.side-2soon-p1,
 @keyframes pulse {
 
     0%,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         opacity: 0.6;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         opacity: 1;
     }
 }
@@ -845,7 +825,7 @@ p.side-2soon-p1,
 
 /* Header */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features .icon-circle-img {
+.section-features .icon-circle-img {
     display: flex;
     width: 54px;
     height: 54px;
@@ -855,18 +835,18 @@ p.side-2soon-p1,
     justify-content: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features .icon-circle-img img {
+.section-features .icon-circle-img img {
     width: 31px;
     height: 30px;
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features .header-features {
+.section-features .header-features {
     text-align: center;
     margin-bottom: 100px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .badge {
+.badge {
     display: inline-block;
     color: #00402E;
     padding: 8px 20px;
@@ -877,14 +857,14 @@ p.side-2soon-p1,
     margin-bottom: 15px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features .main-title {
+.section-features .main-title {
     font-size: 52px;
     color: #000000;
     margin-bottom: 20px;
     font-weight: 400;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features .subtitle {
+.section-features .subtitle {
     font-size: 18px;
     color: #00000099;
     line-height: 1.8;
@@ -895,7 +875,7 @@ p.side-2soon-p1,
 
 /* Grid Container */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .grid-container-features {
+.grid-container-features {
     display: grid;
     grid-template-columns: 1fr 400px 1fr;
     grid-template-rows: 1fr 1fr;
@@ -910,7 +890,7 @@ p.side-2soon-p1,
 
 /* Center Element */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .center-element {
+.center-element {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -918,7 +898,7 @@ p.side-2soon-p1,
     z-index: 10;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .center-circle {
+.center-circle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -926,7 +906,7 @@ p.side-2soon-p1,
     z-index: 1;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .center-circle-texts {
+.center-circle-texts {
     color: #00402E;
     font-size: 36px;
     font-weight: 700;
@@ -942,7 +922,7 @@ p.side-2soon-p1,
     justify-content: center;
     flex-direction: column;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.under-center {
+p.under-center {
     font-size: 13px;
     font-weight: 400;
     color: #000000;
@@ -950,7 +930,7 @@ p.side-2soon-p1,
 
 /* Fan rotation container */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .fan-container {
+.fan-container {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -960,14 +940,14 @@ p.side-2soon-p1,
 
 /* Decorative Curves */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve {
+.curve {
     position: absolute;
     border-radius: 50%;
     
     /* animation: pulse 3s ease-in-out infinite; */
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-1 {
+.curve-1 {
     width: 130px;
     height: 130px;
     top: -5px;
@@ -977,7 +957,7 @@ p.side-2soon-p1,
     animation-delay: 0s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-2 {
+.curve-2 {
     width: 130px;
     height: 130px;
     bottom: -20px;
@@ -987,7 +967,7 @@ p.side-2soon-p1,
     animation-delay: 0.75s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-3 {
+.curve-3 {
     width: 130px;
     height: 130px;
     border-right-color: transparent;
@@ -999,7 +979,7 @@ p.side-2soon-p1,
     animation-delay: 1.5s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-4 {
+.curve-4 {
     width: 130px;
     height: 130px;
     bottom: -105px;
@@ -1012,7 +992,7 @@ p.side-2soon-p1,
 
 /* Feature Cards */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .feature-card {
+.feature-card {
     background: white;
     padding: 35px 30px;
     border-radius: 20px;
@@ -1027,12 +1007,12 @@ p.side-2soon-p1,
     overflow: hidden;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .feature-card:hover {
+.feature-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .icon-circle {
+.icon-circle {
     width: 140px;
     height: 140px;
     border-radius: 50%;
@@ -1046,7 +1026,7 @@ p.side-2soon-p1,
     background: transparent;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .feature-title {
+.feature-title {
     font-size: 20px;
     color: #1a1a1a;
     margin-bottom: 12px;
@@ -1054,7 +1034,7 @@ p.side-2soon-p1,
     line-height: 1.4;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .feature-description {
+.feature-description {
     font-size: 14px;
     color: #00000099;
     line-height: 1.7;
@@ -1063,7 +1043,7 @@ p.side-2soon-p1,
 
 /* Background Decorations */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .bg-decoration {
+.bg-decoration {
     position: absolute;
     border-radius: 50%;
     filter: blur(60px);
@@ -1071,7 +1051,7 @@ p.side-2soon-p1,
     z-index: 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .bg-decoration-1 {
+.bg-decoration-1 {
     width: 300px;
     height: 300px;
     background: radial-gradient(circle, rgba(46, 125, 50, 0.2), transparent);
@@ -1080,7 +1060,7 @@ p.side-2soon-p1,
     pointer-events: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.cir-img {
+img.cir-img {
     width: 250px;
     height: 250px;
     object-fit: contain;
@@ -1088,7 +1068,7 @@ p.side-2soon-p1,
     top: -90px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .linse_star-left {
+.linse_star-left {
     position: absolute;
     width: 47px;
     height: 94px;
@@ -1096,22 +1076,22 @@ p.side-2soon-p1,
     left: 20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .feature-card.top-right .linse_star-right {
+.feature-card.top-right .linse_star-right {
     transform: scaleX(-1);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .linse_star-left img:first-of-type {
+.linse_star-left img:first-of-type {
     position: absolute;
     top: 35px;
     right: -12px;
     animation: twinkle 2s ease-in-out infinite;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .feature-card.top-right .linse_star-left img:first-of-type {
+.feature-card.top-right .linse_star-left img:first-of-type {
     top: 69px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .linse_star-right {
+.linse_star-right {
     position: absolute;
     width: 47px;
     height: 94px;
@@ -1119,7 +1099,7 @@ p.side-2soon-p1,
     right: 20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .linse_star-right img:first-of-type {
+.linse_star-right img:first-of-type {
     position: absolute;
     top: 35px;
     left: -12px;
@@ -1127,127 +1107,127 @@ p.side-2soon-p1,
     animation-delay: 1s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.line-img {
+img.line-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.star-img {
+img.star-img {
     width: 28px;
     height: 28px;
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .empty-div-1 {
+.empty-div-1 {
     border-bottom-left-radius: 15px;
     background: linear-gradient(45deg, #DFEEE9, #dfeee98c, #f8f8f8, #f8f8f8, #f8f8f8, #f8f8f8);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .empty-div-2 {
+.empty-div-2 {
     border-bottom-right-radius: 15px;
     background: linear-gradient(330deg, #DFEEE9, #dfeee98c, #f8f8f8, #f8f8f8, #f8f8f8, #f8f8f8);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .empty-div-3 {
+.empty-div-3 {
     border-top-left-radius: 15px;
     background: linear-gradient(122deg, #DFEEE9, #dfeee98c, #f8f8f8, #f8f8f8, #f8f8f8, #f8f8f8);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .empty-div-4 {
+.empty-div-4 {
     border-top-right-radius: 15px;
     background: linear-gradient(216deg, #DFEEE9, #dfeee98c, #f8f8f8, #f8f8f8, #f8f8f8, #f8f8f8);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .bg-decoration-2 {
+.bg-decoration-2 {
     width: 250px;
     height: 250px;
     background: radial-gradient(circle, rgba(201, 169, 97, 0.2), transparent);
     bottom: 0;
     left: 10%;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .percent-curve {
+.percent-curve {
     filter: drop-shadow(0 0 20px rgba(215, 178, 97, 0.4));
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-path {
+.curve-path {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
     animation: drawCurve 3s ease-in-out infinite;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-start, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-end {
+.circle-start, .circle-end {
     transform-origin: center;
     animation: pulseCircle 3s ease-in-out infinite;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-start {
+.circle-start {
     opacity: 0;
     animation: fadeInCircle 0.5s ease-out 0.2s forwards, pulseCircle 3s ease-in-out 0.2s infinite;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-end {
+.circle-end {
     opacity: 0;
     animation: fadeInCircle 0.5s ease-out 2.8s forwards, pulseCircle 3s ease-in-out 2.8s infinite;
 }
 
 @keyframes drawCurve {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 0% {
+    0% {
         stroke-dashoffset: 500;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 85% {
+    85% {
         stroke-dashoffset: 0;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         stroke-dashoffset: 0;
     }
 }
 
 @keyframes fadeInCircle {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 0% {
+    0% {
         opacity: 0;
         transform: scale(0);
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         transform: scale(1.2);
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         opacity: 1;
         transform: scale(1);
     }
 }
 
 @keyframes pulseCircle {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 0%, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 85% {
+    0%, 85% {
         transform: scale(1);
         filter: drop-shadow(0 0 5px rgba(215, 178, 97, 0.5));
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 92.5% {
+    92.5% {
         transform: scale(1.15);
         filter: drop-shadow(0 0 15px rgba(215, 178, 97, 0.8));
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         transform: scale(1);
         filter: drop-shadow(0 0 5px rgba(215, 178, 97, 0.5));
     }
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope section#approach-section {
+section#approach-section {
     padding-top: 40px;
 }
 
 @media (max-width: 1024px) {
 
     /* ourServices */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-side-2 {
+    .serv-side-2 {
         border-width: 6px;
         border-radius: 28px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.services-images {
+    img.services-images {
         height: 460px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-side-2-desc {
+    .serv-side-2-desc {
         padding: 6px 16px;
     }
 }
@@ -1255,25 +1235,25 @@ p.side-2soon-p1,
 @media (max-width: 992px) {
 
     /* ourServices - tablet */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side-1-serv {
+    .side-1-serv {
         gap: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ourServices-intro {
+    .ourServices-intro {
         gap: 8px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.our-services-introdescrep {
+    p.our-services-introdescrep {
         font-size: 32px;
     }
 
     h2.serv-1-title,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-2-title {
+    h2.serv-2-title {
         font-size: 24px;
     }
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.services-images {
+    img.services-images {
         height: 420px;
     }
 }
@@ -1284,20 +1264,20 @@ p.side-2soon-p1,
 
 
     .serv-1-intro,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-2-intro {
+    .serv-2-intro {
         gap: 8px;
     }
 
     h2.serv-1-title,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-2-title {
+    h2.serv-2-title {
         font-size: 22px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.our-services-introdescrep {
+    p.our-services-introdescrep {
         font-size: 28px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.services-images {
+    img.services-images {
         height: 380px;
     }
 }
@@ -1305,40 +1285,40 @@ p.side-2soon-p1,
 @media (max-width: 576px) {
 
     /* ourServices - phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ourServices-section .row {
+    .ourServices-section .row {
         row-gap: 18px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ourServices-intro {
+    .ourServices-intro {
         align-items: flex-start;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.our-services-title {
+    h2.our-services-title {
         font-size: 14px;
         padding: 6px 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.our-services-introdescrep {
+    p.our-services-introdescrep {
         font-size: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serveces-contact {
+    .serveces-contact {
         width: 100%;
         justify-content: center;
         font-size: 16px;
         padding: 10px 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-side-2 {
+    .serv-side-2 {
         border-width: 5px;
         border-radius: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.services-images {
+    img.services-images {
         height: 300px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-side-2-desc {
+    .serv-side-2-desc {
         padding: 6px 14px;
     }
 }
@@ -1346,16 +1326,16 @@ p.side-2soon-p1,
 @media(max-width:425px) {
 
     /* ourServices - small phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.our-services-introdescrep {
+    p.our-services-introdescrep {
         font-size: 22px;
     }
 
     h2.serv-1-title,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-2-title {
+    h2.serv-2-title {
         font-size: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.services-images {
+    img.services-images {
         height: 260px;
     }
 }
@@ -1365,21 +1345,21 @@ p.side-2soon-p1,
 
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-container {
+.approach-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 40px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-left {
+.approach-left {
     display: flex;
     justify-content: center;
     width: inherit;
     height: 100%;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-grid {
+.circle-grid {
     position: relative;
     width: 100%;
     display: flex;
@@ -1389,7 +1369,7 @@ p.side-2soon-p1,
     justify-content: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle {
+.circle {
     width: 180px;
     height: 180px;
     color: #ffffff;
@@ -1404,27 +1384,27 @@ p.side-2soon-p1,
     position: relative;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-top {
+.circle-top {
     position: relative;
     right: 96px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-bottom-left {
+.circle-bottom-left {
     top: -203px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-bottom-right {
+.circle-bottom-right {
     position: relative;
     right: 123px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features {
+.section-features {
     padding-top: 100px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-right .badge-small {
+.approach-right .badge-small {
     display: inline-block;
     color: #00402E;
     padding: 6px 16px;
@@ -1435,20 +1415,20 @@ p.side-2soon-p1,
     margin-bottom: 12px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-title {
+.approach-title {
     font-size: 40px;
     color: #00402E;
     margin-bottom: 16px;
     line-height: 1.4;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-text {
+.approach-text {
     color: #00000099;
     line-height: 1.9;
     margin-bottom: 22px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .btn-primary {
+.btn-primary {
     display: inline-flex;
     align-items: center;
     background: #0E5D46;
@@ -1460,11 +1440,11 @@ p.side-2soon-p1,
     gap: 21px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .btn-primary:hover {
+.btn-primary:hover {
     background: #0b4b38;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .btn-with-icon .btn-icon {
+.btn-with-icon .btn-icon {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -1478,38 +1458,38 @@ p.side-2soon-p1,
 
 /* Organizational Structure Section */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-structure-section {
+.org-structure-section {
     padding: 120px 20px;
     position: relative;
     overflow: hidden;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-container {
+.org-container {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-header {
+.org-header {
     text-align: center;
     margin-bottom: 100px;
     animation: fadeInDown 1s ease-out;
 }
 
 @keyframes fadeInDown {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope from {
+    from {
         opacity: 0;
         transform: translateY(-30px);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope to {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .badge {
+.badge {
     display: inline-block;
     padding: 10px 30px;
     border-radius: 25px;
@@ -1519,25 +1499,25 @@ p.side-2soon-p1,
     margin-bottom: 20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-intro {
+.vision-intro {
     text-align: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-section {
+.vision-section {
     padding-top: 100px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.vision-intro-title {
+h4.vision-intro-title {
     font-size: 52px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-intro-p {
+.vision-intro-p {
     font-size: 18px;
     color: #00000099;
     padding-top: 16px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-title {
+.org-title {
     font-size: 38px;
     font-weight: 700;
     color: #1a5f4e;
@@ -1545,7 +1525,7 @@ p.side-2soon-p1,
     line-height: 1.6;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-wave-wrapper {
+.org-wave-wrapper {
     position: relative;
     max-width: 1300px;
     margin: 0 auto;
@@ -1554,7 +1534,7 @@ p.side-2soon-p1,
 
 /* Background decorative circles */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ellipse-bg {
+.ellipse-bg {
     position: absolute;
     border-radius: 50%;
     z-index: 0;
@@ -1562,7 +1542,7 @@ p.side-2soon-p1,
     background: radial-gradient(circle, #D8B263 0%, transparent 70%);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ellipse1 {
+.ellipse1 {
     width: 400px;
     height: 400px;
     top: -125px;
@@ -1570,7 +1550,7 @@ p.side-2soon-p1,
     animation: float 8s ease-in-out infinite;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ellipse2 {
+.ellipse2 {
     width: 400px;
     height: 400px;
     bottom: -28px;
@@ -1582,11 +1562,11 @@ ease-in-out infinite reverse;
 @keyframes float {
 
     0%,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         transform: translateY(0) scale(1);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         transform: translateY(-20px) scale(1.05);
     }
 }
@@ -1594,7 +1574,7 @@ ease-in-out infinite reverse;
 
 /* Animated SVG Lines */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .wave-lines-container {
+.wave-lines-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1605,7 +1585,7 @@ ease-in-out infinite reverse;
     z-index: 1;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .wave-lines-container svg {
+.wave-lines-container svg {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1614,18 +1594,18 @@ ease-in-out infinite reverse;
     height: 100%;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .wave-line-1 path {
+.wave-line-1 path {
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
     animation: drawPath 3s ease-in-out forwards, pulsePath1 4s ease-in-out infinite 3s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .wave-line-2 path {
+.wave-line-2 path {
     animation: pulsePath2 5s ease-in-out infinite;
 }
 
 @keyframes drawPath {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope to {
+    to {
         stroke-dashoffset: 0;
     }
 }
@@ -1633,11 +1613,11 @@ ease-in-out infinite reverse;
 @keyframes pulsePath1 {
 
     0%,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         opacity: 0.4;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         opacity: 0.7;
     }
 }
@@ -1645,11 +1625,11 @@ ease-in-out infinite reverse;
 @keyframes pulsePath2 {
 
     0%,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         opacity: 0.6;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         opacity: 0.3;
     }
 }
@@ -1657,7 +1637,7 @@ ease-in-out infinite reverse;
 
 /* Moving dots on curved lines */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .moving-dot {
+.moving-dot {
     position: absolute;
     width: 10px;
     height: 10px;
@@ -1667,18 +1647,18 @@ ease-in-out infinite reverse;
     z-index: 2;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dot-1 {
+.dot-1 {
     animation: moveDotCurved1 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dot-2 {
+.dot-2 {
     animation: moveDotCurved2 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 2s;
     background: #4EA62F;
     box-shadow: 0 0 20px rgba(78, 166, 47, 0.8), 0 0 40px rgba(78, 166, 47, 0.4);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dot-3 {
+.dot-3 {
     animation: moveDotCurved3 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 4s;
     background: #bc9c58;
@@ -1686,48 +1666,48 @@ ease-in-out infinite reverse;
 }
 
 @keyframes moveDotCurved1 {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 0% {
+    0% {
         left: 0%;
         top: 50%;
         opacity: 0;
         transform: scale(0);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 5% {
+    5% {
         opacity: 1;
         transform: scale(1);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 15% {
+    15% {
         left: 15%;
         top: 35%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 30% {
+    30% {
         left: 30%;
         top: 20%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         left: 50%;
         top: 45%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 70% {
+    70% {
         left: 70%;
         top: 70%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 85% {
+    85% {
         left: 85%;
         top: 40%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 95% {
+    95% {
         opacity: 1;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         left: 100%;
         top: 50%;
         opacity: 0;
@@ -1736,48 +1716,48 @@ ease-in-out infinite reverse;
 }
 
 @keyframes moveDotCurved2 {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 0% {
+    0% {
         left: 100%;
         top: 50%;
         opacity: 0;
         transform: scale(0);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 5% {
+    5% {
         opacity: 1;
         transform: scale(1);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 15% {
+    15% {
         left: 85%;
         top: 40%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 30% {
+    30% {
         left: 70%;
         top: 70%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         left: 50%;
         top: 45%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 70% {
+    70% {
         left: 30%;
         top: 20%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 85% {
+    85% {
         left: 15%;
         top: 35%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 95% {
+    95% {
         opacity: 1;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         left: 0%;
         top: 50%;
         opacity: 0;
@@ -1786,38 +1766,38 @@ ease-in-out infinite reverse;
 }
 
 @keyframes moveDotCurved3 {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 0% {
+    0% {
         left: 50%;
         top: 45%;
         opacity: 0;
         transform: scale(0);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 5% {
+    5% {
         opacity: 1;
         transform: scale(1);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 25% {
+    25% {
         left: 70%;
         top: 70%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         left: 85%;
         top: 40%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 75% {
+    75% {
         left: 70%;
         top: 25%;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 95% {
+    95% {
         opacity: 1;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         left: 50%;
         top: 45%;
         opacity: 0;
@@ -1828,7 +1808,7 @@ ease-in-out infinite reverse;
 
 /* Circles Container */
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circles-container {
+.org-circles-container {
     position: relative;
     z-index: 3;
     display: flex;
@@ -1838,7 +1818,7 @@ ease-in-out infinite reverse;
     gap: 40px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item {
+.org-item {
     flex: 1;
     text-align: center;
     position: relative;
@@ -1846,33 +1826,33 @@ ease-in-out infinite reverse;
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item-1 {
+.org-item-1 {
     animation-delay: 0.2s;
     align-self: flex-end;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item-2 {
+.org-item-2 {
     animation-delay: 0.4s;
     align-self: flex-start;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item-3 {
+.org-item-3 {
     animation-delay: 0.6s;
 }
 
 @keyframes fadeInUp {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope from {
+    from {
         opacity: 0;
         transform: translateY(40px);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope to {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-number {
+.org-number {
     font-size: 64px;
     font-weight: 700;
     color: #DCDCDC;
@@ -1881,28 +1861,28 @@ ease-in-out infinite reverse;
     transition: all 0.3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item:hover .org-number {
+.org-item:hover .org-number {
     color: #c9a961;
     transform: scale(1.1);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circle-wrapper {
+.org-circle-wrapper {
     position: relative;
     z-index: 2;
     margin: 20px auto;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item.org-item-2 {
+.org-item.org-item-2 {
     right: -62px;
     top: -20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item.org-item-3 {
+.org-item.org-item-3 {
     top: -61px;
     right: -166px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circle {
+.org-circle {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -1916,7 +1896,7 @@ ease-in-out infinite reverse;
     position: relative;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circle::before {
+.org-circle::before {
     content: '';
     position: absolute;
     inset: -3px;
@@ -1931,27 +1911,27 @@ ease-in-out infinite reverse;
 @keyframes pulse {
 
     0%,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         transform: scale(1);
         opacity: 0.5;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 50% {
+    50% {
         transform: scale(1.1);
         opacity: 0;
     }
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item:hover .org-circle {
+.org-item:hover .org-circle {
     transform: translateY(-10px) scale(1.1);
     box-shadow: 0 25px 60px rgba(201, 169, 97, 0.4);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item:hover .org-circle::before {
+.org-item:hover .org-circle::before {
     opacity: 1;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circle img {
+.org-circle img {
     width: 32px;
     height: 32px;
     filter: brightness(0) invert(1);
@@ -1959,16 +1939,16 @@ ease-in-out infinite reverse;
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item:hover .org-circle img {
+.org-item:hover .org-circle img {
     transform: scale(1.1) rotate(5deg);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-content {
+.org-content {
     max-width: 280px;
     margin: 0 auto;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-dept-title {
+.org-dept-title {
     font-size: 24px;
     font-weight: 700;
     color: #1a5f4e;
@@ -1977,11 +1957,11 @@ ease-in-out infinite reverse;
     transition: color 0.3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item:hover .org-dept-title {
+.org-item:hover .org-dept-title {
     color: #bc9c58;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-dept-desc {
+.org-dept-desc {
     font-size: 17px;
     line-height: 1.8;
     color: #bc9c58;
@@ -1989,55 +1969,55 @@ ease-in-out infinite reverse;
     transition: opacity 0.3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item:hover .org-dept-desc {
+.org-item:hover .org-dept-desc {
     opacity: 1;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .wave-lines-container svg.wave-line-1 {
+.wave-lines-container svg.wave-line-1 {
     top: 43%;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-desc {
+.vision-desc {
     padding-top: 50px;
     padding-bottom: 40px;
     border-bottom: 1px solid #DCDCDC;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .desc-num {
+.desc-num {
     font-size: 16px;
     color: #181818;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .desc-title {
+.desc-title {
     font-size: 32px;
     color: #181818;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-desc-p {
+.vision-desc-p {
     font-size: 20px;
     color: #666666;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediaries-section {
+.intermediaries-section {
     position: relative;
     background-color: var(--tertiary-color);
     padding: 100px 90px;
     border-radius: 42px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediate-badge {
+.intermediate-badge {
     color: white !important;
     border: 1px solid #FFFFFF1A;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediate-title {
+.intermediate-title {
     font-size: 64px;
     color: #D7B261;
     font-weight: bold;
     line-height: 150%;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediate-p {
+.intermediate-p {
     font-size: 16px;
     padding-top: 16px;
     color: #FFFFFF99;
@@ -2045,7 +2025,7 @@ ease-in-out infinite reverse;
     line-height: 1.8;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-container {
+.form-container {
     background: linear-gradient(to bottom, #e8f5f0 0%, #ffffff 100%);
     border-radius: 30px;
     padding: 40px;
@@ -2054,14 +2034,14 @@ ease-in-out infinite reverse;
     position: relative;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .invest-ehtazem-h {
+.invest-ehtazem-h {
     font-size: 16px;
     color: #FFFFFF;
     position: relative;
     margin-right: 28px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .invest-ehtazem-h::before {
+.invest-ehtazem-h::before {
     content: '';
     position: absolute;
     width: 12px;
@@ -2072,7 +2052,7 @@ ease-in-out infinite reverse;
     top: 5px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-container::before {
+.form-container::before {
     content: '';
     position: absolute;
     top: -4px;
@@ -2084,7 +2064,7 @@ ease-in-out infinite reverse;
     z-index: -1;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-label {
+.form-label {
     color: var(--quaternary-color);
     font-weight: 600;
     font-size: 16px;
@@ -2092,7 +2072,7 @@ ease-in-out infinite reverse;
     text-align: right;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-control {
+.form-control {
     background-color: #f0f0f0;
     border: none;
     border-radius: 12px;
@@ -2103,22 +2083,22 @@ ease-in-out infinite reverse;
     direction: rtl;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-control:focus {
+.form-control:focus {
     background-color: #e8e8e8;
     box-shadow: 0 0 0 3px rgba(13, 77, 61, 0.1);
     outline: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-control::placeholder {
+.form-control::placeholder {
     color: #aaa;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope textarea.form-control {
+textarea.form-control {
     min-height: 120px;
     resize: vertical;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .btn-submit {
+.btn-submit {
     background-color: #0d4d3d;
     color: white;
     border: none;
@@ -2131,17 +2111,17 @@ ease-in-out infinite reverse;
     margin-top: 20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .btn-submit:hover {
+.btn-submit:hover {
     background-color: #0a3d30;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(13, 77, 61, 0.3);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .submit-b {
+.submit-b {
     text-align: end;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-deco-image {
+.intermediares-deco-image {
     position: absolute;
     width: 633px;
     height: 100%;
@@ -2150,7 +2130,7 @@ ease-in-out infinite reverse;
     left: -88px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-percent {
+.intermediares-percent {
     margin-top: 30px;
     background: rgb(255 255 255 / 28%);
     border: 1px solid var(--quinary-color);
@@ -2163,7 +2143,7 @@ ease-in-out infinite reverse;
     align-items: flex-start;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope /*.intermediares-percent::before {
+/*.intermediares-percent::before {
     content: 'استثمر معنا اليوم';
     position: absolute;
     top: 20px;
@@ -2172,7 +2152,7 @@ ease-in-out infinite reverse;
     font-size: 14px;
 }*/
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope /*.intermediares-percent::after {
+/*.intermediares-percent::after {
     content: '50%+';
     position: absolute;
     bottom: 20px;
@@ -2187,7 +2167,7 @@ ease-in-out infinite reverse;
     align-items: center;
     justify-content: center;
 }*/
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .percent {
+.percent {
     color: #FFFFFF;
     font-size: 16px;
     width: 70px;
@@ -2199,40 +2179,40 @@ ease-in-out infinite reverse;
     justify-content: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .invest-ehtazem {
+.invest-ehtazem {
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin-right: 20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-section {
+.Ourpartners-section {
     padding-top: 100px;
     padding-bottom: 60px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-badge {
+.Ourpartners-badge {
     background-color: #3FB1851A;
     border: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-intro {
+.Ourpartners-intro {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-title {
+.Ourpartners-title {
     font-size: clamp(32px, 5vw, 52px);
     font-weight: 400;
     margin-bottom: 16px;
     line-height: 1.3;
     color:#000000;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactus-header.aos-init.aos-animate {
+.contactus-header.aos-init.aos-animate {
     max-width: 516px;
     margin: auto;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-para {
+.Ourpartners-para {
     font-size: clamp(16px, 2.5vw, 18px);
     color: #00000099;
     line-height: 1.6;
@@ -2240,7 +2220,7 @@ ease-in-out infinite reverse;
     margin: 0 auto;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card {
+.partener-card {
     background-color: #00000005;
     display: flex;
     flex-direction: column;
@@ -2254,13 +2234,13 @@ ease-in-out infinite reverse;
     height: 100%;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card:hover {
+.partener-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card-name {
+.partener-card-name {
     font-size: clamp(18px, 3vw, 22px);
     font-weight: bold;
     color: #00402E;
@@ -2268,7 +2248,7 @@ ease-in-out infinite reverse;
     margin-bottom: 8px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.partener-card-position {
+h4.partener-card-position {
     font-size: clamp(16px, 2.5vw, 18px);
     font-weight: 600;
     color: #545454;
@@ -2276,7 +2256,7 @@ ease-in-out infinite reverse;
     margin-bottom: 0px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.partener-card-desc {
+p.partener-card-desc {
     font-size: clamp(14px, 2vw, 16px);
     color: #00000099;
     margin: 0;
@@ -2286,16 +2266,16 @@ ease-in-out infinite reverse;
     align-items: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .parteners-cards {
+.parteners-cards {
     padding-top: 32px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .questions-section {
+.questions-section {
     position: relative;
     padding-top: 100px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ques-center-img {
+.ques-center-img {
     position: absolute;
     width: 298px;
     height: 277px;
@@ -2303,26 +2283,26 @@ ease-in-out infinite reverse;
     top: 237px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-badge {
+.faq-badge {
     background-color: #3FB1851A;
     border: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-header {
+.faq-header {
     text-align: center;
     margin-bottom: 50px;
 }
 
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-title {
+.faq-title {
     font-size: 52px;
     color: #2d3748;
     margin-bottom: 20px;
     line-height: 1.3;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-description {
+.faq-description {
     font-size: 18px;
     color: #718096;
     line-height: 1.8;
@@ -2330,11 +2310,11 @@ ease-in-out infinite reverse;
     margin: 0 auto;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion {
+.accordion {
     background: transparent;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-item {
+.accordion-item {
     background: transparent;
     border: none;
     border-radius: 16px !important;
@@ -2343,14 +2323,14 @@ ease-in-out infinite reverse;
     overflow: hidden;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-item:hover {
+.accordion-item:hover {
     background-color: #00000005;
     backdrop-filter: blur(40px);
     transform: translateY(-2px);
     /* border: 2px solid  rgba(63, 177, 133, 0.4) ;*/
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button {
+.accordion-button {
     font-weight: 600;
     color: #2d3748;
     padding: 25px 30px;
@@ -2362,17 +2342,17 @@ ease-in-out infinite reverse;
     border-top-right-radius: 10px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button:not(.collapsed) {
+.accordion-button:not(.collapsed) {
     background-color: #00000005;
     color: #000000;
     backdrop-filter: blur(40px);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button:not(.collapsed) .accordion-item {
+.accordion-button:not(.collapsed) .accordion-item {
     border-radius: 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button::after {
+.accordion-button::after {
     background-image: none;
     content: '\002B';
     font-size: 28px;
@@ -2389,7 +2369,7 @@ ease-in-out infinite reverse;
     margin-right: auto;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button:not(.collapsed)::after {
+.accordion-button:not(.collapsed)::after {
     content: '\2212';
     /* background: #6c63ff;
     color: white;*/
@@ -2398,45 +2378,45 @@ ease-in-out infinite reverse;
 
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-body {
+.accordion-body {
     padding: 0 30px 25px 30px;
     font-size: 17px;
     color: #4a5568;
     line-height: 1.8;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button:focus {
+.accordion-button:focus {
     border-color: transparent;
     outline: 0;
 }
 
 /*contactUs-section*/
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactus-section {
+.contactus-section {
     padding-top: 100px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactus-header {
+.contactus-header {
     text-align: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-badge {
+.contact-badge {
     background-color: #3FB1851A;
     border: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-intro {
+.contact-intro {
     font-size: 52px;
     line-height: 1.4;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-desc {
+.contact-desc {
     padding-top: 16px;
     font-size: 18px;
     color: #00000099;
     line-height: 1.6;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-card {
+.form-card {
     position: relative;
     background: #E2E2E2;
     backdrop-filter: blur(40px);
@@ -2447,7 +2427,7 @@ ease-in-out infinite reverse;
     z-index: 10;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-title {
+.form-title {
     text-align: center;
     font-size: 24px;
     font-weight: 600;
@@ -2455,11 +2435,11 @@ ease-in-out infinite reverse;
     margin-bottom: 30px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-group {
+.form-group {
     margin-bottom: 20px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-label {
+.form-label {
     display: block;
     text-align: right;
     font-size: 18px;
@@ -2468,7 +2448,7 @@ ease-in-out infinite reverse;
     margin-bottom: 8px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-control {
+.form-control {
     width: 100%;
     padding: 10px 18px;
     font-size: 15px;
@@ -2481,23 +2461,23 @@ ease-in-out infinite reverse;
     transition: all 0.3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-control:focus {
+.form-control:focus {
     outline: none;
     background: rgba(230, 230, 230, 0.8);
     box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-control::placeholder {
+.form-control::placeholder {
     color: #aaa;
     font-size: 14px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope textarea.form-control {
+textarea.form-control {
     resize: none;
     height: 100px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .submit-btn {
+.submit-btn {
     width: auto;
     padding: 14px 50px;
     background: var(--tertiary-color);
@@ -2515,17 +2495,17 @@ ease-in-out infinite reverse;
     text-align: start;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .submit-btn:hover {
+.submit-btn:hover {
     background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(27, 94, 32, 0.3);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .submit-btn:active {
+.submit-btn:active {
     transform: translateY(0);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contacuUs-form-container {
+.contacuUs-form-container {
     position: relative;
     z-index: 10;
     max-width: 480px;
@@ -2534,7 +2514,7 @@ ease-in-out infinite reverse;
     padding-top: 32px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contacuUs-form-container::before {
+.contacuUs-form-container::before {
     content: "";
     position: absolute;
     top: 161px;
@@ -2548,7 +2528,7 @@ ease-in-out infinite reverse;
     border: 1px solid #0000001A;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contacuUs-form-container::after {
+.contacuUs-form-container::after {
     content: "";
     position: absolute;
     top: 161px;
@@ -2562,13 +2542,13 @@ ease-in-out infinite reverse;
     border: 1px solid #0000001A;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .conactus-deco {
+.conactus-deco {
     position: absolute;
     top: -397px;
 
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .conactus-deco-up-img {
+.conactus-deco-up-img {
     width: 220px;
     height: 220px;
     position: relative;
@@ -2577,12 +2557,12 @@ ease-in-out infinite reverse;
     pointer-events: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .conactus-deco-up {
+.conactus-deco-up {
     position: absolute;
     top: 21px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .conactus-deco-bottom-img {
+.conactus-deco-bottom-img {
     width: 230px;
     height: 230px;
     position: relative;
@@ -2591,17 +2571,17 @@ ease-in-out infinite reverse;
     right: 40px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .conactus-deco-bottom {
+.conactus-deco-bottom {
     position: absolute;
     bottom: -44px;
     left: 181px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .badge.footer-badge {
+.badge.footer-badge {
     padding: 10px 16px !important;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini::before {
+.brand-mini::before {
     content: "";
     position: absolute;
     top: 9px;
@@ -2612,19 +2592,19 @@ ease-in-out infinite reverse;
 }
 
 /* Footer */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer {
+.site-footer {
     margin-top: 120px;
     overflow: hidden;
     position: relative;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer .container {
+.site-footer .container {
     padding: 64px 16px 24px 16px;
     position: relative;
     z-index: 2;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .arc-bg {
+.arc-bg {
     position: absolute;
     width: 100%;
     height: 800px;
@@ -2637,13 +2617,13 @@ ease-in-out infinite reverse;
 }
 
 /* Footer Content */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-content {
+.footer-content {
     margin: 40px 0;
     position: relative;
     z-index: 2;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chips-container {
+.contact-chips-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2651,7 +2631,7 @@ ease-in-out infinite reverse;
 }
 
 /* Social icons layout */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons {
+.social-icons {
     position: relative;
     z-index: 2;
     gap: clamp(20px, 8vw, 100px);
@@ -2664,7 +2644,7 @@ ease-in-out infinite reverse;
 }
 
 /* Icon circles */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon {
+.social-icon {
     width: clamp(60px, 10vw, 100px);
     height: clamp(60px, 10vw, 100px);
     background: linear-gradient(10.51deg, #00402E -37.92%, #0B6D55 68.53%);
@@ -2683,22 +2663,22 @@ ease-in-out infinite reverse;
     margin: 5px;
     animation: popUp 0.5s ease-out forwards;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon:hover {
+.social-icon:hover {
     transform: scale(-1.2);
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope a.social-icon.twitter-icon {
+a.social-icon.twitter-icon {
     font-size: clamp(30px, 5vw, 50px);
 }
 
 /* Center one is larger */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon.center {
+.social-icon.center {
     width: clamp(80px, 12vw, 120px);
     height: clamp(80px, 12vw, 120px);
     font-size: clamp(25px, 4vw, 40px);
     --lift: -56px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope a.social-icon.google-icon {
+a.social-icon.google-icon {
     width: clamp(56px, 8vw, 76px);
     height: clamp(56px, 8vw, 76px);
     position: relative;
@@ -2706,64 +2686,64 @@ ease-in-out infinite reverse;
 }
 
 /* Lift effect on hover */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope /*.social-icon:hover {
+/*.social-icon:hover {
     transform: translateY(calc(var(--lift) - 8px)) !important;
     box-shadow: 0 8px 20px rgba(151, 125, 125, 0.2);
 }*/
 /* Distribute icons along the arc (left to right) */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(1) {
+.social-icons .social-icon:nth-child(1) {
     --lift: -16px;
     position: relative;
     top: 45px;
     animation-delay: 1.6s; 
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(2) {
+.social-icons .social-icon:nth-child(2) {
     --lift: -32px;
     position: relative;
     top: -7px;
     animation-delay: 1.8s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(3) {
+.social-icons .social-icon:nth-child(3) {
     animation-delay: 2.0s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(4) {
+.social-icons .social-icon:nth-child(4) {
     --lift: -32px;
     animation-delay: 2.2s;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(5) {
+.social-icons .social-icon:nth-child(5) {
     --lift: -16px;
     position: relative;
     top: 45px;
     animation-delay: 2.4s;
 } 
 @keyframes popUp {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 0% {
+    0% {
         transform: translateY(var(--lift)) scale(0);
         opacity: 0;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope 100% {
+    100% {
         transform: translateY(var(--lift)) scale(1);
         opacity: 1;
     }
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-deco-image {
+img.soon-deco-image {
     width: 476px;
     height: 680px;
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-head {
+.footer-head {
     text-align: center;
     max-width: 600px;
     margin: auto;
     padding: 20px 0;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.footer-title {
+h2.footer-title {
     font-size: clamp(32px, 6vw, 64px);
     font-weight: bold;
     color: #00402E;
@@ -2771,7 +2751,7 @@ ease-in-out infinite reverse;
     line-height: 1.3;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-intro {
+.footer-intro {
     font-size: clamp(16px, 2.5vw, 18px);
     color: #13173599;
     font-weight: 500;
@@ -2780,7 +2760,7 @@ ease-in-out infinite reverse;
     margin-bottom: 24px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contact-btn {
+.footer-contact-btn {
     padding: 11px 16px 11px 8px;
     color: white;
     background-color: var(--secondary-color);
@@ -2793,18 +2773,18 @@ ease-in-out infinite reverse;
     transition: all .3s ease;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contact-btn:hover {
+.footer-contact-btn:hover {
     transform: scale(1.05);
     background-color: var(--tertiary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contact-button {
+.footer-contact-button {
     display: flex;
     justify-content: center;
     padding-top: 32px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .standard-contact-btn {
+.standard-contact-btn {
     padding: 11px 16px 11px 8px;
     color: white;
     background-color: var(--secondary-color);
@@ -2818,70 +2798,70 @@ ease-in-out infinite reverse;
     max-width: 167px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .standard-contact-btn:hover {
+.standard-contact-btn:hover {
     transform: scale(1.05);
     background-color: var(--tertiary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-side2-deco-img {
+img.soon-side2-deco-img {
     position: absolute;
     bottom: 29px;
     right: -30px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-uln {
+.soon-uln {
     padding-inline-start: 26px;
     line-height: 1.7;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-logo {
+.footer-logo {
     width: 120px;
     height: 68px;
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-tagline {
+.footer-tagline {
     margin-top: 12px;
     color: #00000099;
     font-size: 16px;
     max-width: 420px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-nav {
+.footer-nav {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 60px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.footer-title {
+h2.footer-title {
     font-size: 64px;
     font-weight: bold;
     color: #00402E;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-links {
+.footer-links {
     list-style: none;
     display: grid;
     gap: 10px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-links a {
+.footer-links a {
     color: #1a1a1a;
     text-decoration: none;
     font-weight: 500;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-links a:hover {
+.footer-links a:hover {
     color: var(--secondary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contact {
+.footer-contact {
     list-style: none;
     display: grid;
     gap: 12px;
     margin-bottom: 12px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-pill {
+.contact-pill {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -2893,7 +2873,7 @@ ease-in-out infinite reverse;
     background: #FFFFFF05;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .icon-circle-sm {
+.icon-circle-sm {
     display: inline-flex;
     width: 34px;
     height: 34px;
@@ -2905,13 +2885,13 @@ ease-in-out infinite reverse;
     font-size: 13px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-list {
+.social-list {
     list-style: none;
     display: flex;
     gap: 10px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-list a {
+.social-list a {
     display: inline-flex;
     width: 38px;
     height: 38px;
@@ -2923,13 +2903,13 @@ ease-in-out infinite reverse;
     text-decoration: none;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-list a:hover {
+.social-list a:hover {
     background: var(--secondary-color);
     color: white;
     border-color: transparent;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+.footer-bottom {
     display: flex;
 
     padding: 32px 0 28px 0;
@@ -2939,7 +2919,7 @@ ease-in-out infinite reverse;
     gap: 395px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by {
+.made-by {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -2948,20 +2928,20 @@ ease-in-out infinite reverse;
     margin-top: 16px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by-logo {
+.made-by-logo {
     width: clamp(60px, 8vw, 72px);
     height: auto;
 }
 
 /* Footer (minimal contacts layout) */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contacts {
+.footer-contacts {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip {
+.contact-chip {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -2979,13 +2959,13 @@ ease-in-out infinite reverse;
     white-space: nowrap;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip:hover {
+.contact-chip:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     color: var(--secondary-color);
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip .chip-icon {
+.contact-chip .chip-icon {
     display: inline-flex;
     width: 36px;
     height: 36px;
@@ -2997,25 +2977,25 @@ ease-in-out infinite reverse;
     font-size: 13px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip .chip-text {
+.contact-chip .chip-text {
     font-weight: 600;
 }
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini {
+.brand-mini {
     position: relative;
     display: flex;
     gap: clamp(16px, 4vw, 32px);
     align-items: center;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini-logo {
+.brand-mini-logo {
     width: clamp(70px, 10vw, 90px);
     height: clamp(25px, 4vw, 37px);
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .copyright {
+.copyright {
     text-align: center;
     color: #13173599;
     margin: 0;
@@ -3032,33 +3012,33 @@ img.serv-2-image.hb-hide-temp,
 .curve-1,
 .curve-2,
 .curve-3,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-deco-image {
+.intermediares-deco-image {
     pointer-events: none;
 }
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .madeby-p {
+.madeby-p {
     font-size: clamp(14px, 2vw, 16px);
     font-weight: 400;
     color: #13173599;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by-logo {
+.made-by-logo {
     width: clamp(60px, 8vw, 72px);
     height: clamp(20px, 3vw, 29px);
     object-fit: contain;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip-right {
+.contact-chip-right {
     position: relative;
     top: -130px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip-left {
+.contact-chip-left {
     position: relative;
     top: 111px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope svg.instgram-icon {
+svg.instgram-icon {
     width: 45px;
     height: 45px;
     
@@ -3067,74 +3047,74 @@ img.serv-2-image.hb-hide-temp,
 /* Responsive Design */
 
 @media (max-width: 1200px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circles-container {
+    .org-circles-container {
         padding: 0 30px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-number {
+    .org-number {
         font-size: 100px;
     }
 
     /* soon - desktop downscale */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-sec {
+    .soon-sec {
         padding: 120px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.soon-descrep-intro {
+    p.soon-descrep-intro {
         font-size: 56px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side2-soon-image {
+    .side2-soon-image {
         height: 400px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-deco-image.hb-hide-temp {
+    img.soon-deco-image.hb-hide-temp {
         width: 462px;
         height: 679px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediate-title {
+    .intermediate-title {
         font-size: 32px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .invest-ehtazem-h {
+    .invest-ehtazem-h {
         font-size: 15px;
     }
 
     /* Ourpartners - large screens downscale */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-section {
+    .Ourpartners-section {
         padding-top: 80px;
         padding-bottom: 50px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-title {
+    .Ourpartners-title {
         font-size: 44px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-para {
+    .Ourpartners-para {
         font-size: 17px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card {
+    .partener-card {
         padding: 20px 12px;
         min-height: 220px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-1-image, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-2-image {
+    .serv-1-image,.serv-2-image {
         width: 40px;
         height: 50px;
     }
 }
 
 @media (max-width: 1024px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-item {
+    .dropdown-item {
         padding: 16px 50px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-structure-section {
+    .org-structure-section {
         padding: 80px 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circles-container {
+    .org-circles-container {
         align-items: center;
         padding: 0;
         gap: 20px;
@@ -3142,16 +3122,16 @@ img.serv-2-image.hb-hide-temp,
 
     .org-item-1,
     .org-item-2,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item-3 {
+    .org-item-3 {
         align-self: center;
         padding-top: 0 !important;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .wave-lines {
+    .wave-lines {
         display: none;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-title {
+    .org-title {
         font-size: 32px;
     }
 
@@ -3159,159 +3139,159 @@ img.serv-2-image.hb-hide-temp,
 
     .org-item-1,
     .org-item-2,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item-3 {
+    .org-item-3 {
         align-self: center;
         padding-top: 0;
         margin-bottom: 0;
     }
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-number {
+    .org-number {
         font-size: 48px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .wave-lines-container {
+    .wave-lines-container {
         display: none;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .grid-container-features {
+    .grid-container-features {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 30px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .center-element {
+    .center-element {
         order: 3;
         margin: 30px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .main-title {
+    .main-title {
         font-size: 36px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .center-img {
+    .center-img {
         width: 300px;
         height: 300px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-container {
+    .approach-container {
         grid-template-columns: 1fr;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-left {
+    .approach-left {
         order: 2;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-right {
+    .approach-right {
         order: 1;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .approach-title {
+    .approach-title {
         font-size: 26px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.aboutUs-desc {
+    p.aboutUs-desc {
         font-size: 18px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle {
+    .circle {
         width: 150px;
         height: 150px;
         font-size: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-top {
+    .circle-top {
         position: relative;
         right: 96px;
         top: 60px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-bottom-right {
+    .circle-bottom-right {
         position: relative;
         right: 123px;
         top: 60px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-bottom-left {
+    .circle-bottom-left {
         top: -95px;
         left: 50%;
         transform: translateX(-200%);
     }
 
     /* Ourpartners - tablet */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-section {
+    .Ourpartners-section {
         padding-top: 70px;
         padding-bottom: 40px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-title {
+    .Ourpartners-title {
         font-size: 40px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-para {
+    .Ourpartners-para {
         font-size: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .parteners-cards {
+    .parteners-cards {
         padding-top: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card {
+    .partener-card {
         min-height: 200px;
         padding: 20px 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card-name {
+    .partener-card-name {
         font-size: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.partener-card-position {
+    h4.partener-card-position {
         font-size: 18px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.partener-card-desc {
+    p.partener-card-desc {
         font-size: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip.left-chip {
+    .contact-chip.left-chip {
         position: relative;
         right: 763px;
         top: -174px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item.org-item-2 {
+    .org-item.org-item-2 {
         right: 3px;
         top: -20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item.org-item-3 {
+    .org-item.org-item-3 {
         top: -40px;
         right: 7px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.footer-title {
+    h2.footer-title {
         font-size: 28px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:first-child {
+    .dropdown-menu li:first-child {
 
         padding: 1.5rem 3rem;
 
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.our-services-introdescrep {
+    p.our-services-introdescrep {
         font-size: 27px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-1-title, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-2-title {
+    h2.serv-1-title, h2.serv-2-title {
         font-size: 25px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-1-image, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-2-image {
+    .serv-1-image, .serv-2-image {
         width: 26px;
         height: 37px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+    .footer-bottom {
         gap: 304px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-percent {
+    .intermediares-percent {
         gap: 18px;
     }
 }
@@ -3319,7 +3299,7 @@ img.serv-2-image.hb-hide-temp,
 
 
 @media (max-width: 992px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope header.header {
+    header.header {
         position: fixed;
         top: 0;
         left: 0;
@@ -3328,280 +3308,280 @@ img.serv-2-image.hb-hide-temp,
         backdrop-filter: blur(6px);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .header-content {
+    .header-content {
         padding-top: 12px;
         padding-bottom: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.logo-img {
+    img.logo-img {
         width: 82px;
         height: 46px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope header .menu .menu-btn {
+    header .menu .menu-btn {
         padding: 6px 16px;
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header {
+    .contactUs-btn-header {
         gap: 12px;
         font-size: 16px;
         padding: 6px 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope i.fa-solid.fa-arrow-up.arrow-contus-head {
+    i.fa-solid.fa-arrow-up.arrow-contus-head {
         padding: 10px 11px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero {
+    .hero {
         align-items: center;
         padding-top: 84px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-content {
+    .hero-content {
         padding-bottom: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-actions {
+    .hero-actions {
         margin-top: 24px;
         justify-content: flex-start;
     }
 
     /* Footer - tablet responsive */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer {
+    .site-footer {
         margin-top: 80px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer .container {
+    .site-footer .container {
         padding: 48px 16px 20px 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-content {
+    .footer-content {
         margin: 30px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons {
+    .social-icons {
         gap: 26px;
         padding-bottom: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon {
+    .social-icon {
         width: 72px;
         height: 72px;
         font-size: 26px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon.center {
+    .social-icon.center {
         width: 92px;
         height: 92px;
         font-size: 34px;
         --lift: -44px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(1) {
+    .social-icons .social-icon:nth-child(1) {
         --lift: -10px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(2) {
+    .social-icons .social-icon:nth-child(2) {
         --lift: -22px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(4) {
+    .social-icons .social-icon:nth-child(4) {
         --lift: -22px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(5) {
+    .social-icons .social-icon:nth-child(5) {
         --lift: -10px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+    .footer-bottom {
         text-align: center;
         gap: 100px;
         align-items: center;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini {
+    .brand-mini {
         justify-content: center;
 
         gap: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by {
+    .made-by {
         justify-content: center;
         margin-top: 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-top {
+    .footer-top {
         grid-template-columns: 1fr;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-nav {
+    .footer-nav {
         grid-template-columns: 1fr 1fr;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini {
+    .brand-mini {
         justify-content: center;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contacts {
+    .footer-contacts {
         flex-direction: column;
         gap: 12px;
     }
 
     /* soon - tablet */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-sec {
+    .soon-sec {
         padding: 90px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.soon-descrep-intro {
+    p.soon-descrep-intro {
         font-size: 44px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-features {
+    .soon-features {
         font-size: 16px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-percent {
+    .intermediares-percent {
         flex-direction: column;
         width: 100%;
         align-items: flex-start;
         gap: 10px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side2-soon-image {
+    .side2-soon-image {
         height: 360px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side-2-soon {
+    .side-2-soon {
         border-width: 4px;
         border-radius: 26px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-side2-desc {
+    .soon-side2-desc {
         padding: 4px 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-deco-image.hb-hide-temp {
+    img.soon-deco-image.hb-hide-temp {
         width: 420px;
         height: 581px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-side2-deco-img {
+    img.soon-side2-deco-img {
         position: absolute;    
         bottom: 30px;
         right: -20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.vision-intro-title {
+    h4.vision-intro-title {
         font-size: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .desc-title {
+    .desc-title {
         font-size: 30px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-intro-p {
+.vision-intro-p {
     font-size: 14px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-desc-p {
+    .vision-desc-p {
         font-size: 17px;
     }
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ques-center-img {
+    .ques-center-img {
         width: 240px;
         height: 220px;
         top: 260px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-title {
+    .faq-title {
         font-size: 44px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-intro {
+    .contact-intro {
         font-size: 44px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip.left-chip {
+    .contact-chip.left-chip {
         position: relative;
         right: 740px;
         top: -308px;
     }
 
     .contact-chip-right,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip-left {
+    .contact-chip-left {
         top: 0
     }
 }
 
 @media(max-width:991px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-bottom-left {
+    .circle-bottom-left {
         top: -95px;
         left: 50%;
         transform: translateX(-123%);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip.left-chip {
+    .contact-chip.left-chip {
         position: relative;
         right: 605px;
         top: -294px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip.right-chip {
+    .contact-chip.right-chip {
         position: relative;
         top: 160px;
         left: 107px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-1-title, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.serv-2-title {
+    h2.serv-1-title, h2.serv-2-title {
         font-size: 20px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.our-services-introdescrep {
+    p.our-services-introdescrep {
         font-size: 23px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-1-image, .ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-2-image {
+    .serv-1-image, .serv-2-image {
         width: 18px;
         height: 34px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.services-images {
+    img.services-images {
         height: 454px;
     }
 }
 
 @media (max-width: 768px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon i {
+    .social-icon i {
         font-size: 29px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediaries-section {
+.intermediaries-section {
     padding: 50px  20px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-structure-section {
+    .org-structure-section {
         padding: 60px 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini-logo {
+    .brand-mini-logo {
         width: 65px;
         height: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini::before {
+    .brand-mini::before {
         top: -1px;
         right: 82px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-top {
+    .circle-top {
         margin-inline-end: 0px;
         position: unset;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-bottom-left {
+    .circle-bottom-left {
         top: -22px;
         left: -59px;
         transform: unset;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-bottom-right {
+    .circle-bottom-right {
         margin-inline-start: 0;
         position: unset;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle-grid {
+    .circle-grid {
         display: grid;
         gap: 24px;
         grid-template-columns: repeat(auto-fill, minmax(81px, 1fr));
@@ -3611,177 +3591,177 @@ img.serv-2-image.hb-hide-temp,
         max-width: 200px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .circle {
+    .circle {
         width: 91px;
         height: 91px;
         font-size: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item.org-item-2 {
+    .org-item.org-item-2 {
         right: unset;
         top: unset;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-item.org-item-3 {
+    .org-item.org-item-3 {
         top: unset;
         right: unset;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-header {
+    .org-header {
         margin-bottom: 60px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-title {
+    .org-title {
         font-size: 18px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circle {
+    .org-circle {
         width: 120px;
         height: 120px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-dept-title {
+    .org-dept-title {
         font-size: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-dept-desc {
+    .org-dept-desc {
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-number {
+    .org-number {
         font-size: 80px;
         top: -40px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-structure-section {
+    .org-structure-section {
         padding: 80px 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-title {
+    .org-title {
         font-size: 20px;
         margin: 6px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-dept-title {
+    .org-dept-title {
         font-size: 15px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-dept-desc {
+    .org-dept-desc {
         font-size: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circle {
+    .org-circle {
         width: 50px;
         height: 50px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .org-circle img {
+    .org-circle img {
         width: 20px;
         height: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-title {
+    .faq-title {
         font-size: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-description {
+    .faq-description {
         font-size: 16px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope button.accordion-button {
+button.accordion-button {
     gap: 13px;
     font-size: 14px !important;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-button {
+    .accordion-button {
         font-size: 18px;
         padding: 20px 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .accordion-body {
+    .accordion-body {
         padding: 0 20px 20px 20px;
         font-size: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-card {
+    .form-card {
         padding: 35px 25px;
     }
 
     .bg-card-left,
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .bg-card-right {
+    .bg-card-right {
         width: 300px;
         height: 250px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .form-title {
+    .form-title {
         font-size: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope header .menu .menu-btn {
+    header .menu .menu-btn {
         padding: 10px 16px;
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .header-content {
+    .header-content {
         gap: 12px;
         flex-wrap: wrap;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header {
+    .contactUs-btn-header {
         font-size: 14px;
 
         gap: 10px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header {
+    .contactUs-btn-header {
         padding: 4px 11px;
     }
 
     /* soon - phablet */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-sec {
+    .soon-sec {
         padding: 70px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.soon-descrep-intro {
+    p.soon-descrep-intro {
         font-size: 36px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-features {
+    .soon-features {
         font-size: 15px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-deco {
+    .soon-deco {
         display: none;
     }
     
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side2-soon-image {
+    .side2-soon-image {
         height: 320px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-btn {
+    .soon-btn {
         width: 100%;
         justify-content: center;
         font-size: 16px;
         padding: 12px 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-deco-image.hb-hide-temp {
+    img.soon-deco-image.hb-hide-temp {
         display: none;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .serv-side-2 {
+    .serv-side-2 {
 
         margin-top: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side-2-soon {
+    .side-2-soon {
         margin-top: 30px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-1 {
+    .curve-1 {
         width: 110px;
         height: 110px;
         top: -16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-2 {
+    .curve-2 {
         width: 110px;
         height: 110px;
         bottom: 0px;
@@ -3790,26 +3770,26 @@ img.serv-2-image.hb-hide-temp,
     font-size: 14px;
   
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .section-features .main-title {
+.section-features .main-title {
     font-size:22px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-3 {
+    .curve-3 {
         width: 110px;
         height: 110px;
         top: -82px;
     } .intermediate-p {
     font-size: 14px ;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .desc-title {
+ .desc-title {
         font-size: 24px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-intro-p {
+.vision-intro-p {
     font-size: 14px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-desc-p {
+    .vision-desc-p {
         font-size: 14px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-4 {
+    .curve-4 {
         width: 110px;
         height: 110px;
         bottom: -82px;
@@ -3817,59 +3797,59 @@ img.serv-2-image.hb-hide-temp,
 
     .form-container {margin-top: 30px;padding: 20px;}
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-deco-image {
+    .intermediares-deco-image {
         display: none;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .btn-submit {
+.btn-submit {
     padding: 10px 30px;
     font-size: 14px;
   
 }
     /* Ourpartners - phablet */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-section {
+    .Ourpartners-section {
         padding-top: 60px;
         padding-bottom: 30px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-title {
+    .Ourpartners-title {
         font-size: 32px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-para {
+    .Ourpartners-para {
         font-size: 15px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .parteners-cards {
+    .parteners-cards {
         padding-top: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card {
+    .partener-card {
         min-height: 200px;
         padding: 18px 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card-name {
+    .partener-card-name {
         font-size: 18px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.partener-card-position {
+    h4.partener-card-position {
         font-size: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.partener-card-desc {
+    p.partener-card-desc {
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(4) {
+    .social-icons .social-icon:nth-child(4) {
         --lift: -3px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon.center {
+    .social-icon.center {
         width: 75px;
         height: 75px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-item {
+    .dropdown-item {
         font-weight: 400;
     }.accordion-button::after {
     width: 30px;
@@ -3877,171 +3857,171 @@ img.serv-2-image.hb-hide-temp,
     font-size: 17px;
 }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+    .footer-bottom {
         gap: 30px;
         flex-direction: column;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini::before {
+    .brand-mini::before {
         display: none;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .arc-bg {
+    .arc-bg {
         top: 6%;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-btn {
+    .soon-btn {
         width: fit-content;
     }
   
 }
 @media(max-width:767px){
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-percent {
+    .intermediares-percent {
         flex-direction: row;
         
     }
 }
 @media (max-width: 576px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope a.social-icon.google-icon {
+    a.social-icon.google-icon {
         width: 56px;
         height: 56px;
     }
 
     /* Ourpartners - mobile phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-section {
+    .Ourpartners-section {
         padding-top: 50px;
         padding-bottom: 30px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-intro {
+    .Ourpartners-intro {
         margin-bottom: 30px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-title {
+    .Ourpartners-title {
         font-size: 28px;
         margin-bottom: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-para {
+    .Ourpartners-para {
         font-size: 14px;
         padding: 0 10px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .parteners-cards {
+    .parteners-cards {
         padding-top: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card {
+    .partener-card {
         min-height: 180px;
         padding: 16px 12px;
         gap: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card-name {
+    .partener-card-name {
         font-size: 16px;
         margin-bottom: 6px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.partener-card-position {
+    h4.partener-card-position {
         font-size: 14px;
         margin-bottom: 8px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.partener-card-desc {
+    p.partener-card-desc {
         font-size: 13px;
     }
 
     /* AboutUs responsive - small phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-section {
+    .aboutUs-section {
         padding: 40px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-title {
+    .aboutUs-title {
         font-size: 13px;
         height: 32px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.aboutUs-desc {
+    p.aboutUs-desc {
         font-size: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images {
+    .aboutUs-images {
         padding-top: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-slide:nth-child(odd) .img-card-about {
+    .aboutUs-images .swiper-slide:nth-child(odd) .img-card-about {
         height: 240px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-slide:nth-child(even) .img-card-about {
+    .aboutUs-images .swiper-slide:nth-child(even) .img-card-about {
         height: 180px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-controls {
+    .aboutUs-controls {
         gap: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-controls button {
+    .aboutUs-controls button {
         width: 36px;
         height: 36px;
     }
 
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-title {
+    .hero-title {
         font-size: clamp(28px, 9vw, 40px);
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-subtitle {
+    .hero-subtitle {
         font-size: 14px;
         margin: auto;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-body {
+    .hero-body {
         text-align: center;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-actions {
+    .hero-actions {
         flex-wrap: wrap;
         gap: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-primary {
+    .hero-primary {
         width: 100%;
         justify-content: center;
         font-size: 16px;
         padding: 10px 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-btn {
+    .hero-btn {
         border-width: 5px;
 
     }
 
     /* Footer - mobile responsive */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer {
+    .site-footer {
         margin-top: 60px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer .container {
+    .site-footer .container {
         padding: 40px 16px 16px 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-content {
+    .footer-content {
         margin: 20px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chips-container {
+    .contact-chips-container {
         margin: 15px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons {
+    .social-icons {
         gap: 26px;
         padding-bottom: 18px;
         flex-wrap: wrap;
     }
 
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon {
+    .social-icon {
         width: 55px;
         height: 55px;
         font-size: 22px;
@@ -4049,247 +4029,247 @@ img.serv-2-image.hb-hide-temp,
         margin: 3px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon.center {
+    .social-icon.center {
         width: 61px;
         height: 61px;
         font-size: 28px;
         --lift: -32px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(1) {
+    .social-icons .social-icon:nth-child(1) {
         --lift: -6px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(2) {
+    .social-icons .social-icon:nth-child(2) {
         --lift: 8px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(4) {
+    .social-icons .social-icon:nth-child(4) {
         --lift: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons .social-icon:nth-child(5) {
+    .social-icons .social-icon:nth-child(5) {
         --lift: -6px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+    .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 16px;
         padding: 24px 0 20px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini {
+    .brand-mini {
         justify-content: center;
         gap: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by {
+    .made-by {
         justify-content: center;
         margin-top: 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-nav {
+    .footer-nav {
         grid-template-columns: 1fr;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+    .footer-bottom {
         grid-template-columns: 1fr;
         text-align: center;
         border-top: 1px solid #0000001A;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by {
+    .made-by {
         justify-content: center;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images img {
+    .aboutUs-images img {
         height: 300px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-slide:nth-child(odd) img {
+    .aboutUs-images .swiper-slide:nth-child(odd) img {
         height: 219px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .aboutUs-images .swiper-slide:nth-child(even) img {
+    .aboutUs-images .swiper-slide:nth-child(even) img {
         height: 171px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero {
+    .hero {
         min-height: 85vh;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-desc {
+    .hero-desc {
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .hero-actions {
+    .hero-actions {
         margin-top: 24px;
         justify-content: center;
     }
 
     /* soon - phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon {
+    .soon {
         margin-top: 60px;
         border-radius: 30px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-sec {
+    .soon-sec {
         padding: 48px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.soon-title {
+    h2.soon-title {
         font-size: 14px;
         padding: 5px 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.soon-descrep-intro {
+    p.soon-descrep-intro {
         font-size: 28px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-features {
+    .soon-features {
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side2-soon-image {
+    .side2-soon-image {
         height: 260px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side-2-soon {
+    .side-2-soon {
         border-width: 4px;
         border-radius: 22px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-side2-desc {
+    .soon-side2-desc {
         padding: 4px 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-deco {
+    .soon-deco {
         display: none;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .ques-center-img {
+    .ques-center-img {
         display: none;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .faq-description {
+    .faq-description {
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactus-section {
+    .contactus-section {
         padding-top: 64px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-intro {
+    .contact-intro {
         font-size: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-desc {
+    .contact-desc {
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-side2-deco-img {
+    img.soon-side2-deco-img {
         position: absolute;
         bottom: 30px;
         right: -16px;
         width: 152px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope svg.instgram-icon {
+    svg.instgram-icon {
         width: 35px;
         height: 35px;
     }
 }
 
 @media(max-width:425px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-item {
+    .dropdown-item {
         padding: 15px 19px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contactUs-btn-header {
+    .contactUs-btn-header {
         font-size: 12px;
         gap: 10px;
         padding: 3px 9px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope header .menu .menu-btn {
+    header .menu .menu-btn {
         padding: 7px 14px;
     }
 
     /* Ourpartners - small mobile phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-section {
+    .Ourpartners-section {
         padding-top: 40px;
         padding-bottom: 25px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-title {
+    .Ourpartners-title {
         font-size: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-para {
+    .Ourpartners-para {
         font-size: 13px;
         padding: 0 5px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card {
+    .partener-card {
         min-height: 160px;
         padding: 14px 10px;
         gap: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card-name {
+    .partener-card-name {
         font-size: 15px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.partener-card-position {
+    h4.partener-card-position {
         font-size: 13px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.partener-card-desc {
+    p.partener-card-desc {
         font-size: 12px;
         margin: auto;
     }
 
     /* soon - small phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .soon-sec {
+    .soon-sec {
         padding: 40px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.soon-descrep-intro {
+    p.soon-descrep-intro {
         font-size: 24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .side2-soon-image {
+    .side2-soon-image {
         height: 220px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.vision-intro-title {
+    h4.vision-intro-title {
         font-size: 28px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .desc-title {
+    .desc-title {
         font-size: 26px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .vision-desc-p {
+    .vision-desc-p {
         font-size: 15px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediate-title {
+    .intermediate-title {
         font-size: 40px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip.right-chip {
+    .contact-chip.right-chip {
         position: relative;
         top: 47px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip.left-chip {
+    .contact-chip.left-chip {
         position: relative;
         right: 0;
         top: 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contact-btn {
+    .footer-contact-btn {
         padding: 11px 16px 11px 8px;
         color: white;
         background-color: var(--secondary-color);
@@ -4302,71 +4282,71 @@ img.serv-2-image.hb-hide-temp,
         transition: all .3s ease;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h2.footer-title {
+    h2.footer-title {
         font-size: 32px;
         
     }
 
     /* Footer - small mobile responsive */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer {
+    .site-footer {
         margin-top: 50px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer .container {
+    .site-footer .container {
         padding: 32px 12px 12px 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-content {
+    .footer-content {
         margin: 16px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chips-container {
+    .contact-chips-container {
         margin: 12px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons {
+    .social-icons {
         gap: 26px;
         padding-bottom: 16px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon {
+    .social-icon {
         width: 45px;
         height: 45px;
         font-size: 18px;
         margin: 2px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon.center {
+    .social-icon.center {
         width: 56px;
         height: 56px;
         font-size: 22px;
         --lift: -24px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope a.social-icon.google-icon {
+    a.social-icon.google-icon {
         width: 50px;
         height: 50px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+    .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 12px;
         padding: 20px 0 16px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini {
+    .brand-mini {
         justify-content: center;
        
         gap: 8px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by {
+    .made-by {
         justify-content: center;
         margin-top: 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip {
+    .contact-chip {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -4374,155 +4354,155 @@ img.serv-2-image.hb-hide-temp,
         font-size: 13px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .copyright {
+    .copyright {
         font-size: 13px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contact-button {
+    .footer-contact-button {
         padding-bottom: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .dropdown-menu li:first-child {
+    .dropdown-menu li:first-child {
         padding: 1.5rem 1rem;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon i {
+    .social-icon i {
     font-size: 20px;
 }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope svg.instgram-icon {
+svg.instgram-icon {
     width: 25px;
     height: 25px;
 }
 }
 
 @media(max-width:375px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-1 {
+    .curve-1 {
         width: 90px;
         height: 90px;
         right: -58px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-2 {
+    .curve-2 {
         width: 90px;
         height: 90px;
         left: -64px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-3 {
+    .curve-3 {
         width: 90px;
         height: 90px;
         top: -59px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .curve-4 {
+    .curve-4 {
         width: 90px;
         height: 90px;
         bottom: -57px;
         right: 17px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .center-text {
+    .center-text {
         font-size: 32px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope img.soon-side2-deco-img {
+    img.soon-side2-deco-img {
         position: absolute;
         bottom: 31px;
         right: -16px;
         width: 100px;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .center-circle-texts {
+    .center-circle-texts {
         width: 150px;
         height: 150px;
     }
     /* Ourpartners - extra small mobile phones */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-section {
+    .Ourpartners-section {
         padding-top: 35px;
         padding-bottom: 20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-title {
+    .Ourpartners-title {
         font-size: 22px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .Ourpartners-para {
+    .Ourpartners-para {
         font-size: 12px;
         padding: 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card {
+    .partener-card {
         min-height: 150px;
         padding: 12px 8px;
         gap: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .partener-card-name {
+    .partener-card-name {
         font-size: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope h4.partener-card-position {
+    h4.partener-card-position {
         font-size: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope p.partener-card-desc {
+    p.partener-card-desc {
         font-size: 11px;
     }
 
     /* Footer - extra small mobile responsive */
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer {
+    .site-footer {
         margin-top: 40px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .site-footer .container {
+    .site-footer .container {
         padding: 28px 10px 10px 10px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-content {
+    .footer-content {
         margin: 12px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chips-container {
+    .contact-chips-container {
         margin: 10px 0;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .intermediares-percent {
+    .intermediares-percent {
         flex-direction: column;
     }
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icons {
+    .social-icons {
         gap: 16px;
         padding-bottom: 14px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon {
+    .social-icon {
         width: 45px;
         height: 45px;
         font-size: 16px;
         margin: 1px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon.center {
+    .social-icon.center {
         width: 50px;
         height: 50px;
         font-size: 20px;
         --lift: -20px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-bottom {
+    .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 10px;
         padding: 16px 0 12px 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .brand-mini {
+    .brand-mini {
         justify-content: center;
         
         gap: 6px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .made-by {
+    .made-by {
         justify-content: center;
         margin-top: 0;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .contact-chip {
+    .contact-chip {
         display: inline-flex;
         align-items: center;
         gap: 6px;
@@ -4530,21 +4510,21 @@ img.serv-2-image.hb-hide-temp,
         font-size: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .copyright {
+    .copyright {
         font-size: 12px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .footer-contact-button {
+    .footer-contact-button {
         padding-bottom: 16px;
     }
 }
 
 @media(max-width:320px) {
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope .social-icon i {
+    .social-icon i {
         font-size: 25px;
     }
 
-.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope.ehtazem-widget-scope a.social-icon.google-icon {
+    a.social-icon.google-icon {
         width: 50px;
         height: 50px;
     }

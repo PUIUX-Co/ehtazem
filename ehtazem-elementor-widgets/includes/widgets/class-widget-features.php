@@ -523,7 +523,7 @@ class Ehtazem_Features_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'feature_4_title', 'basic' );
         $this->add_inline_editing_attributes( 'feature_4_description', 'advanced' );
         ?>
-        <div class="section-features ehtazem-widget-scope" id="section-features">
+        <div class="section-features" id="section-features">
             <div class="bg-decoration bg-decoration-1"></div>
             <div class="bg-decoration bg-decoration-2"></div>
 

@@ -333,7 +333,7 @@ class Ehtazem_FAQ_Widget extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         $widget_id = $this->get_id();
         ?>
-        <section class="questions-section ehtazem-widget-scope" id="questions-section">
+        <section class="questions-section" id="questions-section">
             <div class="container">
                 <div class="faq">
                     <div class="faq-header" >

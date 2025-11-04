@@ -472,7 +472,7 @@ class Ehtazem_Header_Widget extends \Elementor\Widget_Base {
 		$this->add_inline_editing_attributes( 'contact_button_text', 'none' );
 		?>
 
-		<header class="header ehtazem-widget-scope" id="header">
+		<header class="header" id="header">
 			<div class="container">
 				<div class="header-content">
 					<div class="logo">
