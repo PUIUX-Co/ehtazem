@@ -180,78 +180,99 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
+  // Initialize Contact Form
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    initializeContactForm(contactForm);
+  }
+
+  // Initialize Intermediaries Form
+  const intermediariesForm = document.getElementById("intermediariesForm");
+  if (intermediariesForm) {
+    initializeIntermediariesForm(intermediariesForm);
+  }
+});
+
+/**
+ * Initialize Contact Form with AJAX submission
+ */
+function initializeContactForm(form) {
   const inputs = form.querySelectorAll(".form-control");
 
   // Add animation on page load
   const formCard = document.querySelector(".form-card");
-  formCard.style.opacity = "0";
-  formCard.style.transform = "translateY(30px)";
+  if (formCard) {
+    formCard.style.opacity = "0";
+    formCard.style.transform = "translateY(30px)";
 
-  setTimeout(() => {
-    formCard.style.transition = "all 0.6s ease";
-    formCard.style.opacity = "1";
-    formCard.style.transform = "translateY(0)";
-  }, 100);
-
-  // Animate background cards
-  const bgCards = document.querySelectorAll(".bg-card");
-  bgCards.forEach((card, index) => {
-    card.style.opacity = "0";
     setTimeout(() => {
-      card.style.transition = "all 0.8s ease";
-      card.style.opacity = "1";
-    }, 300 + index * 200);
-  });
+      formCard.style.transition = "all 0.6s ease";
+      formCard.style.opacity = "1";
+      formCard.style.transform = "translateY(0)";
+    }, 100);
+  }
 
-  // Form validation and submission
+  // Form submission with AJAX
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const fullName = document.getElementById("fullName").value;
+    const fullName = document.getElementById("full_name").value;
     const phone = document.getElementById("phone").value;
     const question = document.getElementById("question").value;
+    const nonce = form.querySelector('input[name="nonce"]').value;
+    const formType = form.querySelector('input[name="form_type"]').value;
 
     // Validate inputs
-    if (
-      fullName.trim() === "" ||
-      phone.trim() === "" ||
-      question.trim() === ""
-    ) {
-      alert("من فضلك املأ جميع الحقول");
+    if (fullName.trim() === "" || phone.trim() === "" || question.trim() === "") {
+      showFormMessage(form, "من فضلك املأ جميع الحقول المطلوبة", "error");
       return;
     }
 
-    // Phone validation (basic)
+    // Phone validation
     if (phone.length < 10) {
-      alert("رقم الهاتف غير صحيح");
+      showFormMessage(form, "رقم الهاتف غير صحيح (يجب أن يكون 10 أرقام على الأقل)", "error");
       return;
     }
 
-    // Animate button on submit
+    // Get submit button
     const btn = form.querySelector(".submit-btn");
-    btn.style.transform = "scale(0.95)";
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
     btn.innerHTML = "جاري الإرسال...";
 
-    // Simulate form submission
-    setTimeout(() => {
-      btn.style.transform = "scale(1)";
-      btn.innerHTML = "تم الإرسال ✓";
-      btn.style.background = "#00402E";
+    // Prepare form data
+    const formData = new FormData();
+    formData.append("action", "ehtazem_submit_form");
+    formData.append("nonce", nonce);
+    formData.append("form_type", formType);
+    formData.append("full_name", fullName);
+    formData.append("phone", phone);
+    formData.append("question", question);
 
-      console.log("Form Data:", {
-        fullName: fullName,
-        phone: phone,
-        question: question,
+    // Send AJAX request
+    fetch(ehtazemAjax.ajaxurl, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          showFormMessage(form, "تم الإرسال بنجاح ✓", "success");
+          form.reset();
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        } else {
+          showFormMessage(form, data.data.message || "حدث خطأ، يرجى المحاولة مرة أخرى", "error");
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        showFormMessage(form, "حدث خطأ في الاتصال، يرجى المحاولة مرة أخرى", "error");
+        btn.innerHTML = originalText;
+        btn.disabled = false;
       });
-
-      // Reset form after 2 seconds
-      setTimeout(() => {
-        form.reset();
-        btn.innerHTML = "إرسال";
-        btn.style.background = "#00402E";
-      }, 2000);
-    }, 1000);
   });
 
   // Add focus animation to inputs
@@ -267,12 +288,145 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Phone number formatting
-  const phoneInput = document.getElementById("phone");
-  phoneInput.addEventListener("input", function (e) {
-    // Only allow numbers
-    this.value = this.value.replace(/[^0-9]/g, "");
+  const phoneInput = form.querySelector("#phone");
+  if (phoneInput) {
+    phoneInput.addEventListener("input", function (e) {
+      this.value = this.value.replace(/[^0-9]/g, "");
+    });
+  }
+}
+
+/**
+ * Initialize Intermediaries Form with AJAX submission
+ */
+function initializeIntermediariesForm(form) {
+  const inputs = form.querySelectorAll(".form-control");
+
+  // Form submission with AJAX
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const fullName = document.getElementById("full_name").value;
+    const phone = document.getElementById("phone").value;
+    const company = document.getElementById("company").value;
+    const region = document.getElementById("region").value;
+    const details = document.getElementById("details").value;
+    const nonce = form.querySelector('input[name="nonce"]').value;
+    const formType = form.querySelector('input[name="form_type"]').value;
+
+    // Validate required inputs
+    if (fullName.trim() === "" || phone.trim() === "") {
+      showFormMessage(form, "من فضلك املأ جميع الحقول المطلوبة", "error");
+      return;
+    }
+
+    // Phone validation
+    if (phone.length < 10) {
+      showFormMessage(form, "رقم الهاتف غير صحيح (يجب أن يكون 10 أرقام على الأقل)", "error");
+      return;
+    }
+
+    // Get submit button
+    const btn = form.querySelector(".btn-submit");
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = "جاري الإرسال...";
+
+    // Prepare form data
+    const formData = new FormData();
+    formData.append("action", "ehtazem_submit_form");
+    formData.append("nonce", nonce);
+    formData.append("form_type", formType);
+    formData.append("full_name", fullName);
+    formData.append("phone", phone);
+    formData.append("company", company);
+    formData.append("region", region);
+    formData.append("details", details);
+
+    // Send AJAX request
+    fetch(ehtazemAjax.ajaxurl, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          showFormMessage(form, "تم الإرسال بنجاح ✓", "success");
+          form.reset();
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        } else {
+          showFormMessage(form, data.data.message || "حدث خطأ، يرجى المحاولة مرة أخرى", "error");
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        showFormMessage(form, "حدث خطأ في الاتصال، يرجى المحاولة مرة أخرى", "error");
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
   });
-});
+
+  // Add focus animation to inputs
+  inputs.forEach((input) => {
+    input.addEventListener("focus", function () {
+      this.parentElement.style.transform = "translateX(-3px)";
+      this.parentElement.style.transition = "transform 0.3s ease";
+    });
+
+    input.addEventListener("blur", function () {
+      this.parentElement.style.transform = "translateX(0)";
+    });
+  });
+
+  // Phone number formatting
+  const phoneInput = form.querySelector("#phone");
+  if (phoneInput) {
+    phoneInput.addEventListener("input", function (e) {
+      this.value = this.value.replace(/[^0-9]/g, "");
+    });
+  }
+}
+
+/**
+ * Show form message (success or error)
+ */
+function showFormMessage(form, message, type) {
+  // Remove existing message
+  const existingMessage = form.querySelector(".form-message");
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+
+  // Create message element
+  const messageDiv = document.createElement("div");
+  messageDiv.className = `form-message form-message-${type}`;
+  messageDiv.style.cssText = `
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+    ${type === "success" ? "background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;" : ""}
+    ${type === "error" ? "background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;" : ""}
+  `;
+  messageDiv.textContent = message;
+
+  // Insert message before submit button
+  const submitBtn = form.querySelector("button[type='submit']");
+  submitBtn.parentElement.insertBefore(messageDiv, submitBtn);
+
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    messageDiv.style.animation = "slideOut 0.3s ease";
+    setTimeout(() => {
+      messageDiv.remove();
+    }, 300);
+  }, 5000);
+}
 document.addEventListener("DOMContentLoaded", function () {
   AOS.init({
     duration: 650,

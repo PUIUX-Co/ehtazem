@@ -401,6 +401,12 @@ final class Ehtazem_Elementor_Widgets {
 		wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', [], '3.12.2', true );
 		wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', ['gsap'], '3.12.2', true );
 		wp_enqueue_script( 'ehtazem-widgets', plugins_url( 'assets/js/widgets.js', __FILE__ ), ['jquery', 'swiper-js', 'aos-js'], self::VERSION, true );
+
+		// Localize script for AJAX
+		wp_localize_script( 'ehtazem-widgets', 'ehtazemAjax', [
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'ehtazem_form_submission' ),
+		] );
 	}
 
 	/**
@@ -692,11 +698,143 @@ final class Ehtazem_Elementor_Widgets {
 			update_post_meta( $post_id, $key, $value );
 		}
 
+		// Send emails
+		$this->send_form_notification_emails( $post_id, $metadata );
+
 		// Send success response
 		wp_send_json_success( array(
 			'message' => __( 'تم الإرسال بنجاح', 'ehtazem-elementor' ),
 			'post_id' => $post_id
 		) );
+	}
+
+	/**
+	 * Send Form Notification Emails
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function send_form_notification_emails( $post_id, $metadata ) {
+		// Prepare email variables
+		$variables = [
+			'{name}' => isset( $metadata['_full_name'] ) ? $metadata['_full_name'] : '',
+			'{phone}' => isset( $metadata['_phone'] ) ? $metadata['_phone'] : '',
+			'{company}' => isset( $metadata['_company'] ) ? $metadata['_company'] : '-',
+			'{region}' => isset( $metadata['_region'] ) ? $metadata['_region'] : '-',
+			'{message}' => isset( $metadata['_details'] ) ? $metadata['_details'] : ( isset( $metadata['_question'] ) ? $metadata['_question'] : '' ),
+			'{date}' => current_time( 'Y-m-d H:i:s' ),
+			'{score}' => '0',
+			'{site_name}' => get_bloginfo( 'name' ),
+			'{site_url}' => home_url(),
+		];
+
+		// Calculate lead score if dashboard class exists
+		if ( isset( $this->admin_dashboard ) && method_exists( $this->admin_dashboard, 'calculate_lead_score' ) ) {
+			$variables['{score}'] = $this->admin_dashboard->calculate_lead_score( $post_id );
+		}
+
+		// Get admin email
+		$admin_email = get_option( 'admin_email' );
+
+		// Send admin notification
+		$admin_subject = get_option( 'ehtazem_email_admin_subject', 'طلب تواصل جديد من {name}' );
+		$admin_body = get_option( 'ehtazem_email_admin_body', $this->get_default_admin_email_template() );
+
+		$admin_subject = str_replace( array_keys( $variables ), array_values( $variables ), $admin_subject );
+		$admin_body = str_replace( array_keys( $variables ), array_values( $variables ), $admin_body );
+
+		$headers = [ 'Content-Type: text/html; charset=UTF-8' ];
+		wp_mail( $admin_email, $admin_subject, $admin_body, $headers );
+
+		// Send hot lead alert if score is high
+		if ( isset( $variables['{score}'] ) && intval( $variables['{score}'] ) >= 70 ) {
+			$hotlead_subject = get_option( 'ehtazem_email_hotlead_subject', '🔥 عميل محتمل مهم: {name}' );
+			$hotlead_body = get_option( 'ehtazem_email_hotlead_body', $this->get_default_hotlead_email_template() );
+
+			$hotlead_subject = str_replace( array_keys( $variables ), array_values( $variables ), $hotlead_subject );
+			$hotlead_body = str_replace( array_keys( $variables ), array_values( $variables ), $hotlead_body );
+
+			wp_mail( $admin_email, $hotlead_subject, $hotlead_body, $headers );
+		}
+	}
+
+	/**
+	 * Get Default Admin Email Template
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function get_default_admin_email_template() {
+		return '<div dir="rtl" style="font-family: Cairo, sans-serif; padding: 20px; background-color: #f9fafb;">
+	<div style="max-width: 600px; margin: 0 auto; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+		<div style="background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%); padding: 30px; text-align: center;">
+			<h1 style="color: white; margin: 0; font-size: 24px;">طلب تواصل جديد</h1>
+		</div>
+		<div style="padding: 30px;">
+			<p style="font-size: 16px; line-height: 1.6; color: #1a1a1a;">مرحباً،</p>
+			<p style="font-size: 16px; line-height: 1.6; color: #1a1a1a;">تلقيت طلب تواصل جديد من موقع احتزم:</p>
+
+			<div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+				<p style="margin: 10px 0;"><strong>الاسم:</strong> {name}</p>
+				<p style="margin: 10px 0;"><strong>الهاتف:</strong> {phone}</p>
+				<p style="margin: 10px 0;"><strong>الشركة:</strong> {company}</p>
+				<p style="margin: 10px 0;"><strong>المنطقة:</strong> {region}</p>
+				<p style="margin: 10px 0;"><strong>الرسالة:</strong><br>{message}</p>
+				<p style="margin: 10px 0;"><strong>التاريخ:</strong> {date}</p>
+			</div>
+
+			<p style="text-align: center; margin: 30px 0;">
+				<a href="{site_url}/wp-admin" style="display: inline-block; background-color: #1E40AF; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600;">عرض في لوحة التحكم</a>
+			</p>
+		</div>
+		<div style="background-color: #f9fafb; padding: 20px; text-align: center; color: #666;">
+			<p style="margin: 0; font-size: 14px;">{site_name} - Developed by PUIUX</p>
+		</div>
+	</div>
+</div>';
+	}
+
+	/**
+	 * Get Default Hot Lead Email Template
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function get_default_hotlead_email_template() {
+		return '<div dir="rtl" style="font-family: Cairo, sans-serif; padding: 20px; background-color: #f9fafb;">
+	<div style="max-width: 600px; margin: 0 auto; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+		<div style="background: linear-gradient(135deg, #EF4444 0%, #F59E0B 100%); padding: 30px; text-align: center;">
+			<h1 style="color: white; margin: 0; font-size: 24px;">🔥 عميل محتمل مهم</h1>
+		</div>
+		<div style="padding: 30px;">
+			<div style="background-color: #fef2f2; border-right: 4px solid #EF4444; padding: 20px; margin-bottom: 20px;">
+				<p style="margin: 0; color: #EF4444; font-weight: 600; font-size: 18px;">تنبيه: عميل ذو أولوية عالية!</p>
+				<p style="margin: 10px 0 0 0; color: #666;">التقييم: <strong>{score}</strong> / 100</p>
+			</div>
+
+			<p style="font-size: 16px; line-height: 1.6; color: #1a1a1a;">تلقيت طلب تواصل من عميل محتمل مهم يتطلب اهتماماً فورياً:</p>
+
+			<div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+				<p style="margin: 10px 0;"><strong>الاسم:</strong> {name}</p>
+				<p style="margin: 10px 0;"><strong>الهاتف:</strong> {phone}</p>
+				<p style="margin: 10px 0;"><strong>الشركة:</strong> {company}</p>
+				<p style="margin: 10px 0;"><strong>المنطقة:</strong> {region}</p>
+				<p style="margin: 10px 0;"><strong>الرسالة:</strong><br>{message}</p>
+			</div>
+
+			<p style="background-color: #fff7ed; border-right: 4px solid #F59E0B; padding: 15px; color: #92400e;">
+				<strong>يُنصح بالتواصل مع هذا العميل في أسرع وقت ممكن!</strong>
+			</p>
+
+			<p style="text-align: center; margin: 30px 0;">
+				<a href="{site_url}/wp-admin" style="display: inline-block; background-color: #EF4444; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600;">اتخذ إجراء الآن</a>
+			</p>
+		</div>
+		<div style="background-color: #f9fafb; padding: 20px; text-align: center; color: #666;">
+			<p style="margin: 0; font-size: 14px;">{site_name} - Developed by PUIUX</p>
+		</div>
+	</div>
+</div>';
 	}
 
 	/**

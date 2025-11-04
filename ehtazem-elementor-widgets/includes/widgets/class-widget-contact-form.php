@@ -487,22 +487,23 @@ class Ehtazem_Contact_Form_Widget extends \Elementor\Widget_Base {
 						<img src="<?php echo esc_url($settings['decoration_image_top']['url']); ?>" alt="" class="conactus-deco-up-img">
 					</div>
 					<div class="form-card">
+						<form id="contactForm" class="ehtazem-contact-form">
+							<input type="hidden" name="form_type" value="contact">
+							<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ehtazem_form_submission'); ?>">
 
-
-						<form id="contactForm">
 							<div class="form-group">
 								<label class="form-label">الإسم بالكامل</label>
-								<input type="text" class="form-control" id="fullName" placeholder="اسمك" required>
+								<input type="text" class="form-control" id="full_name" name="full_name" placeholder="اسمك" required>
 							</div>
 
 							<div class="form-group">
 								<label class="form-label">رقم الهاتف</label>
-								<input type="tel" class="form-control" id="phone" placeholder="0995" required>
+								<input type="tel" class="form-control" id="phone" name="phone" placeholder="0995" required>
 							</div>
 
 							<div class="form-group">
 								<label class="form-label">سؤالك</label>
-								<textarea class="form-control" id="question" placeholder="........" required></textarea>
+								<textarea class="form-control" id="question" name="question" placeholder="........" required></textarea>
 							</div>
 
 							<button type="submit" class="submit-btn"><?php echo esc_html($settings['submit_button_text']); ?></button>

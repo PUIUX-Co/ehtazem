@@ -506,33 +506,36 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 					</div>
 					<div class="col-md-7">
 						<div class="form-container" >
-							<form >
+							<form id="intermediariesForm" class="ehtazem-intermediaries-form">
+								<input type="hidden" name="form_type" value="intermediaries">
+								<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ehtazem_form_submission'); ?>">
+
 								<div class="row">
 									<div class="col-md-6 mb-3">
 										<label class="form-label">الاسم بالكامل</label>
-										<input type="text" class="form-control" placeholder="اسمك">
+										<input type="text" class="form-control" id="full_name" name="full_name" placeholder="اسمك" required>
 									</div>
 									<div class="col-md-6 mb-3">
 										<label class="form-label">رقم الهاتف</label>
-										<input type="tel" class="form-control" placeholder="0995">
+										<input type="tel" class="form-control" id="phone" name="phone" placeholder="0995" required>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-md-6 mb-3">
 										<label class="form-label">اسم الشركة</label>
-										<input type="text" class="form-control" placeholder="اسم">
+										<input type="text" class="form-control" id="company" name="company" placeholder="اسم">
 									</div>
 									<div class="col-md-6 mb-3">
 										<label class="form-label">المنطقة</label>
-										<input type="text" class="form-control" placeholder="0995">
+										<input type="text" class="form-control" id="region" name="region" placeholder="المنطقة">
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-12 mb-3">
 										<label class="form-label">تفاصيل العرض العقاري</label>
-										<textarea class="form-control" placeholder="........."></textarea>
+										<textarea class="form-control" id="details" name="details" placeholder="........."></textarea>
 									</div>
 								</div>
 
