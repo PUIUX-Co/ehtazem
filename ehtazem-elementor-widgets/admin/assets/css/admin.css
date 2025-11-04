@@ -554,8 +554,8 @@ body.rtl .ehtazem-admin-wrap * {
 
 /* Action Buttons */
 .btn-action {
-	width: 32px;
-	height: 32px;
+	width: 36px;
+	height: 36px;
 	border-radius: var(--radius-md);
 	display: inline-flex;
 	align-items: center;
@@ -564,6 +564,62 @@ body.rtl .ehtazem-admin-wrap * {
 	transition: all var(--transition-fast);
 	border: none;
 	cursor: pointer;
+	position: relative;
+	font-size: 14px;
+}
+
+/* Ensure Font Awesome icons display */
+.btn-action i {
+	font-size: 14px;
+	line-height: 1;
+	display: inline-block;
+}
+
+/* Tooltip Support */
+.btn-action[title] {
+	position: relative;
+}
+
+.btn-action[title]:hover::after {
+	content: attr(title);
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-8px);
+	background: rgba(0, 0, 0, 0.9);
+	color: white;
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 12px;
+	white-space: nowrap;
+	z-index: 1000;
+	pointer-events: none;
+	animation: tooltipFadeIn 0.2s ease;
+	font-family: 'Cairo', sans-serif;
+}
+
+.btn-action[title]:hover::before {
+	content: '';
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-2px);
+	border: 5px solid transparent;
+	border-top-color: rgba(0, 0, 0, 0.9);
+	z-index: 999;
+	pointer-events: none;
+	animation: tooltipFadeIn 0.2s ease;
+}
+
+@keyframes tooltipFadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-8px);
+	}
 }
 
 .btn-view {
@@ -574,6 +630,7 @@ body.rtl .ehtazem-admin-wrap * {
 .btn-view:hover {
 	background: var(--info);
 	color: var(--puiux-white);
+	transform: scale(1.1);
 }
 
 .btn-progress {
@@ -584,6 +641,7 @@ body.rtl .ehtazem-admin-wrap * {
 .btn-progress:hover {
 	background: var(--warning);
 	color: var(--puiux-white);
+	transform: scale(1.1);
 }
 
 .btn-complete {
@@ -594,6 +652,7 @@ body.rtl .ehtazem-admin-wrap * {
 .btn-complete:hover {
 	background: var(--success);
 	color: var(--puiux-white);
+	transform: scale(1.1);
 }
 
 .btn-delete,
@@ -620,7 +679,22 @@ body.rtl .ehtazem-admin-wrap * {
 
 .action-buttons {
 	display: flex;
-	gap: var(--spacing-xs);
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Ensure icons are visible and properly sized */
+.fas, .fa, .far, .fal, .fad, .fab {
+	font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Pro', 'Font Awesome 6 Brands' !important;
+	font-weight: 900;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	line-height: 1;
 }
 
 /* ============================================
