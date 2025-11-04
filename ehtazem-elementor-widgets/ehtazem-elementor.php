@@ -606,20 +606,32 @@ final class Ehtazem_Elementor_Widgets {
 	 * @access public
 	 */
 	public function handle_form_submission() {
+		// Log the incoming request
+		error_log( 'EHTAZEM: Form submission received' );
+		error_log( 'EHTAZEM: POST data: ' . print_r( $_POST, true ) );
+
 		// Verify nonce
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'ehtazem_form_submission' ) ) {
+			error_log( 'EHTAZEM: Nonce verification failed' );
 			wp_send_json_error( array(
 				'message' => __( 'خطأ في التحقق من الأمان', 'ehtazem-elementor' )
 			) );
 		}
+
+		error_log( 'EHTAZEM: Nonce verified successfully' );
 
 		// Get form data
 		$form_type = isset( $_POST['form_type'] ) ? sanitize_text_field( $_POST['form_type'] ) : '';
 		$full_name = isset( $_POST['full_name'] ) ? sanitize_text_field( $_POST['full_name'] ) : '';
 		$phone = isset( $_POST['phone'] ) ? sanitize_text_field( $_POST['phone'] ) : '';
 
+		error_log( 'EHTAZEM: Form type: ' . $form_type );
+		error_log( 'EHTAZEM: Full name: ' . $full_name );
+		error_log( 'EHTAZEM: Phone: ' . $phone );
+
 		// Validate required fields
 		if ( empty( $full_name ) || empty( $phone ) ) {
+			error_log( 'EHTAZEM: Validation failed - empty fields' );
 			wp_send_json_error( array(
 				'message' => __( 'من فضلك املأ جميع الحقول المطلوبة', 'ehtazem-elementor' )
 			) );
@@ -627,10 +639,13 @@ final class Ehtazem_Elementor_Widgets {
 
 		// Validate phone number
 		if ( strlen( $phone ) < 10 ) {
+			error_log( 'EHTAZEM: Validation failed - phone too short: ' . strlen( $phone ) );
 			wp_send_json_error( array(
 				'message' => __( 'رقم الهاتف غير صحيح', 'ehtazem-elementor' )
 			) );
 		}
+
+		error_log( 'EHTAZEM: Validation passed' );
 
 		// Create post title and content
 		$post_title = $full_name . ' - ' . $phone;
@@ -688,10 +703,13 @@ final class Ehtazem_Elementor_Widgets {
 		$post_id = wp_insert_post( $post_data );
 
 		if ( is_wp_error( $post_id ) ) {
+			error_log( 'EHTAZEM: Post insertion failed: ' . $post_id->get_error_message() );
 			wp_send_json_error( array(
 				'message' => __( 'حدث خطأ أثناء الحفظ', 'ehtazem-elementor' )
 			) );
 		}
+
+		error_log( 'EHTAZEM: Post created successfully with ID: ' . $post_id );
 
 		// Add metadata
 		foreach ( $metadata as $key => $value ) {
@@ -699,9 +717,11 @@ final class Ehtazem_Elementor_Widgets {
 		}
 
 		// Send emails
+		error_log( 'EHTAZEM: Calling send_form_notification_emails' );
 		$this->send_form_notification_emails( $post_id, $metadata );
 
 		// Send success response
+		error_log( 'EHTAZEM: Sending success response' );
 		wp_send_json_success( array(
 			'message' => __( 'تم الإرسال بنجاح', 'ehtazem-elementor' ),
 			'post_id' => $post_id
@@ -736,6 +756,10 @@ final class Ehtazem_Elementor_Widgets {
 		// Get admin email
 		$admin_email = get_option( 'admin_email' );
 
+		// Log email sending attempt
+		error_log( 'EHTAZEM: Attempting to send notification email to: ' . $admin_email );
+		error_log( 'EHTAZEM: Form data: ' . print_r( $metadata, true ) );
+
 		// Send admin notification
 		$admin_subject = get_option( 'ehtazem_email_admin_subject', 'طلب تواصل جديد من {name}' );
 		$admin_body = get_option( 'ehtazem_email_admin_body', $this->get_default_admin_email_template() );
@@ -744,7 +768,18 @@ final class Ehtazem_Elementor_Widgets {
 		$admin_body = str_replace( array_keys( $variables ), array_values( $variables ), $admin_body );
 
 		$headers = [ 'Content-Type: text/html; charset=UTF-8' ];
-		wp_mail( $admin_email, $admin_subject, $admin_body, $headers );
+
+		$sent = wp_mail( $admin_email, $admin_subject, $admin_body, $headers );
+
+		if ( $sent ) {
+			error_log( 'EHTAZEM: Admin notification email sent successfully' );
+		} else {
+			error_log( 'EHTAZEM: Failed to send admin notification email' );
+			global $phpmailer;
+			if ( isset( $phpmailer ) && is_object( $phpmailer ) ) {
+				error_log( 'EHTAZEM: PHPMailer Error: ' . $phpmailer->ErrorInfo );
+			}
+		}
 
 		// Send hot lead alert if score is high
 		if ( isset( $variables['{score}'] ) && intval( $variables['{score}'] ) >= 70 ) {
@@ -754,8 +789,18 @@ final class Ehtazem_Elementor_Widgets {
 			$hotlead_subject = str_replace( array_keys( $variables ), array_values( $variables ), $hotlead_subject );
 			$hotlead_body = str_replace( array_keys( $variables ), array_values( $variables ), $hotlead_body );
 
-			wp_mail( $admin_email, $hotlead_subject, $hotlead_body, $headers );
+			$hot_sent = wp_mail( $admin_email, $hotlead_subject, $hotlead_body, $headers );
+
+			if ( $hot_sent ) {
+				error_log( 'EHTAZEM: Hot lead alert email sent successfully' );
+			} else {
+				error_log( 'EHTAZEM: Failed to send hot lead alert email' );
+			}
 		}
+
+		// Store email status in post meta for debugging
+		update_post_meta( $post_id, '_email_sent', $sent ? 'yes' : 'no' );
+		update_post_meta( $post_id, '_email_sent_time', current_time( 'mysql' ) );
 	}
 
 	/**
@@ -1117,6 +1162,9 @@ final class Ehtazem_Elementor_Widgets {
 				'nonce' => wp_create_nonce( 'ehtazem_admin_nonce' ),
 			]
 		);
+
+		// Also make ajaxurl globally available (WordPress standard)
+		echo '<script>var ajaxurl = "' . admin_url( 'admin-ajax.php' ) . '";</script>';
 	}
 
 	/**

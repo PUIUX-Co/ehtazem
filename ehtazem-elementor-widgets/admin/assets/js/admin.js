@@ -865,12 +865,25 @@
 			return;
 		}
 
-		const nonce = $('input[name="_wpnonce"]').val();
+		// Get nonce from ehtazemAdmin or from form
+		const nonce = typeof ehtazemAdmin !== 'undefined' ? ehtazemAdmin.nonce : $('input[name="_wpnonce"]').val();
+
+		if (!nonce) {
+			EhtazemAdmin.showNotification('خطأ في التحقق من الأمان', 'error');
+			return;
+		}
 
 		EhtazemAdmin.showNotification('جاري إرسال البريد التجريبي...', 'info');
 
+		// Use ehtazemAdmin.ajaxurl if available, otherwise try ajaxurl
+		const ajaxUrl = typeof ehtazemAdmin !== 'undefined' ? ehtazemAdmin.ajaxurl : (typeof ajaxurl !== 'undefined' ? ajaxurl : '/wp-admin/admin-ajax.php');
+
+		console.log('Sending test email to:', ajaxUrl);
+		console.log('Template type:', templateType);
+		console.log('Test email:', testEmail);
+
 		$.ajax({
-			url: ajaxurl,
+			url: ajaxUrl,
 			type: 'POST',
 			data: {
 				action: 'ehtazem_send_test_email',
@@ -879,14 +892,16 @@
 				test_email: testEmail
 			},
 			success: function(response) {
+				console.log('Email test response:', response);
 				if (response.success) {
 					EhtazemAdmin.showNotification(response.data.message, 'success');
 				} else {
-					EhtazemAdmin.showNotification(response.data.message, 'error');
+					EhtazemAdmin.showNotification(response.data.message || 'فشل في إرسال البريد', 'error');
 				}
 			},
-			error: function() {
-				EhtazemAdmin.showNotification('حدث خطأ أثناء الإرسال', 'error');
+			error: function(xhr, status, error) {
+				console.error('Email test error:', { xhr, status, error });
+				EhtazemAdmin.showNotification('حدث خطأ أثناء الإرسال: ' + error, 'error');
 			}
 		});
 	};

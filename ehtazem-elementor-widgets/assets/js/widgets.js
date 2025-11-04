@@ -216,11 +216,31 @@ function initializeContactForm(form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const fullName = document.getElementById("full_name").value;
-    const phone = document.getElementById("phone").value;
-    const question = document.getElementById("question").value;
-    const nonce = form.querySelector('input[name="nonce"]').value;
-    const formType = form.querySelector('input[name="form_type"]').value;
+    // Use form context to find fields (not document.getElementById)
+    const fullNameInput = form.querySelector("#full_name");
+    const phoneInput = form.querySelector("#phone");
+    const questionInput = form.querySelector("#question");
+    const nonceInput = form.querySelector('input[name="nonce"]');
+    const formTypeInput = form.querySelector('input[name="form_type"]');
+
+    // Check if elements exist
+    if (!fullNameInput || !phoneInput || !questionInput || !nonceInput || !formTypeInput) {
+      console.error("Contact form fields not found:", {
+        fullName: !!fullNameInput,
+        phone: !!phoneInput,
+        question: !!questionInput,
+        nonce: !!nonceInput,
+        formType: !!formTypeInput
+      });
+      showFormMessage(form, "خطأ في النموذج - الحقول غير موجودة", "error");
+      return;
+    }
+
+    const fullName = fullNameInput.value;
+    const phone = phoneInput.value;
+    const question = questionInput.value;
+    const nonce = nonceInput.value;
+    const formType = formTypeInput.value;
 
     // Validate inputs
     if (fullName.trim() === "" || phone.trim() === "" || question.trim() === "") {
@@ -248,6 +268,18 @@ function initializeContactForm(form) {
     formData.append("full_name", fullName);
     formData.append("phone", phone);
     formData.append("question", question);
+
+    // Check if ehtazemAjax is defined
+    if (typeof ehtazemAjax === "undefined" || !ehtazemAjax.ajaxurl) {
+      console.error("ehtazemAjax is not defined. Cannot submit form.");
+      showFormMessage(form, "خطأ في الإعدادات - الرجاء تحديث الصفحة", "error");
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      return;
+    }
+
+    console.log("Submitting contact form to:", ehtazemAjax.ajaxurl);
+    console.log("Form data:", { fullName, phone, question, formType });
 
     // Send AJAX request
     fetch(ehtazemAjax.ajaxurl, {
@@ -306,13 +338,34 @@ function initializeIntermediariesForm(form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const fullName = document.getElementById("full_name").value;
-    const phone = document.getElementById("phone").value;
-    const company = document.getElementById("company").value;
-    const region = document.getElementById("region").value;
-    const details = document.getElementById("details").value;
-    const nonce = form.querySelector('input[name="nonce"]').value;
-    const formType = form.querySelector('input[name="form_type"]').value;
+    // Use form context to find fields
+    const fullNameInput = form.querySelector("#full_name");
+    const phoneInput = form.querySelector("#phone");
+    const companyInput = form.querySelector("#company");
+    const regionInput = form.querySelector("#region");
+    const detailsInput = form.querySelector("#details");
+    const nonceInput = form.querySelector('input[name="nonce"]');
+    const formTypeInput = form.querySelector('input[name="form_type"]');
+
+    // Check if elements exist
+    if (!fullNameInput || !phoneInput || !nonceInput || !formTypeInput) {
+      console.error("Intermediaries form required fields not found:", {
+        fullName: !!fullNameInput,
+        phone: !!phoneInput,
+        nonce: !!nonceInput,
+        formType: !!formTypeInput
+      });
+      showFormMessage(form, "خطأ في النموذج - الحقول غير موجودة", "error");
+      return;
+    }
+
+    const fullName = fullNameInput.value;
+    const phone = phoneInput.value;
+    const company = companyInput ? companyInput.value : "";
+    const region = regionInput ? regionInput.value : "";
+    const details = detailsInput ? detailsInput.value : "";
+    const nonce = nonceInput.value;
+    const formType = formTypeInput.value;
 
     // Validate required inputs
     if (fullName.trim() === "" || phone.trim() === "") {
@@ -342,6 +395,18 @@ function initializeIntermediariesForm(form) {
     formData.append("company", company);
     formData.append("region", region);
     formData.append("details", details);
+
+    // Check if ehtazemAjax is defined
+    if (typeof ehtazemAjax === "undefined" || !ehtazemAjax.ajaxurl) {
+      console.error("ehtazemAjax is not defined. Cannot submit form.");
+      showFormMessage(form, "خطأ في الإعدادات - الرجاء تحديث الصفحة", "error");
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      return;
+    }
+
+    console.log("Submitting intermediaries form to:", ehtazemAjax.ajaxurl);
+    console.log("Form data:", { fullName, phone, company, region, details, formType });
 
     // Send AJAX request
     fetch(ehtazemAjax.ajaxurl, {
