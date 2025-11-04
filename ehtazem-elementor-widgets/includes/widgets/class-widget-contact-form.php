@@ -475,54 +475,44 @@ class Ehtazem_Contact_Form_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="contact-form-section" id="<?php echo esc_attr($this->get_id()); ?>">
+		<section class="contactus-section" id="contactus-section"  data-aos-duration="1500">
 			<div class="container">
-				<div class="contact-form-content">
-					<div class="contact-form-header" data-aos="fade-up">
-						<span class="badge"><?php echo esc_html($settings['badge_text']); ?></span>
-						<h2 <?php $this->add_inline_editing_attributes('title', 'basic'); echo $this->get_render_attribute_string('title'); ?> class="contact-intro">
-							<?php echo esc_html($settings['title']); ?>
-						</h2>
-						<p <?php $this->add_inline_editing_attributes('description', 'basic'); echo $this->get_render_attribute_string('description'); ?> class="contact-description">
-							<?php echo esc_html($settings['description']); ?>
-						</p>
-					</div>
-
-					<form class="ehtazem-form contact-form-inputs" data-aos="fade-up" data-aos-delay="100">
-						<div class="form-row">
-							<input type="text" name="name" placeholder="الإسم" required>
-							<input type="email" name="email" placeholder="البريد الإلكتروني" required>
-						</div>
-						<div class="form-row">
-							<input type="tel" name="phone" placeholder="رقم الجوال" required>
-							<input type="text" name="subject" placeholder="الموضوع">
-						</div>
-						<textarea name="message" placeholder="الرسالة" rows="5" required></textarea>
-
-						<input type="hidden" name="action" value="ehtazem_submit_form">
-						<input type="hidden" name="form_type" value="contact">
-						<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ehtazem_form_submission'); ?>">
-
-						<button type="submit" class="submit-btn">
-							<?php echo esc_html($settings['submit_button_text']); ?>
-							<i class="fas fa-arrow-left"></i>
-						</button>
-
-						<div class="form-messages" style="display:none; margin-top: 20px;"></div>
-					</form>
-
-					<?php if (!empty($settings['decoration_image_top']['url'])): ?>
-					<div class="contact-decoration-top" data-aos="fade-right">
-						<img src="<?php echo esc_url($settings['decoration_image_top']['url']); ?>" alt="decoration">
-					</div>
-					<?php endif; ?>
-
-					<?php if (!empty($settings['decoration_image_bottom']['url'])): ?>
-					<div class="contact-decoration-bottom" data-aos="fade-left">
-						<img src="<?php echo esc_url($settings['decoration_image_bottom']['url']); ?>" alt="decoration">
-					</div>
-					<?php endif; ?>
+				<div class="contactus-header" >
+					<div class="badge contact-badge" data-aos="zoom-in"  data-aos-duration="1500"><?php echo esc_html($settings['badge_text']); ?></div>
+					<h4 class="contact-intro" data-aos="zoom-in"  data-aos-duration="1900"><?php echo esc_html($settings['title']); ?></h4>
+					<p class="contact-desc" data-aos="zoom-in"  data-aos-duration="2200"><?php echo esc_html($settings['description']); ?></p>
 				</div>
+				<div class="contacuUs-form-container">
+					<div class="conactus-deco-up">
+						<img src="<?php echo esc_url($settings['decoration_image_top']['url']); ?>" alt="" class="conactus-deco-up-img">
+					</div>
+					<div class="form-card">
+
+
+						<form id="contactForm">
+							<div class="form-group">
+								<label class="form-label">الإسم بالكامل</label>
+								<input type="text" class="form-control" id="fullName" placeholder="اسمك" required>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label">رقم الهاتف</label>
+								<input type="tel" class="form-control" id="phone" placeholder="0995" required>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label">سؤالك</label>
+								<textarea class="form-control" id="question" placeholder="........" required></textarea>
+							</div>
+
+							<button type="submit" class="submit-btn"><?php echo esc_html($settings['submit_button_text']); ?></button>
+						</form>
+					</div>
+					<div class="conactus-deco-bottom">
+						<img src="<?php echo esc_url($settings['decoration_image_bottom']['url']); ?>" alt="" class="conactus-deco-bottom-img">
+					</div>
+				</div>
+
 			</div>
 		</section>
 

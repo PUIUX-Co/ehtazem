@@ -454,50 +454,94 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="intermediate-form" id="<?php echo esc_attr($this->get_id()); ?>">
-			<div class="container">
-				<div class="intermediate-form-content">
-					<div class="intermediate-form-header" data-aos="fade-up">
-						<span class="badge"><?php echo esc_html($settings['badge_text']); ?></span>
-						<h2 <?php $this->add_inline_editing_attributes('title', 'basic'); echo $this->get_render_attribute_string('title'); ?> class="intermediate-title">
-							<?php echo esc_html($settings['title']); ?>
-						</h2>
-						<p <?php $this->add_inline_editing_attributes('description', 'basic'); echo $this->get_render_attribute_string('description'); ?> class="intermediate-description">
-							<?php echo esc_html($settings['description']); ?>
-						</p>
+		<section class="intermediaries-section " id="intermediaries-section">
+
+			<img src="<?php echo esc_url($settings['decoration_image']['url']); ?>" alt="decoration" class="intermediares-deco-image">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="intermediaries-intro" >
+							<div class="badge  intermediate-badge" data-aos="fade-left" data-aos-duration="1500"><?php echo esc_html($settings['badge_text']); ?></div>
+							<h4 class="intermediate-title" data-aos="fade-left" data-aos-duration="1900"><?php
+								// Convert line breaks to <br/> tags
+								echo wp_kses_post(nl2br($settings['title']));
+							?></h4>
+							<p class="intermediate-p" data-aos="fade-left" data-aos-duration="2000"><?php
+								// Convert line breaks to <br/> tags
+								echo wp_kses_post(nl2br($settings['description']));
+							?></p>
+							<div class="intermediares-percent">
+								<div class="invest-ehtazem" data-aos="fade-left" data-aos-duration="2200">
+									<h5 class="invest-ehtazem-h" ><?php echo esc_html($settings['investment_title']); ?></h5>
+									<div class="percent"><?php echo esc_html($settings['percentage']); ?></div>
+								</div>
+								<div class="ehtazem-percent-curve" data-aos="fade-left" data-aos-duration="2300">
+									<svg width="184" height="95" viewBox="0 0 184 95" fill="none" xmlns="http://www.w3.org/2000/svg" class="percent-curve">
+										<!-- الدائرة الأولى -->
+										<circle class="circle-start" cx="6" cy="6" r="5.333" fill="url(#paint0_linear_150_1142)"/>
+
+										<!-- المنحنى -->
+										<path class="curve-path" d="M6 6C6 6 33.5 32 62.7965 61.3823C68.3821 66.9679 77.3423 67.2645 83.285 62.0605C89.2277 56.8565 102.829 44.9466 102.829 44.9466C109.039 39.5082 118.259 39.3174 124.689 44.4942L178.5 89.1006"
+											  stroke="url(#paint0_linear_150_1142)"
+											  stroke-width="1.3"
+											  fill="none"
+											  stroke-linecap="round"/>
+
+										<!-- الدائرة الأخيرة -->
+										<circle class="circle-end" cx="178.5" cy="89.1006" r="5.333" fill="url(#paint0_linear_150_1142)"/>
+
+										<defs>
+											<linearGradient id="paint0_linear_150_1142" x1="850.636" y1="90.7523" x2="670.749" y2="-275.767" gradientUnits="userSpaceOnUse">
+												<stop offset="0.589" stop-color="#857540"/>
+												<stop offset="1" stop-color="#D7B261"/>
+											</linearGradient>
+										</defs>
+									</svg>
+								</div>
+
+
+							</div>
+						</div>
 					</div>
+					<div class="col-md-7">
+						<div class="form-container" >
+							<form >
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<label class="form-label">الاسم بالكامل</label>
+										<input type="text" class="form-control" placeholder="اسمك">
+									</div>
+									<div class="col-md-6 mb-3">
+										<label class="form-label">رقم الهاتف</label>
+										<input type="tel" class="form-control" placeholder="0995">
+									</div>
+								</div>
 
-					<form class="ehtazem-form intermediate-form-inputs" data-aos="fade-up" data-aos-delay="100">
-						<div class="form-row">
-							<input type="text" name="name" placeholder="الإسم" required>
-							<input type="email" name="email" placeholder="البريد الإلكتروني" required>
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<label class="form-label">اسم الشركة</label>
+										<input type="text" class="form-control" placeholder="اسم">
+									</div>
+									<div class="col-md-6 mb-3">
+										<label class="form-label">المنطقة</label>
+										<input type="text" class="form-control" placeholder="0995">
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-12 mb-3">
+										<label class="form-label">تفاصيل العرض العقاري</label>
+										<textarea class="form-control" placeholder="........."></textarea>
+									</div>
+								</div>
+
+								<div class="submit-b">
+									<button type="submit" class="btn-submit"><?php echo esc_html($settings['submit_button_text']); ?></button>
+								</div>
+							</form>
 						</div>
-						<div class="form-row">
-							<input type="tel" name="phone" placeholder="رقم الجوال" required>
-							<input type="text" name="city" placeholder="المدينة">
-						</div>
-						<div class="form-row">
-							<input type="text" name="company" placeholder="اسم الشركة">
-						</div>
-						<textarea name="message" placeholder="الرسالة" rows="4"></textarea>
-
-						<input type="hidden" name="action" value="ehtazem_submit_form">
-						<input type="hidden" name="form_type" value="intermediaries">
-						<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ehtazem_form_submission'); ?>">
-
-						<button type="submit" class="submit-btn">
-							<?php echo esc_html($settings['submit_button_text']); ?>
-							<i class="fas fa-arrow-left"></i>
-						</button>
-
-						<div class="form-messages" style="display:none; margin-top: 20px;"></div>
-					</form>
-
-					<?php if (!empty($settings['decoration_image']['url'])): ?>
-					<div class="intermediate-decoration" data-aos="fade-left">
-						<img src="<?php echo esc_url($settings['decoration_image']['url']); ?>" alt="decoration">
 					</div>
-					<?php endif; ?>
 				</div>
 			</div>
 		</section>

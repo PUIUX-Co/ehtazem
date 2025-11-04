@@ -495,10 +495,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 					<h1 class="hero-title">
 						<span <?php echo $this->get_render_attribute_string( 'hero_title_part1' ); ?>>
 							<?php echo esc_html( $settings['hero_title_part1'] ); ?>
-						</span><br>
-						<span <?php echo $this->get_render_attribute_string( 'hero_title_part2' ); ?>>
-							<?php echo esc_html( $settings['hero_title_part2'] ); ?>
-						</span>
+						</span><br><?php echo esc_html( $settings['hero_title_part2'] ); ?>
 					</h1>
 					<p class="hero-subtitle" <?php echo $this->get_render_attribute_string( 'hero_subtitle' ); ?>>
 						<?php echo esc_html( $settings['hero_subtitle'] ); ?>

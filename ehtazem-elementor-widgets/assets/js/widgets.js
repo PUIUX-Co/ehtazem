@@ -397,9 +397,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
  // Start observing the social-icons container
  observer.observe(socialIcons);
-
 /* ============================================
    EHTAZEM FORM AJAX SUBMISSION
+   Added for WordPress integration
    Handles all forms with class 'ehtazem-form'
    ============================================ */
 document.addEventListener('DOMContentLoaded', function() {
@@ -409,21 +409,19 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const submitBtn = form.querySelector('[type="submit"], .submit-btn');
+            const submitBtn = form.querySelector('[type="submit"], .submit-btn, .btn-submit');
             const messagesDiv = form.querySelector('.form-messages');
             const formData = new FormData(form);
 
             // Get form type from hidden input
             const formType = formData.get('form_type') || 'contact';
 
-            // Add action and nonce
-            formData.append('action', 'ehtazem_submit_form');
-            formData.append('nonce', form.querySelector('[name="nonce"]')?.value || '');
-
             // Disable button and show loading
             if (submitBtn) {
                 submitBtn.disabled = true;
+                const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'جاري الإرسال...';
+                submitBtn.dataset.originalText = originalText;
             }
 
             // Send AJAX request
@@ -437,7 +435,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     messagesDiv.style.display = 'block';
 
                     if (data.success) {
-                        messagesDiv.innerHTML = `<div class="alert alert-success">${data.data.message || 'تم الإرسال بنجاح!'}</div>`;
+                        messagesDiv.innerHTML = '<div class="alert alert-success">' + (data.data.message || 'تم الإرسال بنجاح!') + '</div>';
                         form.reset();
 
                         // Success button state
@@ -446,12 +444,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             submitBtn.style.background = '#4EA62F';
                         }
                     } else {
-                        messagesDiv.innerHTML = `<div class="alert alert-danger">${data.data.message || 'حدث خطأ، حاول مرة أخرى'}</div>`;
+                        messagesDiv.innerHTML = '<div class="alert alert-danger">' + (data.data.message || 'حدث خطأ، حاول مرة أخرى') + '</div>';
 
                         // Reset button
                         if (submitBtn) {
                             submitBtn.disabled = false;
-                            submitBtn.textContent = formType === 'intermediaries' ? 'إرسال' : 'إرسال';
+                            submitBtn.textContent = submitBtn.dataset.originalText || 'إرسال';
                         }
                     }
                 }
@@ -465,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Reset button to original state
                     if (submitBtn && data.success) {
                         submitBtn.disabled = false;
-                        submitBtn.textContent = formType === 'intermediaries' ? 'إرسال' : 'إرسال';
+                        submitBtn.textContent = submitBtn.dataset.originalText || 'إرسال';
                         submitBtn.style.background = '';
                     }
                 }, 5000);
@@ -481,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Reset button
                 if (submitBtn) {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = formType === 'intermediaries' ? 'إرسال' : 'إرسال';
+                    submitBtn.textContent = submitBtn.dataset.originalText || 'إرسال';
                 }
             });
         });

@@ -1,8 +1,9 @@
-/* ==================================================
-   EHTAZEM WIDGETS STYLES - SCOPED TO PREVENT CONFLICTS
-   ================================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-/* CSS Variables (Safe - Global) */
 :root {
     --primary-color: #D7B261;
     --secondary-color: #0B6D55;
@@ -12,49 +13,39 @@
     --gradient-color: linear-gradient(45.53deg, #857540 -37.94%, #D7B261 73.48%);
 }
 
-/* ==================================================
-   WIDGET-SCOPED RESETS
-   Only affects Ehtazem widgets, not other elements
-   ================================================== */
-
-/* Scope to Elementor widget containers only */
-.elementor-widget-container * {
-    box-sizing: border-box;
-}
-
-/* Scope to widget wrapper for typography */
-[class*="elementor-widget-ehtazem"] .elementor-widget-container {
-    direction: rtl;
-    font-family: "Cairo", sans-serif;
-}
-
-/* Selection color only inside widgets */
-[class*="elementor-widget-ehtazem"] ::selection {
+::selection {
     background-color: #c7af61;
     color: var(--quinary-color);
 }
 
-/* Scrollbar styling only for widget containers */
-[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 10px;
 }
 
-[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar-track {
+/* الخلفية الخلفية للمسار */
+::-webkit-scrollbar-track {
     background: var(--tertiary-color);
 }
 
-[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar-thumb {
+/* لون مقبض التمرير */
+::-webkit-scrollbar-thumb {
     background: #857540;
     border-radius: 10px;
 }
 
-[class*="elementor-widget-ehtazem"] ::-webkit-scrollbar-thumb:hover {
+/* عند تمرير الماوس على المقبض */
+::-webkit-scrollbar-thumb:hover {
     background: #b9a45e;
 }
 
-/* Links inside widgets only */
-[class*="elementor-widget-ehtazem"] a {
+a {
     text-decoration: none;
+}
+
+body {
+    direction: rtl;
+    font-family: "Cairo", sans-serif;
+    background-color: #F8F8F8;
 }
 
 img.logo-img {
@@ -4538,9 +4529,12 @@ svg.instgram-icon {
         height: 50px;
     }
 }
-/* Form Messages Styles */
+/* ==================================================
+   FORM AJAX MESSAGES STYLES
+   Added for AJAX form submission feedback
+   ================================================== */
 .form-messages {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .form-messages .alert {
@@ -4573,56 +4567,4 @@ svg.instgram-icon {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Required Field Indicator */
-.form-label .required {
-    color: #dc3545;
-    font-weight: bold;
-    margin-right: 3px;
-}
-
-/* Form Control Transitions */
-.form-control {
-    transition: all 0.3s ease;
-}
-
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(215, 178, 97, 0.25);
-}
-
-.form-group {
-    transition: transform 0.3s ease;
-}
-
-/* Button Loading State */
-.btn-submit:disabled,
-.submit-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-/* Form Animation */
-.form-card {
-    transition: all 0.6s ease;
-}
-
-/* Intermediaries Form Specific Styles */
-.intermediaries-section .form-container {
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Contact Form Specific Styles */
-.contactus-section .form-card {
-    position: relative;
-    z-index: 2;
-}
-
-/* Focus Effects */
-.form-control:focus + .form-label {
-    color: var(--primary-color);
 }
