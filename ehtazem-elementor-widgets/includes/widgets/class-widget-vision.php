@@ -357,7 +357,7 @@ class Ehtazem_Vision_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'vision_2_title', 'basic' );
         $this->add_inline_editing_attributes( 'vision_2_description', 'advanced' );
         ?>
-        <section class="vision-section" id="vision-section">
+        <section class="vision-section ehtazem-widget-scope" id="vision-section">
             <div class="container">
                 <div class="vision-intro">
                     <div class="badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>

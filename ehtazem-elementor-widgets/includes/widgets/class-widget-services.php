@@ -526,7 +526,7 @@ class Ehtazem_Services_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'side_text_1', 'basic' );
         $this->add_inline_editing_attributes( 'side_text_2', 'basic' );
         ?>
-        <section class="ourServices-section" id="ourServices-section">
+        <section class="ourServices-section ehtazem-widget-scope" id="ourServices-section">
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-md-5">

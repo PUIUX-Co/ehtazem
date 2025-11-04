@@ -454,7 +454,7 @@ class Ehtazem_Intermediaries_Form_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="intermediaries-section " id="intermediaries-section">
+		<section class="intermediaries-section ehtazem-widget-scope" id="intermediaries-section">
 
 			<img src="<?php echo esc_url($settings['decoration_image']['url']); ?>" alt="decoration" class="intermediares-deco-image">
 

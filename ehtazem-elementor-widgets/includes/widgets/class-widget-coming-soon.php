@@ -456,7 +456,7 @@ class Ehtazem_Coming_Soon_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'side_text_1', 'basic' );
         $this->add_inline_editing_attributes( 'side_text_2', 'basic' );
         ?>
-        <section class="soon" id="soon-section">
+        <section class="soon ehtazem-widget-scope" id="soon-section">
             <div class="soon-deco">
                 <img src="<?php echo esc_url($settings['top_decoration']['url']); ?>" alt="decoration" class="soon-deco-image">
             </div>

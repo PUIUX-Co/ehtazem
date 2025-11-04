@@ -351,7 +351,7 @@ class Ehtazem_Partners_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'section_title', 'basic' );
         $this->add_inline_editing_attributes( 'section_description', 'advanced' );
         ?>
-        <section class="Ourpartners-section" id="Ourpartners-section">
+        <section class="Ourpartners-section ehtazem-widget-scope" id="Ourpartners-section">
             <div class="container">
                 <div class="Ourpartners-intro">
                     <div class="badge Ourpartners-badge" data-aos="zoom-in" data-aos-duration="1500" <?php echo $this->get_render_attribute_string( 'badge_text' ); ?>>

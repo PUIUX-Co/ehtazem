@@ -438,7 +438,7 @@ class Ehtazem_Org_Structure_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'circle_3_title', 'basic' );
         $this->add_inline_editing_attributes( 'circle_3_description', 'basic' );
         ?>
-        <section class="org-structure-section" id="org-structure-section">
+        <section class="org-structure-section ehtazem-widget-scope" id="org-structure-section">
             <div class="ellipse-bg ellipse1"></div>
             <div class="ellipse-bg ellipse2"></div>
 

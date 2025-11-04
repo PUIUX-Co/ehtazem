@@ -485,7 +485,7 @@ class Ehtazem_Hero_Widget extends \Elementor\Widget_Base {
 		$this->add_inline_editing_attributes( 'primary_button_text', 'none' );
 		?>
 
-		<section class="hero" id="hero-section">
+		<section class="hero ehtazem-widget-scope" id="hero-section">
 			<img class="hero-bg" src="<?php echo esc_url( $bg_url ); ?>" alt="background">
 			<?php if ( 'yes' === $settings['show_overlay'] ) : ?>
 				<div class="hero-overlay"></div>

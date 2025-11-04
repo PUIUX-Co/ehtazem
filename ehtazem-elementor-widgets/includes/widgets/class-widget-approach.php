@@ -415,7 +415,7 @@ class Ehtazem_Approach_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'circle_bottom_right_text', 'none' );
         $this->add_inline_editing_attributes( 'circle_bottom_left_text', 'none' );
         ?>
-        <section class="approach-section" id="approach-section">
+        <section class="approach-section ehtazem-widget-scope" id="approach-section">
             <div class="container">
                 <div class="approach-container">
                     <div class="approach-right">

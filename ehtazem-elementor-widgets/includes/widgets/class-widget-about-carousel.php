@@ -476,7 +476,7 @@ class Ehtazem_About_Carousel_Widget extends \Elementor\Widget_Base {
         $this->add_inline_editing_attributes( 'title', 'basic' );
         $this->add_inline_editing_attributes( 'description', 'advanced' );
         ?>
-        <section class="aboutUs-section" id="aboutUs-section">
+        <section class="aboutUs-section ehtazem-widget-scope" id="aboutUs-section">
             <div class="container">
                 <div class="aboutUs-content">
                     <div class="aboutUs-intro">
