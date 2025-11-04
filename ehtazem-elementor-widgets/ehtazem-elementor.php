@@ -1111,6 +1111,14 @@ final class Ehtazem_Elementor_Widgets {
 			return;
 		}
 
+		// Font Awesome Icons (CRITICAL for dashboard action buttons)
+		wp_enqueue_style(
+			'ehtazem-font-awesome-admin',
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+			[],
+			'6.5.1'
+		);
+
 		// AOS Library
 		wp_enqueue_style(
 			'ehtazem-aos',
